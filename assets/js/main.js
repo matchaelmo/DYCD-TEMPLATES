@@ -61,6 +61,40 @@
   document.querySelectorAll('[data-query-output]').forEach((el) => { el.textContent = searchQuery || 'all intranet content'; });
   document.querySelectorAll('[data-query-input]').forEach((el) => { el.value = searchQuery; });
 
+
+  document.querySelectorAll('[data-contemporary-news]').forEach((shell) => {
+    const tab = shell.querySelector('[data-news-tab]');
+    const close = shell.querySelector('[data-news-close]');
+    const toggle = (event) => {
+      event?.stopPropagation();
+      shell.classList.toggle('is-open');
+    };
+    tab?.addEventListener('click', toggle);
+    close?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      shell.classList.remove('is-open');
+    });
+    document.addEventListener('click', (event) => {
+      if (!shell.contains(event.target)) shell.classList.remove('is-open');
+    });
+  });
+
+  document.querySelectorAll('[data-live-feed]').forEach((shell) => {
+    const toggle = shell.querySelector('[data-live-toggle]');
+    let hideTimer;
+    const openFeed = () => {
+      shell.classList.add('is-open');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => shell.classList.remove('is-open'), 5000);
+    };
+    toggle?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      openFeed();
+    });
+    setTimeout(openFeed, 1200);
+    setInterval(openFeed, 14000);
+  });
+
   const counters = document.querySelectorAll('.kpi-number[data-count]');
   const formatValue = (value) => value >= 1000 ? `${value.toLocaleString()}+` : `${value}+`;
   const animateCounter = (el) => {
