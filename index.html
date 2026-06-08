@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DYCD-TEMPLATES | Internal Design Exploration</title>
+  <title>DYCD Intranet | Internal Design Exploration</title>
   <meta name="description" content="Internal DYCD intranet design exploration templates.">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -13,7 +13,18 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <span class="badge">Internal Design Exploration</span>
-          <h1 class="hero-title" id="page-title">Welcome to <span class="orange">DYCD</span>-<span>TEMPLATES</span></h1>
+          <div class="hero-name-row">
+            <div class="name-switcher" data-name-switcher>
+              <button class="name-trigger" type="button" data-name-trigger aria-haspopup="true" aria-expanded="false">Intranet ▼</button>
+              <div class="name-menu" role="menu">
+                <button class="name-option" type="button" data-name-option="Juventus">Juventus</button>
+                <button class="name-option" type="button" data-name-option="The Hub">The Hub</button>
+                <button class="name-option" type="button" data-name-option="Juventud">Juventud</button>
+                <button class="name-option" type="button" data-name-option="The Yard">The Yard</button>
+              </div>
+            </div>
+          </div>
+          <h1 class="hero-title" id="page-title">Welcome to <span class="orange">DYCD</span> <span data-intranet-heading>Intranet</span></h1>
           <p class="hero-subtitle">Explore how the DYCD Intranet could look and feel. Each template below represents a different design direction — browse, compare, and share your feedback with the team.</p>
           <aside class="purpose-box" aria-labelledby="purpose-title">
             <h2 id="purpose-title">What is this?</h2>
@@ -44,23 +55,15 @@
         <p class="section-kicker">Browse directions</p>
         <h2 class="section-title" id="template-heading">Choose a template to review</h2>
         <div class="template-grid">
-          <a class="template-card" href="templates/modern-classic.html" style="--accent:#F15A22">
-            <div class="card-bar"></div><div class="template-card-body"><h2>01 · Modern Classic</h2><p>Clean structure with sidebar navigation and a warm professional feel.</p><span class="card-button">View Template →</span></div>
-          </a>
-          <a class="template-card" href="templates/contemporary.html" style="--accent:#1B2A6B">
-            <div class="card-bar"></div><div class="template-card-body"><h2>02 · Contemporary</h2><p>Bold, full-width sections designed to be energetic and inviting.</p><span class="card-button">View Template →</span></div>
-          </a>
-          <a class="template-card" href="templates/editorial.html" style="--accent:#6B3FA0">
-            <div class="card-bar"></div><div class="template-card-body"><h2>03 · Editorial</h2><p>Content-rich layout with magazine-style typography hierarchy.</p><span class="card-button">View Template →</span></div>
-          </a>
-          <a class="template-card" href="templates/visual-data.html" style="--accent:#2E8B57">
-            <div class="card-bar"></div><div class="template-card-body"><h2>04 · Visual / Data</h2><p>Dashboard-style design with KPIs and agency numbers front and center.</p><span class="card-button">View Template →</span></div>
-          </a>
+          <a class="template-card" href="templates/modern-classic.html" style="--accent:#F15A22"><div class="card-bar"></div><div class="template-card-body"><h2>01 · Modern Classic</h2><p>Clean structure with sidebar navigation and a warm professional feel.</p><span class="card-button">View Template →</span></div></a>
+          <a class="template-card" href="templates/contemporary.html" style="--accent:#1B2A6B"><div class="card-bar"></div><div class="template-card-body"><h2>02 · Contemporary</h2><p>Bold, full-width sections designed to be energetic and inviting.</p><span class="card-button">View Template →</span></div></a>
+          <a class="template-card" href="templates/editorial.html" style="--accent:#6B3FA0"><div class="card-bar"></div><div class="template-card-body"><h2>03 · Editorial</h2><p>Content-rich layout with magazine-style typography hierarchy.</p><span class="card-button">View Template →</span></div></a>
+          <a class="template-card" href="templates/visual-data.html" style="--accent:#2E8B57"><div class="card-bar"></div><div class="template-card-body"><h2>04 · Visual / Data</h2><p>Dashboard-style design with KPIs and agency numbers front and center.</p><span class="card-button">View Template →</span></div></a>
         </div>
       </div>
     </section>
   </main>
-
   <footer class="home-footer">DYCD — Department of Youth &amp; Community Development | Internal Use Only | 2026</footer>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
