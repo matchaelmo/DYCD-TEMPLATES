@@ -373,3 +373,57 @@ button, input { font: inherit; }
 .map-note { text-align: center; color: var(--muted); font-size: 0.86rem; margin: 12px 0 0; }
 @media (max-width: 900px) { .puzzle-template-grid { grid-template-columns: 1fr; gap: 14px; filter: none; } .puzzle-piece-card, .puzzle-card-2, .puzzle-card-3, .puzzle-card-4 { transform: none; border-radius: 24px; clip-path: polygon(0 0, 100% 0, 100% 82%, 58% 82%, 58% 100%, 42% 100%, 42% 82%, 0 82%); } .puzzle-card-2:hover, .puzzle-card-3:hover, .puzzle-card-4:hover { transform: translateY(-8px) scale(1.015); } }
 @media (max-width: 768px) { .contemporary-bubble-ticker, .editorial-wire-ticker { display: none; } }
+
+/* Current refinement overrides */
+.puzzle-clip-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.puzzle-template-grid { grid-template-columns: repeat(4, minmax(210px, 1fr)); gap: 0; max-width: 1180px; filter: drop-shadow(0 18px 34px rgba(29,36,51,0.16)); }
+.puzzle-piece-card { min-height: 310px; margin: 0 -10px 0 0; border-radius: 0; background: var(--accent); color: white; clip-path: none; -webkit-clip-path: none; }
+.puzzle-card-1 { clip-path: url(#puzzle-strip-1); -webkit-clip-path: url(#puzzle-strip-1); border-radius: 28px 0 0 28px; }
+.puzzle-card-2 { clip-path: url(#puzzle-strip-2); -webkit-clip-path: url(#puzzle-strip-2); transform: none; }
+.puzzle-card-3 { clip-path: url(#puzzle-strip-3); -webkit-clip-path: url(#puzzle-strip-3); transform: none; }
+.puzzle-card-4 { clip-path: url(#puzzle-strip-4); -webkit-clip-path: url(#puzzle-strip-4); transform: none; border-radius: 0 28px 28px 0; margin-right: 0; }
+.puzzle-card-2:hover, .puzzle-card-3:hover, .puzzle-card-4:hover, .puzzle-piece-card:hover { transform: translateY(-10px) scale(1.025); box-shadow: 0 26px 48px rgba(29,36,51,0.24); }
+.puzzle-piece-card .template-card-body { padding: 48px 36px; justify-content: center; }
+.puzzle-piece-card h2 { font-size: 1.5rem; font-weight: 800; }
+.puzzle-piece-card p { font-size: 0.92rem; line-height: 1.45; opacity: 0.94; }
+.social-bar { height: 36px; background: #F5F5F5; border-bottom: 1px solid rgba(27,42,107,0.08); }
+.social-inner { height: 36px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.social-left { display: flex; align-items: center; gap: 13px; }
+.follow-label { color: #777; font-size: 0.78rem; font-weight: 700; }
+.social-left a { font-size: 20px; line-height: 1; transition: transform 160ms ease; }
+.social-left a:hover { transform: translateY(-2px); }
+.podcast-pill { background: var(--orange); color: white; border-radius: 999px; padding: 6px 12px; font-size: 0.8rem; font-weight: 800; }
+.ferris-ticker { position: fixed; right: 0; top: 50%; width: 270px; height: 540px; margin-top: -270px; border-radius: 270px 0 0 270px; background: rgba(245,245,245,0.88); border: 2px solid rgba(27,42,107,0.12); border-right: 0; z-index: 44; overflow: hidden; }
+.ferris-center { position: absolute; right: 34px; top: 50%; translate: 0 -50%; display: grid; place-items: center; color: var(--orange); font-weight: 800; z-index: 2; }
+.ferris-center span { font-size: 1.8rem; }
+.ferris-rotor { position: absolute; inset: 24px -246px 24px 24px; border: 2px dashed rgba(241,90,34,0.35); border-radius: 50%; animation: ferris-rotate 20s linear infinite; }
+.ferris-ticker:hover .ferris-rotor { animation-play-state: paused; }
+.ferris-card { position: absolute; width: 142px; min-height: 54px; border-radius: 14px; background: var(--navy); color: white; display: grid; place-items: center; text-align: center; padding: 9px; font-size: 0.76rem; font-weight: 800; box-shadow: 0 10px 22px rgba(27,42,107,0.25); }
+.ferris-card.card-a { left: 8px; top: 74px; }
+.ferris-card.card-b { left: 42px; top: 214px; }
+.ferris-card.card-c { left: 8px; bottom: 74px; }
+.ferris-card.card-d { left: 150px; top: 214px; }
+@keyframes ferris-rotate { to { transform: rotate(360deg); } }
+.editorial-wire-ticker { width: 36px; }
+.editorial-wire-ticker .live-badge { left: 4px; }
+.wire-feed { font-size: 10px; font-weight: 400; animation-duration: 38s; }
+.visual-notification-feed { position: fixed; right: 18px; top: 50%; width: 220px; translate: 0 -50%; background: rgba(13,27,42,0.90); border: 1px solid rgba(46,139,87,0.45); z-index: 44; padding: 14px; box-shadow: 0 18px 38px rgba(13,27,42,0.28); }
+.feed-label { color: var(--green); font-weight: 800; font-size: 0.76rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.feed-stack { position: relative; min-height: 268px; overflow: hidden; }
+.feed-note { position: absolute; left: 0; right: 0; background: rgba(255,255,255,0.08); border-left: 3px solid var(--green); padding: 10px 10px 10px 12px; color: white; animation: notify-drop 16s infinite; opacity: 0; }
+.feed-note::before { content: '●'; color: var(--green); margin-right: 5px; }
+.feed-note strong { display: inline; font-size: 0.86rem; }
+.feed-note span { display: block; color: #b8c0ca; font-size: 0.7rem; margin-top: 3px; }
+.note-1 { animation-delay: 0s; }
+.note-2 { animation-delay: 4s; }
+.note-3 { animation-delay: 8s; }
+.note-4 { animation-delay: 12s; }
+.visual-notification-feed:hover .feed-note { animation-play-state: paused; }
+@keyframes notify-drop { 0% { opacity: 0; transform: translateY(-42px); } 8%, 24% { opacity: 1; transform: translateY(0); } 30%, 46% { opacity: .78; transform: translateY(68px); } 52%, 68% { opacity: .48; transform: translateY(136px); } 74%, 90% { opacity: .20; transform: translateY(204px); } 100% { opacity: 0; transform: translateY(246px); } }
+.mobile-simple-ticker { display: none; }
+.headshot-placeholder { border-radius: 22px; margin-inline: auto; }
+.site-footer .footer-list a[href*="nyc.gov"]::after, .site-footer .footer-list a[href*="service-now"]::after { content: ''; }
+@media (max-width: 900px) { .puzzle-template-grid { grid-template-columns: 1fr; gap: 14px; filter: none; } .puzzle-piece-card, .puzzle-card-1, .puzzle-card-2, .puzzle-card-3, .puzzle-card-4 { margin: 0; border-radius: 24px; clip-path: polygon(0 0, 100% 0, 100% 82%, 58% 82%, 58% 100%, 42% 100%, 42% 82%, 0 82%); -webkit-clip-path: polygon(0 0, 100% 0, 100% 82%, 58% 82%, 58% 100%, 42% 100%, 42% 82%, 0 82%); } }
+@media (max-width: 768px) { .follow-label { display: none; } .ferris-ticker, .visual-notification-feed, .editorial-wire-ticker { display: none; } .mobile-simple-ticker { display: block; } }
+.modern .social-bar { margin-left: 250px; }
+@media (max-width: 1100px) { .modern .social-bar { margin-left: 0; } }
