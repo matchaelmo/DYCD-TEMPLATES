@@ -27,6 +27,7 @@
     const trigger = menu.querySelector('.resources-trigger');
     trigger?.addEventListener('click', (event) => {
       event.preventDefault();
+      event.stopPropagation();
       menu.classList.toggle('is-open');
     });
   });
@@ -34,6 +35,31 @@
   document.addEventListener('click', () => {
     document.querySelectorAll('[data-name-switcher], [data-resources-menu]').forEach((el) => el.classList.remove('is-open'));
   });
+
+
+  document.querySelectorAll('[data-nav-search]').forEach((form) => {
+    const toggle = form.querySelector('[data-search-toggle]');
+    const input = form.querySelector('[data-search-input]');
+    toggle?.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      form.classList.toggle('is-open');
+      if (form.classList.contains('is-open')) input?.focus();
+    });
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const query = (input?.value || '').trim();
+      if (query) {
+        const prefix = form.dataset.searchPrefix || '';
+        window.location.href = `${prefix}search.html?q=${encodeURIComponent(query).replace(/%20/g, '+')}`;
+      }
+    });
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const searchQuery = params.get('q') || '';
+  document.querySelectorAll('[data-query-output]').forEach((el) => { el.textContent = searchQuery || 'all intranet content'; });
+  document.querySelectorAll('[data-query-input]').forEach((el) => { el.value = searchQuery; });
 
   const counters = document.querySelectorAll('.kpi-number[data-count]');
   const formatValue = (value) => value >= 1000 ? `${value.toLocaleString()}+` : `${value}+`;
