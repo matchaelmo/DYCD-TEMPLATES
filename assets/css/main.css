@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
-
 :root {
   --cream: #F5F0E8;
   --beige: #EDE8DC;
@@ -22,6 +20,12 @@ body { margin: 0; font-family: 'Poppins', Arial, sans-serif; color: var(--ink); 
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button, input { font: inherit; }
+
+body.modern, body.modern * { font-family: 'Josefin Sans', sans-serif; }
+body.contemporary, body.contemporary * { font-family: 'Nunito', sans-serif; }
+body.visual, body.visual * { font-family: 'Space Grotesk', sans-serif; }
+body.editorial, body.editorial * { font-family: 'Lato', sans-serif; }
+body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body.editorial h5, body.editorial h6, body.editorial .section-title { font-family: 'Playfair Display', serif; }
 .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 .section { padding: 78px 0; }
 .section-title { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; color: var(--navy); font-weight: 800; }
@@ -365,7 +369,7 @@ button, input { font: inherit; }
 .map-land { fill: #fbfbfb; stroke: #dedede; stroke-width: 2; }
 .map-pin { cursor: pointer; }
 .map-pin circle { stroke: white; stroke-width: 3; }
-.map-pin text { font-family: Poppins, sans-serif; font-size: 13px; font-weight: 800; fill: #283044; }
+.map-pin text { font-family: inherit; font-size: 13px; font-weight: 800; fill: #283044; }
 .map-tooltip { opacity: 0; transition: opacity 160ms ease; pointer-events: none; }
 .map-pin:hover .map-tooltip { opacity: 1; }
 .map-tooltip rect { fill: rgba(13,27,42,0.92); rx: 8; }
@@ -424,7 +428,7 @@ button, input { font: inherit; }
 .ferris-ticker { background: var(--navy); border: 0; box-shadow: 0 18px 38px rgba(27,42,107,0.28); }
 .ferris-center { right: 48px; color: var(--orange); }
 .ferris-arc { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.ferris-arc text { fill: white; font-family: 'Poppins', Arial, sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.02em; }
+.ferris-arc text { fill: white; font-family: inherit; font-size: 12px; font-weight: 400; letter-spacing: 0.02em; }
 .editorial-wire-ticker { display: none; }
 .editorial-calm-ticker { height: 38px; display: flex; align-items: center; background: var(--purple); color: white; border-top: 1px solid rgba(255,255,255,0.30); border-bottom: 1px solid rgba(255,255,255,0.30); overflow: hidden; }
 .editorial-latest-label { flex: 0 0 auto; padding: 0 18px; font-weight: 800; font-size: 0.84rem; letter-spacing: 0.04em; }
