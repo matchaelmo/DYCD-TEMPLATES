@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
   <style>
-    .home-page .puzzle-field { left: 50%; right: 0; top: 0; bottom: 0; overflow: visible; }
+    .home-page .puzzle-field { left: 0; right: 0; top: 0; bottom: 0; overflow: visible; }
     .home-page .puzzle-template-grid { display: block; max-width: 1180px; overflow: visible; filter: drop-shadow(0 18px 34px rgba(29,36,51,0.16)); }
     .home-page .template-puzzle-svg { display: block; width: 100%; height: auto; overflow: visible; }
     .home-page .template-puzzle-piece path { transition: filter 180ms ease, transform 180ms ease; transform-origin: center; }
@@ -22,7 +22,7 @@
     .home-page .template-puzzle-content .card-button { align-self: flex-start; background: rgba(255,255,255,0.18); color: white; border: 1px solid rgba(255,255,255,0.56); border-radius: 999px; padding: 9px 14px; font-weight: 800; }
     .home-page .template-puzzle-mobile { display: none; }
     @media (max-width: 900px) {
-      .home-page .puzzle-field { left: 50%; right: 0; }
+      .home-page .puzzle-field { left: 0; right: 0; }
       .home-page .template-puzzle-svg { display: none; }
       .home-page .template-puzzle-mobile { display: grid; grid-template-columns: 1fr; gap: 14px; }
       .home-page .template-puzzle-mobile .template-card { min-height: 230px; border-radius: 24px; margin: 0; background: var(--accent); color: white; }
@@ -61,16 +61,16 @@
             <div class="logo-fallback" style="display:none;">DYCD</div>
           </div>
           <div class="puzzle-field" aria-hidden="true">
-            <svg class="puzzle-piece" style="right:0px;top:0px;width:85px;height:85px;fill:#F15A22;--r:14deg;opacity:0.88;" viewBox="0 0 100 100"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
-            <svg class="puzzle-piece" style="right:38px;top:60px;width:85px;height:85px;fill:#1B2A6B;--r:-12deg;opacity:0.88;" viewBox="0 0 100 100"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
-            <svg class="puzzle-piece" style="right:76px;top:120px;width:85px;height:85px;fill:#6B3FA0;--r:18deg;opacity:0.88;" viewBox="0 0 100 100"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
-            <svg class="puzzle-piece" style="right:114px;top:180px;width:85px;height:85px;fill:#2E8B57;--r:-18deg;opacity:0.88;" viewBox="0 0 100 100"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
-            <svg class="puzzle-piece" style="right:152px;top:240px;width:85px;height:85px;fill:#008080;--r:9deg;opacity:0.88;" viewBox="0 0 100 100"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
-            <svg class="puzzle-piece" style="right:114px;top:300px;width:85px;height:85px;fill:#F15A22;--r:-7deg;opacity:0.88;" viewBox="0 0 100 100"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
-            <svg class="puzzle-piece" style="right:76px;top:360px;width:85px;height:85px;fill:#1B2A6B;--r:20deg;opacity:0.88;" viewBox="0 0 100 100"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
-            <svg class="puzzle-piece" style="right:38px;top:420px;width:85px;height:85px;fill:#6B3FA0;--r:-16deg;opacity:0.88;" viewBox="0 0 100 100"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
-            <svg class="puzzle-piece" style="right:0px;top:480px;width:85px;height:85px;fill:#2E8B57;--r:11deg;opacity:0.88;" viewBox="0 0 100 100"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
-            <svg class="puzzle-piece" style="right:38px;top:540px;width:85px;height:85px;fill:#008080;--r:-20deg;opacity:0.88;" viewBox="0 0 100 100"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
+            <svg class="puzzle-piece" style="right:18px;top:0px;width:90px;height:90px;fill:#F15A22;--r:14deg;opacity:0.88;" viewBox="-2 -2 104 104"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
+            <svg class="puzzle-piece" style="right:98px;top:14px;width:90px;height:90px;fill:#1B2A6B;--r:-12deg;opacity:0.88;" viewBox="-2 -2 104 104"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
+            <svg class="puzzle-piece" style="right:178px;top:28px;width:90px;height:90px;fill:#6B3FA0;--r:18deg;opacity:0.88;" viewBox="-2 -2 104 104"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
+            <svg class="puzzle-piece" style="right:0px;top:86px;width:90px;height:90px;fill:#2E8B57;--r:-18deg;opacity:0.88;" viewBox="-2 -2 104 104"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
+            <svg class="puzzle-piece" style="right:0px;top:166px;width:90px;height:90px;fill:#008080;--r:9deg;opacity:0.88;" viewBox="-2 -2 104 104"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
+            <svg class="puzzle-piece" style="right:8px;top:246px;width:90px;height:90px;fill:#F15A22;--r:-7deg;opacity:0.88;" viewBox="-2 -2 104 104"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
+            <svg class="puzzle-piece" style="right:88px;top:326px;width:90px;height:90px;fill:#1B2A6B;--r:20deg;opacity:0.88;" viewBox="-2 -2 104 104"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
+            <svg class="puzzle-piece" style="right:168px;top:406px;width:90px;height:90px;fill:#6B3FA0;--r:-16deg;opacity:0.88;" viewBox="-2 -2 104 104"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
+            <svg class="puzzle-piece" style="right:248px;top:486px;width:90px;height:90px;fill:#2E8B57;--r:11deg;opacity:0.88;" viewBox="-2 -2 104 104"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
+            <svg class="puzzle-piece" style="right:168px;top:566px;width:90px;height:90px;fill:#008080;--r:-20deg;opacity:0.88;" viewBox="-2 -2 104 104"><path d="M20 10 H38 C38 -2 62 -2 62 10 H80 Q90 10 90 20 V38 C78 38 78 62 90 62 V80 Q90 90 80 90 H62 C62 78 38 78 38 90 H20 Q10 90 10 80 V62 C-2 62 -2 38 10 38 V20 Q10 10 20 10 Z"/></svg>
           </div>
         </div>
       </div>

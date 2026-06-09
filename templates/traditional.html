@@ -28,13 +28,13 @@
     .top-strip-inner { min-height: 30px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
     .top-strip a { text-decoration: underline; text-underline-offset: 2px; }
 
-    .traditional-navbar { background: var(--orange); color: white; border-bottom: 3px solid var(--navy); }
-    .navbar-inner { min-height: 62px; display: flex; align-items: center; gap: 14px; }
-    .nav-logo { width: 120px; max-width: 120px; min-width: 82px; background: white; padding: 4px 6px; border-radius: 2px; } .nav-logo img { max-width: 120px; height: auto; }
-    .main-nav { display: flex; align-items: stretch; flex-wrap: wrap; flex: 1; }
-    .main-nav a, .name-trigger { color: white; font-weight: 700; padding: 20px 8px; border: 0; background: transparent; cursor: pointer; line-height: 1; }
+    .traditional-navbar { background: var(--orange); color: white; border-bottom: 3px solid var(--navy); max-height: 65px; }
+    .navbar-inner { height: 62px; max-height: 65px; display: flex; align-items: center; gap: 12px; }
+    .nav-logo { width: 130px; max-width: 130px; min-width: 130px; background: white; padding: 3px 6px; border-radius: 2px; } .nav-logo img { max-width: 130px; max-height: 50px; height: auto; }
+    .main-nav { display: flex; align-items: center; flex-wrap: nowrap; flex: 1; min-width: 0; }
+    .main-nav a, .name-trigger { color: white; font-size: 14px; font-weight: 700; padding: 0 7px; border: 0; background: transparent; cursor: pointer; line-height: 62px; white-space: nowrap; }
     .main-nav a:hover, .name-trigger:hover, .name-trigger:focus { background: var(--orange-dark); outline: none; }
-    .name-switcher { position: relative; display: inline-flex; z-index: 20; }
+    .name-switcher { position: relative; display: inline-flex; z-index: 20; flex: 0 0 auto; }
     .name-menu { position: absolute; top: 100%; left: 0; min-width: 150px; background: white; border: 1px solid var(--line); box-shadow: 0 8px 20px rgba(0,0,0,0.18); display: none; padding: 4px; }
     .name-switcher.is-open .name-menu { display: grid; }
     .name-option { border: 0; background: white; color: var(--navy); text-align: left; padding: 8px 10px; cursor: pointer; font-weight: 700; }
