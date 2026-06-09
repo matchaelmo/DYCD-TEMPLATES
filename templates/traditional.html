@@ -30,7 +30,7 @@
 
     .traditional-navbar { background: var(--orange); color: white; border-bottom: 3px solid var(--navy); }
     .navbar-inner { min-height: 62px; display: flex; align-items: center; gap: 14px; }
-    .nav-logo { width: 82px; min-width: 82px; background: white; padding: 4px 6px; border-radius: 2px; }
+    .nav-logo { width: 120px; max-width: 120px; min-width: 82px; background: white; padding: 4px 6px; border-radius: 2px; } .nav-logo img { max-width: 120px; height: auto; }
     .main-nav { display: flex; align-items: stretch; flex-wrap: wrap; flex: 1; }
     .main-nav a, .name-trigger { color: white; font-weight: 700; padding: 20px 8px; border: 0; background: transparent; cursor: pointer; line-height: 1; }
     .main-nav a:hover, .name-trigger:hover, .name-trigger:focus { background: var(--orange-dark); outline: none; }
@@ -74,7 +74,7 @@
     .carousel-arrow:hover, .carousel-arrow:focus { background: var(--orange); outline: none; }
     .carousel-arrow.prev { left: 0; }
     .carousel-arrow.next { right: 0; }
-    .carousel-dots { position: absolute; left: 0; right: 0; bottom: 74px; z-index: 4; display: flex; justify-content: center; gap: 6px; }
+    .carousel-dots { position: absolute; left: 0; right: 0; bottom: 104px; z-index: 4; display: flex; justify-content: center; gap: 6px; }
     .carousel-dot { border: 1px solid var(--navy); background: white; color: var(--navy); width: 24px; height: 24px; cursor: pointer; font-weight: 700; font-size: 0.8rem; }
     .carousel-dot.is-active { background: var(--orange); border-color: var(--orange); color: white; }
 
@@ -115,7 +115,7 @@
     .site-footer { background: #f2f2f2; border-top: 4px solid var(--orange); margin-top: 18px; }
     .footer-main { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 24px; padding: 26px 0; }
     .footer-brand { display: flex; align-items: center; gap: 12px; color: var(--navy); font-weight: 700; }
-    .footer-logo { width: 90px; background: white; padding: 5px; border: 1px solid var(--line); }
+    .footer-logo { max-width: 140px; height: auto; background: white; padding: 5px; border: 1px solid var(--line); }
     .footer-brand span span { display: block; color: #666; font-size: 0.84rem; font-weight: 400; }
     .site-footer h3 { margin: 0 0 10px; color: var(--navy); font-size: 1rem; }
     .footer-list li { margin: 0 0 7px; font-size: 0.9rem; }
@@ -153,12 +153,12 @@
       <nav class="main-nav" aria-label="Main navigation">
         <a href="../index.html">Home</a>
         <a href="#hr">HR</a>
-        <a href="#programs">Programs</a>
+        <a href="programs-traditional.html">Programs</a>
         <a href="#admin">Admin</a>
         <a href="directory-traditional.html">Directory</a>
         <a href="#resources">Resources</a>
         <a href="#events">Events</a>
-        <a href="#announcements">Announcements</a>
+        <a href="announcements-traditional.html">Announcements</a>
         <a href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
         <a href="#cybersec">CyberSec</a>
         <div class="name-switcher" data-name-switcher>

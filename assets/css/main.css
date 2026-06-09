@@ -37,6 +37,10 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
 .logo-frame img { max-height: 58px; object-fit: contain; }
 .dycd-logo { width: 100%; height: auto; object-fit: contain; }
 
+/* Template logo sizing */
+.template-body .topbar .logo-frame, .template-body .topbar .logo-frame img { max-width: 120px; height: auto; }
+.template-body .site-footer .logo-frame, .template-body .site-footer .logo-frame img { max-width: 140px; height: auto; }
+
 /* Shared dropdown name switcher */
 .name-switcher { position: relative; display: inline-flex; z-index: 30; }
 .name-trigger { border: 0; cursor: pointer; border-radius: 999px; background: var(--orange); color: white; font-weight: 800; padding: 10px 16px; box-shadow: 0 12px 22px rgba(241, 90, 34, 0.20); display: inline-flex; align-items: center; gap: 6px; }

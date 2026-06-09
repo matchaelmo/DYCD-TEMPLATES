@@ -23,6 +23,8 @@
 .directory-form-grid input, .directory-form-grid select { width: 100%; padding: 12px 13px; border: 1px solid #cfcfcf; background: white; color: #1d2433; }
 .directory-actions { display: flex; justify-content: center; gap: 12px; margin-top: 22px; }.directory-actions button { border: 0; cursor: pointer; padding: 12px 22px; font-weight: 900; }.reset-btn { background: #d7d7d7; color: #333; }
 .prototype-note { text-align: center; color: #6f6a63; font-size: 0.9rem; margin: 14px 0 0; }
+.directory-empty { color: #777; font-style: italic; text-align: center; padding: 24px; border: 1px dashed #cfcfcf; background: rgba(255,255,255,0.72); }
+.directory-results[hidden] { display: none; }
 .directory-results h2 { margin: 0 0 14px; color: var(--navy); }.table-wrap { overflow-x: auto; border: 1px solid rgba(27,42,107,0.14); background: white; }
 table { width: 100%; border-collapse: collapse; min-width: 1040px; } th, td { padding: 13px 12px; text-align: left; border-bottom: 1px solid #e5e5e5; font-size: 0.92rem; } th { color: white; white-space: nowrap; } td a { font-weight: 800; color: inherit; }
 .nav-links a.is-active, .modern-side-nav a.is-active { color: #F15A22; }
@@ -59,8 +61,8 @@ table { width: 100%; border-collapse: collapse; min-width: 1040px; } th, td { pa
 <a class="back-link" href="../index.html">← Back to Templates</a>
 <a class="home-icon" href="visual-data.html" aria-label="Home">🏠</a>
 <a href="visual-data.html#news">News</a>
-<a href="visual-data.html#announcements">Announcements</a>
-<a href="visual-data.html#programs">Programs</a>
+<a href="announcements-visual-data.html">Announcements</a>
+<a href="programs-visual-data.html">Programs</a>
 <a href="visual-data.html#hr">HR</a>
 <a href="visual-data.html#admin">Admin</a>
 <a class="is-active" href="directory-visual-data.html">Directory</a>
@@ -133,14 +135,15 @@ table { width: 100%; border-collapse: collapse; min-width: 1040px; } th, td { pa
 </label>
 </div>
 <div class="directory-actions">
-<button class="search-btn" type="button">🔍 Search</button>
-<button class="reset-btn" type="reset">↺ Reset</button>
+<button class="search-btn" type="button" data-directory-search>🔍 Search</button>
+<button class="reset-btn" type="reset" data-directory-reset>↺ Reset</button>
 </div>
 <p class="prototype-note">
 <em>This is a static prototype. Search does not filter results in this demo version.</em>
 </p>
 </form>
-<section class="directory-results">
+<p class="directory-empty" data-directory-empty>Enter search criteria above and click Search to find staff members.</p>
+<section class="directory-results" data-directory-results hidden>
 <h2>Showing 10 staff members</h2>
 <div class="table-wrap">
 <table>
@@ -319,6 +322,24 @@ table { width: 100%; border-collapse: collapse; min-width: 1040px; } th, td { pa
 <div class="footer-bottom">© 2026 NYC Department of Youth &amp; Community Development | Internal Use Only | Not for public distribution</div>
 </footer>
 <script src="../assets/js/main.js">
+</script>
+<script>
+(() => {
+  const showButton = document.querySelector('[data-directory-search]');
+  const resetButton = document.querySelector('[data-directory-reset]');
+  const results = document.querySelector('[data-directory-results]');
+  const empty = document.querySelector('[data-directory-empty]');
+  showButton?.addEventListener('click', () => {
+    if (results) results.hidden = false;
+    if (empty) empty.hidden = true;
+  });
+  resetButton?.addEventListener('click', () => {
+    setTimeout(() => {
+      if (results) results.hidden = true;
+      if (empty) empty.hidden = false;
+    }, 0);
+  });
+})();
 </script>
 </body>
 </html>
