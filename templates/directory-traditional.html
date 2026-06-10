@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Traditional Staff Directory | DYCD-TEMPLATES</title>
+<style>body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#222;background:white;line-height:1.45}h1,h2,h3{font-family:Georgia,'Times New Roman',serif}.traditional-wrap{width:min(1040px,calc(100% - 24px));margin:0 auto}.top-strip{background:#1B2A6B;color:white;font-size:.82rem}.top-strip-inner{min-height:30px;display:flex;justify-content:space-between;align-items:center}.traditional-navbar{background:#F15A22;color:white;border-bottom:3px solid #1B2A6B}.navbar-inner{min-height:62px;display:flex;align-items:center;gap:14px}.nav-logo{width:82px;background:white;padding:4px 6px}.main-nav{display:flex;flex-wrap:wrap;align-items:stretch}.main-nav a,.name-trigger{color:white;font-weight:700;padding:20px 8px;border:0;background:transparent}.main-nav .is-active{background:#d84712}.name-switcher{position:relative}.name-menu{position:absolute;display:none;background:white;border:1px solid #ddd;padding:4px;min-width:150px}.name-switcher.is-open .name-menu{display:grid}.name-option{border:0;background:white;color:#1B2A6B;text-align:left;padding:8px}.social-bar{background:#eee;border-bottom:1px solid #d9d9d9}.social-inner{min-height:40px;display:flex;justify-content:space-between;align-items:center}.social-left{display:flex;gap:10px}.podcast-pill{background:#F15A22;color:white;border-radius:999px;padding:6px 14px;font-weight:700}.three-column{display:grid;grid-template-columns:160px minmax(0,1fr) 220px;gap:18px;padding:20px 0 30px}.left-rail,.right-rail{background:#F5F5F5;border:1px solid #d9d9d9;padding:12px}.rail-title{color:#F15A22;text-transform:uppercase;font-weight:700;font-size:.76rem}.rail-link{display:block;border-bottom:1px solid #F15A22;padding:8px 0;color:#1B2A6B;font-weight:700;font-size:.88rem}.rail-link::before{content:'›';color:#F15A22;margin-right:5px}.directory-page-main{padding:0}.directory-title-card h1{color:#1B2A6B}.directory-search{box-shadow:none}.traditional th{background:#F15A22}.traditional tbody tr:nth-child(even){background:#f6f6f6}.traditional .search-btn{background:#F15A22;color:white}.site-footer{background:#f2f2f2;border-top:4px solid #F15A22}.site-footer .logo-frame img{max-width:140px;height:auto}.site-footer-main{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:24px;padding:26px 0}.footer-bottom{background:#1B2A6B;color:white;text-align:center;padding:10px}.footer-list{list-style:none;padding:0}@media(max-width:980px){.three-column,.site-footer-main{grid-template-columns:1fr}}
+.directory-page-main { padding: 54px 0 74px; }
+.directory-title-card { margin-bottom: 30px; }
+.directory-title-card h1 { margin: 0 0 8px; font-size: clamp(2.4rem, 5vw, 4.6rem); line-height: 1; }
+.directory-title-card p { margin: 0 0 18px; color: var(--muted); }
+.directory-help-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.help-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; color: white; font-weight: 800; }
+.help-btn.navy { background: #1B2A6B; }.help-btn.orange { background: #F15A22; }
+.directory-search { background: white; border: 1px solid rgba(27,42,107,0.14); padding: 24px; box-shadow: var(--soft-shadow); margin-bottom: 32px; }
+.directory-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 18px; }
+.directory-form-grid label { display: grid; gap: 6px; font-weight: 800; color: var(--navy); }
+.directory-form-grid input, .directory-form-grid select { width: 100%; padding: 12px 13px; border: 1px solid #cfcfcf; background: white; color: #1d2433; }
+.directory-actions { display: flex; justify-content: center; gap: 12px; margin-top: 22px; }.directory-actions button { border: 0; cursor: pointer; padding: 12px 22px; font-weight: 900; }.reset-btn { background: #d7d7d7; color: #333; }
+.prototype-note { text-align: center; color: #6f6a63; font-size: 0.9rem; margin: 14px 0 0; }
+.directory-empty { color: #777; font-style: italic; text-align: center; padding: 24px; border: 1px dashed #cfcfcf; background: rgba(255,255,255,0.72); }
+.directory-results[hidden] { display: none; }
+.directory-results h2 { margin: 0 0 14px; color: var(--navy); }.table-wrap { overflow-x: auto; border: 1px solid rgba(27,42,107,0.14); background: white; }
+table { width: 100%; border-collapse: collapse; min-width: 1040px; } th, td { padding: 13px 12px; text-align: left; border-bottom: 1px solid #e5e5e5; font-size: 0.92rem; } th { color: white; white-space: nowrap; } td a { font-weight: 800; color: inherit; }
+.nav-links a.is-active, .modern-side-nav a.is-active { color: #F15A22; }
+@media (max-width: 760px) { .directory-form-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body class="traditional directory-page">
+<div class="top-strip">
+<div class="traditional-wrap top-strip-inner">
+<a href="../commissioner.html">Sandra Escamilla-Davies, Commissioner</a>
+<span>Zohran K. Mamdani, Mayor</span>
+</div>
+</div>
+<header class="traditional-navbar">
+<div class="traditional-wrap navbar-inner">
+<a class="nav-logo" href="traditional.html">
+<img src="../assets/images/dycd-logo.png" alt="DYCD logo">
+</a>
+<nav class="main-nav">
+<a href="traditional.html">Home</a>
+<a href="traditional.html">HR</a>
+<a href="traditional.html">Programs</a>
+<a href="traditional.html">Admin</a>
+<a class="is-active" href="directory-traditional.html">Directory</a>
+<a href="traditional.html">Resources</a>
+<a href="traditional.html#events">Events</a>
+<a href="announcements-traditional.html">Announcements</a>
+<a href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
+<a href="traditional.html">CyberSec</a>
+<div class="name-switcher" data-name-switcher>
+<button class="name-trigger" type="button" data-name-trigger>Intranet ▼</button>
+<div class="name-menu">
+<button class="name-option" type="button" data-name-option="Juventus">Juventus</button>
+<button class="name-option" type="button" data-name-option="The Hub">The Hub</button>
+<button class="name-option" type="button" data-name-option="Juventud">Juventud</button>
+<button class="name-option" type="button" data-name-option="The Yard">The Yard</button>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class="social-bar">
+<div class="container social-inner">
+<div class="social-left">
+<span class="follow-label">Follow DYCD:</span>
+<a href="https://www.facebook.com/NYCdycd" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+<a href="https://twitter.com/NYCyouthand" target="_blank" rel="noopener" aria-label="Twitter/X">🐦</a>
+<a href="https://www.instagram.com/nycyouth" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+<a href="https://www.youtube.com/c/NYCYOUTH" target="_blank" rel="noopener" aria-label="YouTube">▶️</a>
+<a href="https://www.linkedin.com/company/nycdycd" target="_blank" rel="noopener" aria-label="LinkedIn">💼</a>
+</div>
+<a class="podcast-pill" href="https://www.nyc.gov/dycd" target="_blank" rel="noopener">🎙️ DYCD Podcast</a>
+</div>
+</div>
+<main class="traditional-wrap three-column">
+<aside class="left-rail">
+<p class="rail-title">Navigate</p>
+<a class="rail-link" href="traditional.html">Home</a>
+<a class="rail-link" href="traditional.html">About DYCD</a>
+<a class="rail-link" href="../commissioner.html">Commissioner's Office</a>
+<a class="rail-link" href="directory-traditional.html">Staff Directory</a>
+<a class="rail-link" href="traditional.html">HR Resources</a>
+<a class="rail-link" href="traditional.html">Benefits &amp; Leave</a>
+<a class="rail-link" href="traditional.html">Training &amp; LMS</a>
+<a class="rail-link" href="traditional.html">IT &amp; Tech Support</a>
+<a class="rail-link" href="traditional.html">Policies</a>
+<a class="rail-link" href="traditional.html">Forms</a>
+<a class="rail-link" href="traditional.html">Contact Us</a>
+</aside>
+<section class="directory-page-main">
+<section class="directory-title-card">
+<p class="rail-title">Staff Directory</p>
+<h1>Staff Directory</h1>
+<p>Search for DYCD staff by name, division, location or title</p>
+<div class="directory-help-actions">
+<a class="help-btn navy" href="https://nyc.service-now.com" target="_blank" rel="noopener">🖥️ IT Help Desk</a>
+<a class="help-btn orange" href="https://nyc.service-now.com" target="_blank" rel="noopener">🛠️ ServiceNow</a>
+</div>
+</section>
+<form class="directory-search" onsubmit="return false;">
+<div class="directory-form-grid">
+<label>First Name<input type="text">
+</label>
+<label>Last Name<input type="text">
+</label>
+<label>Division / Bureau / Office<input type="text">
+</label>
+<label>Work Unit<input type="text">
+</label>
+<label>Phone<input type="text">
+</label>
+<label>Floor<input type="text">
+</label>
+<label>Building<select>
+<option>All Buildings</option>
+<option>2 Lafayette St</option>
+<option>123 William St</option>
+<option>59 Maiden Lane</option>
+</select>
+</label>
+<label>Functional Title<input type="text">
+</label>
+</div>
+<div class="directory-actions">
+<button class="search-btn" type="button" data-directory-search>🔍 Search</button>
+<button class="reset-btn" type="reset" data-directory-reset>↺ Reset</button>
+</div>
+<p class="prototype-note">
+<em>This is a static prototype. Search does not filter results in this demo version.</em>
+</p>
+</form>
+<p class="directory-empty" data-directory-empty>Enter search criteria above and click Search to find staff members.</p>
+<section class="directory-results" data-directory-results hidden>
+<h2>Showing 10 staff members</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Functional Title</th>
+<th>Division</th>
+<th>Work Unit</th>
+<th>Phone</th>
+<th>Floor</th>
+<th>Building</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maria Rodriguez</td>
+<td>Program Coordinator</td>
+<td>Youth Development</td>
+<td>After School Programs</td>
+<td>(212) 555-0101</td>
+<td>14</td>
+<td>2 Lafayette St</td>
+<td>
+<a href="mailto:mrodriguez@dycd.nyc.gov">mrodriguez@dycd.nyc.gov</a>
+</td>
+</tr>
+<tr>
+<td>James Chen</td>
+<td>Budget Analyst</td>
+<td>Agency Operations</td>
+<td>Fiscal Management</td>
+<td>(212) 555-0102</td>
+<td>8</td>
+<td>2 Lafayette St</td>
+<td>
+<a href="mailto:jchen@dycd.nyc.gov">jchen@dycd.nyc.gov</a>
+</td>
+</tr>
+<tr>
+<td>Aisha Williams</td>
+<td>HR Specialist</td>
+<td>Human Resources</td>
+<td>Benefits & Leave</td>
+<td>(212) 555-0103</td>
+<td>21</td>
+<td>2 Lafayette St</td>
+<td>
+<a href="mailto:awilliams@dycd.nyc.gov">awilliams@dycd.nyc.gov</a>
+</td>
+</tr>
+<tr>
+<td>Carlos Mendez</td>
+<td>IT Support Specialist</td>
+<td>Information Technology</td>
+<td>Help Desk</td>
+<td>(212) 555-0104</td>
+<td>3</td>
+<td>123 William St</td>
+<td>
+<a href="mailto:cmendez@dycd.nyc.gov">cmendez@dycd.nyc.gov</a>
+</td>
+</tr>
+<tr>
+<td>Fatima Hassan</td>
+<td>Policy Analyst</td>
+<td>Agency Operations</td>
+<td>Policy & Planning</td>
+<td>(212) 555-0105</td>
+<td>10</td>
+<td>2 Lafayette St</td>
+<td>
+<a href="mailto:fhassan@dycd.nyc.gov">fhassan@dycd.nyc.gov</a>
+</td>
+</tr>
+<tr>
+<td>David Kim</td>
+<td>Communications Specialist</td>
+<td>Strategic Communications</td>
+<td>Media Relations</td>
+<td>(212) 555-0106</td>
+<td>15</td>
+<td>2 Lafayette St</td>
+<td>
+<a href="mailto:dkim@dycd.nyc.gov">dkim@dycd.nyc.gov</a>
+</td>
+</tr>
+<tr>
+<td>Sandra Torres</td>
+<td>Program Director</td>
+<td>Community Development</td>
+<td>Adult Literacy</td>
+<td>(212) 555-0107</td>
+<td>5</td>
+<td>59 Maiden Lane</td>
+<td>
+<a href="mailto:storres@dycd.nyc.gov">storres@dycd.nyc.gov</a>
+</td>
+</tr>
+<tr>
+<td>Michael Johnson</td>
+<td>Procurement Specialist</td>
+<td>Agency Operations</td>
+<td>Procurement</td>
+<td>(212) 555-0108</td>
+<td>7</td>
+<td>123 William St</td>
+<td>
+<a href="mailto:mjohnson@dycd.nyc.gov">mjohnson@dycd.nyc.gov</a>
+</td>
+</tr>
+<tr>
+<td>Priya Patel</td>
+<td>Data Analyst</td>
+<td>Programs & Evaluation</td>
+<td>Data & Research</td>
+<td>(212) 555-0109</td>
+<td>12</td>
+<td>2 Lafayette St</td>
+<td>
+<a href="mailto:ppatel@dycd.nyc.gov">ppatel@dycd.nyc.gov</a>
+</td>
+</tr>
+<tr>
+<td>Robert Washington</td>
+<td>Facilities Manager</td>
+<td>Agency Operations</td>
+<td>Facilities</td>
+<td>(212) 555-0110</td>
+<td>2</td>
+<td>59 Maiden Lane</td>
+<td>
+<a href="mailto:rwashington@dycd.nyc.gov">rwashington@dycd.nyc.gov</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<aside class="right-rail">
+<p class="rail-title">Quick Links</p>
+<a class="rail-link" href="#">CityTime</a>
+<a class="rail-link" href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
+<a class="rail-link" href="#">Employee Self Service</a>
+<a class="rail-link" href="#">NYCERS</a>
+</aside>
+</main>
+<footer class="site-footer" id="contact">
+<div class="traditional-wrap site-footer-main">
+<div>
+<div class="brand">
+<span class="logo-frame">
+<img src="../assets/images/dycd-logo.png" alt="DYCD logo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'DYCD'}));">
+</span>
+<span class="brand-name">Department of Youth &amp; Community Development<span>Internal Use Only 2026</span>
+</span>
+</div>
+</div>
+<div>
+<h3>Locations</h3>
+<ul class="footer-list">
+<li>📍 2 Lafayette St, New York, NY 10007</li>
+<li>📍 123 William St, New York, NY 10038</li>
+<li>📍 59 Maiden Lane, New York, NY 10038</li>
+</ul>
+</div>
+<div>
+<h3>Contact</h3>
+<ul class="footer-list">
+<li>✉️ <a href="mailto:ealvarado@dycd.nyc.gov">ealvarado@dycd.nyc.gov</a>
+</li>
+<li>🌐 <a href="https://www.nyc.gov" target="_blank" rel="noopener">NYC.gov</a>
+</li>
+<li>💻 <a href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
+</li>
+<li>🎙️ <a href="https://www.nyc.gov/dycd" target="_blank" rel="noopener">DYCD Podcast</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">© 2026 NYC Department of Youth &amp; Community Development | Internal Use Only | Not for public distribution</div>
+</footer>
+<script src="../assets/js/main.js">
+</script>
+<script>
+(() => {
+  const showButton = document.querySelector('[data-directory-search]');
+  const resetButton = document.querySelector('[data-directory-reset]');
+  const results = document.querySelector('[data-directory-results]');
+  const empty = document.querySelector('[data-directory-empty]');
+  showButton?.addEventListener('click', () => {
+    if (results) results.hidden = false;
+    if (empty) empty.hidden = true;
+  });
+  resetButton?.addEventListener('click', () => {
+    setTimeout(() => {
+      if (results) results.hidden = true;
+      if (empty) empty.hidden = false;
+    }, 0);
+  });
+})();
+</script>
+</body>
+</html>
