@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
-
 :root {
   --cream: #F5F0E8;
   --beige: #EDE8DC;
@@ -22,6 +20,12 @@ body { margin: 0; font-family: 'Poppins', Arial, sans-serif; color: var(--ink); 
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button, input { font: inherit; }
+
+body.modern, body.modern * { font-family: 'Josefin Sans', sans-serif; }
+body.contemporary, body.contemporary * { font-family: 'Nunito', sans-serif; }
+body.visual, body.visual * { font-family: 'Space Grotesk', sans-serif; }
+body.editorial, body.editorial * { font-family: 'Lato', sans-serif; }
+body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body.editorial h5, body.editorial h6, body.editorial .section-title { font-family: 'Playfair Display', serif; }
 .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 .section { padding: 78px 0; }
 .section-title { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; color: var(--navy); font-weight: 800; }
@@ -32,6 +36,10 @@ button, input { font: inherit; }
 .logo-frame { width: 86px; min-width: 86px; min-height: 56px; display: flex; align-items: center; }
 .logo-frame img { max-height: 58px; object-fit: contain; }
 .dycd-logo { width: 100%; height: auto; object-fit: contain; }
+
+/* Template logo sizing */
+.template-body .topbar .logo-frame, .template-body .topbar .logo-frame img { max-width: 120px; height: auto; }
+.template-body .site-footer .logo-frame, .template-body .site-footer .logo-frame img { max-width: 140px; height: auto; }
 
 /* Shared dropdown name switcher */
 .name-switcher { position: relative; display: inline-flex; z-index: 30; }
@@ -56,15 +64,6 @@ button, input { font: inherit; }
 .visual-side { min-height: 560px; position: relative; display: grid; place-items: start center; }
 .hero-logo-card { width: min(320px, 78vw); min-height: 176px; margin-top: 35px; padding: 28px; border-radius: 30px; background: rgba(255,255,255,0.74); backdrop-filter: blur(8px); box-shadow: var(--shadow); position: relative; z-index: 3; display: grid; place-items: center; }
 .hero-logo-card .logo-fallback { width: 180px; height: 120px; border-radius: 30px; font-size: 2.2rem; }
-.puzzle-field { position: absolute; inset: -20px -8vw -40px -40px; pointer-events: none; z-index: 1; }
-.puzzle-piece { position: absolute; width: clamp(106px, 11vw, 158px); opacity: 0.85; filter: drop-shadow(0 18px 18px rgba(29,36,51,0.13)); transform: rotate(var(--r)); }
-.p1 { right: 0; top: 4px; --r: 18deg; fill: var(--orange); }
-.p2 { right: 116px; top: 96px; --r: -14deg; fill: var(--navy); }
-.p3 { right: 34px; top: 194px; --r: 25deg; fill: var(--green); }
-.p4 { right: 190px; top: 294px; --r: -22deg; fill: var(--purple); }
-.p5 { right: 78px; top: 390px; --r: 12deg; fill: var(--orange); }
-.p6 { right: 258px; top: 486px; --r: -10deg; fill: var(--navy); }
-.p7 { right: 144px; top: 580px; --r: 22deg; fill: var(--green); }
 .template-section { padding: 12px 0 50px; position: relative; z-index: 3; }
 .template-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 .template-card { background: white; border-radius: 22px; overflow: hidden; min-height: 250px; box-shadow: var(--soft-shadow); transition: transform 180ms ease, box-shadow 180ms ease; display: flex; flex-direction: column; }
@@ -233,7 +232,6 @@ button, input { font: inherit; }
   .hero-grid { grid-template-columns: 1fr; }
   .visual-side { min-height: 310px; order: -1; }
   .hero-logo-card { margin-top: 0; }
-  .puzzle-field { inset: -45px -30px -40px 20%; opacity: 0.65; }
   .govbar-inner { flex-direction: column; align-items: flex-start; padding: 8px 0; gap: 3px; }
   .brand { min-width: auto; }
   .nav-inner { align-items: flex-start; flex-direction: column; padding: 14px 0; }
@@ -246,7 +244,6 @@ button, input { font: inherit; }
   .template-grid, .quick-grid, .kpi-grid, .program-grid, .event-grid, .announcement-grid, .resource-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: clamp(2.8rem, 17vw, 4.4rem); }
   .section { padding: 48px 0; }
-  .puzzle-piece { width: 96px; }
   .editorial .template-hero h1, .contemporary .template-hero h1 { font-size: clamp(3rem, 16vw, 4.5rem); }
 }
 
@@ -365,7 +362,7 @@ button, input { font: inherit; }
 .map-land { fill: #fbfbfb; stroke: #dedede; stroke-width: 2; }
 .map-pin { cursor: pointer; }
 .map-pin circle { stroke: white; stroke-width: 3; }
-.map-pin text { font-family: Poppins, sans-serif; font-size: 13px; font-weight: 800; fill: #283044; }
+.map-pin text { font-family: inherit; font-size: 13px; font-weight: 800; fill: #283044; }
 .map-tooltip { opacity: 0; transition: opacity 160ms ease; pointer-events: none; }
 .map-pin:hover .map-tooltip { opacity: 1; }
 .map-tooltip rect { fill: rgba(13,27,42,0.92); rx: 8; }
@@ -424,7 +421,7 @@ button, input { font: inherit; }
 .ferris-ticker { background: var(--navy); border: 0; box-shadow: 0 18px 38px rgba(27,42,107,0.28); }
 .ferris-center { right: 48px; color: var(--orange); }
 .ferris-arc { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.ferris-arc text { fill: white; font-family: 'Poppins', Arial, sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.02em; }
+.ferris-arc text { fill: white; font-family: inherit; font-size: 12px; font-weight: 400; letter-spacing: 0.02em; }
 .editorial-wire-ticker { display: none; }
 .editorial-calm-ticker { height: 38px; display: flex; align-items: center; background: var(--purple); color: white; border-top: 1px solid rgba(255,255,255,0.30); border-bottom: 1px solid rgba(255,255,255,0.30); overflow: hidden; }
 .editorial-latest-label { flex: 0 0 auto; padding: 0 18px; font-weight: 800; font-size: 0.84rem; letter-spacing: 0.04em; }
