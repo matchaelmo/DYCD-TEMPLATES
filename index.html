@@ -10,7 +10,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
   <style>
-    #puzzle-confetti { position: absolute; top: 0; right: 0; width: 420px; height: 420px; pointer-events: none; overflow: visible; z-index: 0; }
+    .confetti-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: -120px;
+      opacity: 0.88;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.88;
+      }
+      70% {
+        opacity: 0.88;
+      }
+      100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
     .home-page .puzzle-template-grid { display: block; max-width: 1180px; overflow: visible; filter: drop-shadow(0 18px 34px rgba(29,36,51,0.16)); }
     .home-page .template-puzzle-svg { display: block; width: 100%; height: auto; overflow: visible; }
     .home-page .template-puzzle-piece path { transition: filter 180ms ease, transform 180ms ease; transform-origin: center; }
@@ -58,120 +88,6 @@
           <div class="hero-logo-card">
             <img class="dycd-logo" src="assets/images/dycd-logo.png" alt="DYCD logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
             <div class="logo-fallback" style="display:none;">DYCD</div>
-          </div>
-          <div id="puzzle-confetti" aria-hidden="true">
-            <div class="puzzle-confetti-piece" style="position:absolute;top:20px;right:20px;width:100px;height:100px;transform:rotate(12deg);">
-              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
-              Q15,5 25,5 Q35,5 35,15
-              L35,35 Q45,35 45,25 Q45,15 55,15
-              Q65,15 65,25 Q65,35 75,35
-              L85,35 Q95,35 95,45 Q95,55 85,55
-              L65,55 Q65,65 75,65 Q85,65 85,75
-              Q85,85 75,85 Q65,85 65,75
-              L65,85 Q65,95 55,95 Q45,95 45,85
-              L45,65 Q35,65 35,75 Q35,85 25,85
-              Q15,85 15,75 Q15,65 25,65
-              L15,65 Q5,65 5,55 Q5,45 15,45
-              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#F15A22" opacity="0.88" rx="10"/></svg>
-            </div>
-            <div class="puzzle-confetti-piece" style="position:absolute;top:10px;right:140px;width:100px;height:100px;transform:rotate(-28deg);">
-              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
-              Q15,5 25,5 Q35,5 35,15
-              L35,35 Q45,35 45,25 Q45,15 55,15
-              Q65,15 65,25 Q65,35 75,35
-              L85,35 Q95,35 95,45 Q95,55 85,55
-              L65,55 Q65,65 75,65 Q85,65 85,75
-              Q85,85 75,85 Q65,85 65,75
-              L65,85 Q65,95 55,95 Q45,95 45,85
-              L45,65 Q35,65 35,75 Q35,85 25,85
-              Q15,85 15,75 Q15,65 25,65
-              L15,65 Q5,65 5,55 Q5,45 15,45
-              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#1B2A6B" opacity="0.88" rx="10"/></svg>
-            </div>
-            <div class="puzzle-confetti-piece" style="position:absolute;top:110px;right:15px;width:100px;height:100px;transform:rotate(35deg);">
-              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
-              Q15,5 25,5 Q35,5 35,15
-              L35,35 Q45,35 45,25 Q45,15 55,15
-              Q65,15 65,25 Q65,35 75,35
-              L85,35 Q95,35 95,45 Q95,55 85,55
-              L65,55 Q65,65 75,65 Q85,65 85,75
-              Q85,85 75,85 Q65,85 65,75
-              L65,85 Q65,95 55,95 Q45,95 45,85
-              L45,65 Q35,65 35,75 Q35,85 25,85
-              Q15,85 15,75 Q15,65 25,65
-              L15,65 Q5,65 5,55 Q5,45 15,45
-              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#6B3FA0" opacity="0.88" rx="10"/></svg>
-            </div>
-            <div class="puzzle-confetti-piece" style="position:absolute;top:80px;right:150px;width:100px;height:100px;transform:rotate(-15deg);">
-              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
-              Q15,5 25,5 Q35,5 35,15
-              L35,35 Q45,35 45,25 Q45,15 55,15
-              Q65,15 65,25 Q65,35 75,35
-              L85,35 Q95,35 95,45 Q95,55 85,55
-              L65,55 Q65,65 75,65 Q85,65 85,75
-              Q85,85 75,85 Q65,85 65,75
-              L65,85 Q65,95 55,95 Q45,95 45,85
-              L45,65 Q35,65 35,75 Q35,85 25,85
-              Q15,85 15,75 Q15,65 25,65
-              L15,65 Q5,65 5,55 Q5,45 15,45
-              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#2E8B57" opacity="0.88" rx="10"/></svg>
-            </div>
-            <div class="puzzle-confetti-piece" style="position:absolute;top:15px;right:255px;width:100px;height:100px;transform:rotate(22deg);">
-              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
-              Q15,5 25,5 Q35,5 35,15
-              L35,35 Q45,35 45,25 Q45,15 55,15
-              Q65,15 65,25 Q65,35 75,35
-              L85,35 Q95,35 95,45 Q95,55 85,55
-              L65,55 Q65,65 75,65 Q85,65 85,75
-              Q85,85 75,85 Q65,85 65,75
-              L65,85 Q65,95 55,95 Q45,95 45,85
-              L45,65 Q35,65 35,75 Q35,85 25,85
-              Q15,85 15,75 Q15,65 25,65
-              L15,65 Q5,65 5,55 Q5,45 15,45
-              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#008080" opacity="0.88" rx="10"/></svg>
-            </div>
-            <div class="puzzle-confetti-piece" style="position:absolute;top:200px;right:35px;width:100px;height:100px;transform:rotate(-32deg);">
-              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
-              Q15,5 25,5 Q35,5 35,15
-              L35,35 Q45,35 45,25 Q45,15 55,15
-              Q65,15 65,25 Q65,35 75,35
-              L85,35 Q95,35 95,45 Q95,55 85,55
-              L65,55 Q65,65 75,65 Q85,65 85,75
-              Q85,85 75,85 Q65,85 65,75
-              L65,85 Q65,95 55,95 Q45,95 45,85
-              L45,65 Q35,65 35,75 Q35,85 25,85
-              Q15,85 15,75 Q15,65 25,65
-              L15,65 Q5,65 5,55 Q5,45 15,45
-              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#F15A22" opacity="0.88" rx="10"/></svg>
-            </div>
-            <div class="puzzle-confetti-piece" style="position:absolute;top:175px;right:165px;width:100px;height:100px;transform:rotate(18deg);">
-              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
-              Q15,5 25,5 Q35,5 35,15
-              L35,35 Q45,35 45,25 Q45,15 55,15
-              Q65,15 65,25 Q65,35 75,35
-              L85,35 Q95,35 95,45 Q95,55 85,55
-              L65,55 Q65,65 75,65 Q85,65 85,75
-              Q85,85 75,85 Q65,85 65,75
-              L65,85 Q65,95 55,95 Q45,95 45,85
-              L45,65 Q35,65 35,75 Q35,85 25,85
-              Q15,85 15,75 Q15,65 25,65
-              L15,65 Q5,65 5,55 Q5,45 15,45
-              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#1B2A6B" opacity="0.88" rx="10"/></svg>
-            </div>
-            <div class="puzzle-confetti-piece" style="position:absolute;top:100px;right:275px;width:100px;height:100px;transform:rotate(-20deg);">
-              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
-              Q15,5 25,5 Q35,5 35,15
-              L35,35 Q45,35 45,25 Q45,15 55,15
-              Q65,15 65,25 Q65,35 75,35
-              L85,35 Q95,35 95,45 Q95,55 85,55
-              L65,55 Q65,65 75,65 Q85,65 85,75
-              Q85,85 75,85 Q65,85 65,75
-              L65,85 Q65,95 55,95 Q45,95 45,85
-              L45,65 Q35,65 35,75 Q35,85 25,85
-              Q15,85 15,75 Q15,65 25,65
-              L15,65 Q5,65 5,55 Q5,45 15,45
-              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#2E8B57" opacity="0.88" rx="10"/></svg>
-            </div>
           </div>
         </div>
       </div>
@@ -229,123 +145,38 @@
   <footer class="home-footer">DYCD — Department of Youth &amp; Community Development | Internal Use Only | 2026</footer>
   <script src="assets/js/main.js"></script>
   <script>
-    (() => {
-      const colors = ['#F15A22', '#1B2A6B', '#6B3FA0', '#2E8B57', '#008080', '#F15A22', '#1B2A6B', '#2E8B57'];
-      const svgNS = 'http://www.w3.org/2000/svg';
-      const pieceSize = 130;
-      const edgePadding = 20;
-      const minRightGap = 150;
-      const pathData = 'M14 0 H52 C52 -22 78 -22 78 0 H116 Q130 0 130 14 V52 C108 52 108 78 130 78 V116 Q130 130 116 130 H78 C78 108 52 108 52 130 H14 Q0 130 0 116 V78 C-22 78 -22 52 0 52 V14 Q0 0 14 0 Z';
-      let seed = 2026;
+    window.addEventListener('load', () => {
+      const colors = ['#F15A22', '#1B2A6B', '#6B3FA0', '#2E8B57', '#008080'];
+      const container = document.createElement('div');
+      container.className = 'confetti-container';
+      container.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(container);
 
-      const random = () => {
-        seed = (seed * 1664525 + 1013904223) % 4294967296;
-        return seed / 4294967296;
-      };
+      for (let i = 0; i < 30; i += 1) {
+        const size = 25 + Math.random() * 30;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.animationDuration = `${2.5 + Math.random() * 2}s`;
+        piece.style.animationDelay = `${Math.random() * 2}s`;
 
-      const overlaps = (a, b) => !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
+        const rotation = Math.random() * 360;
+        piece.innerHTML = `
+          <svg viewBox="0 0 60 60" width="${size}" height="${size}" style="transform: rotate(${rotation}deg);">
+            <rect x="10" y="10" width="40" height="40" rx="8" fill="${color}"/>
+            <circle cx="30" cy="8" r="8" fill="${color}"/>
+            <circle cx="52" cy="30" r="8" fill="${color}"/>
+            <circle cx="30" cy="52" r="8" fill="${color}"/>
+            <circle cx="8" cy="30" r="8" fill="${color}"/>
+          </svg>`;
+        container.appendChild(piece);
+      }
 
-      const createPiece = (color, x, y, rotation) => {
-        const svg = document.createElementNS(svgNS, 'svg');
-        svg.setAttribute('class', 'deco-puzzle-piece');
-        svg.setAttribute('viewBox', '-22 -22 174 174');
-        svg.style.position = 'absolute';
-        svg.style.left = `${x}px`;
-        svg.style.top = `${y}px`;
-        svg.style.width = `${pieceSize}px`;
-        svg.style.height = `${pieceSize}px`;
-        svg.style.opacity = '0.88';
-        svg.style.fill = color;
-        svg.style.transform = `rotate(${rotation}deg)`;
-        svg.style.transformOrigin = 'center';
-        svg.style.filter = 'drop-shadow(0 18px 18px rgba(29,36,51,0.13))';
-
-        const path = document.createElementNS(svgNS, 'path');
-        path.setAttribute('d', pathData);
-        svg.appendChild(path);
-
-        const roundedBase = document.createElementNS(svgNS, 'rect');
-        roundedBase.setAttribute('x', '0');
-        roundedBase.setAttribute('y', '0');
-        roundedBase.setAttribute('width', '130');
-        roundedBase.setAttribute('height', '130');
-        roundedBase.setAttribute('rx', '14');
-        roundedBase.setAttribute('ry', '14');
-        roundedBase.setAttribute('fill', 'none');
-        svg.appendChild(roundedBase);
-
-        return svg;
-      };
-
-      const placePieces = () => {
-        const container = document.getElementById('puzzle-deco');
-        const logoCard = document.querySelector('.hero-logo-card');
-        if (!container || !logoCard) return;
-
-        seed = 2026;
-        container.replaceChildren();
-
-        const containerRect = container.getBoundingClientRect();
-        const logoRect = logoCard.getBoundingClientRect();
-        const logoBounds = {
-          left: logoRect.left - containerRect.left - 12,
-          right: logoRect.right - containerRect.left + 12,
-          top: logoRect.top - containerRect.top - 12,
-          bottom: logoRect.bottom - containerRect.top + 12
-        };
-        const zoneHeight = containerRect.height / colors.length;
-        const maxX = Math.max(edgePadding, containerRect.width - minRightGap);
-        const driftStep = colors.length > 1 ? (maxX - edgePadding) / (colors.length - 1) : 0;
-        const usedX = [];
-        let lastX = edgePadding - 1;
-
-        colors.forEach((color, index) => {
-          const zoneTop = zoneHeight * index;
-          const zoneY = zoneTop + Math.max(0, (zoneHeight - pieceSize) / 2);
-          const yOffset = (random() * 40) - 20;
-          let y = Math.min(Math.max(0, zoneY + yOffset), Math.max(0, containerRect.height - pieceSize));
-          const diagonalX = edgePadding + (driftStep * index);
-          let x = Math.min(Math.max(edgePadding, diagonalX + ((random() * 80) - 40)), maxX);
-
-          if (x <= lastX) {
-            x = Math.min(maxX, lastX + 1);
-          }
-
-          while (x < maxX && usedX.some((used) => Math.abs(used - x) < 1)) {
-            x = Math.min(maxX, x + 7);
-          }
-
-          let candidate = { left: x, right: x + pieceSize, top: y, bottom: y + pieceSize };
-          if (overlaps(candidate, logoBounds)) {
-            const rightOfLogo = logoBounds.right + edgePadding;
-            const leftOfLogo = logoBounds.left - pieceSize - edgePadding;
-            if (rightOfLogo <= maxX) {
-              x = rightOfLogo;
-            } else if (leftOfLogo >= edgePadding) {
-              x = leftOfLogo;
-            } else {
-              y = Math.min(Math.max(0, logoBounds.bottom + edgePadding), Math.max(0, containerRect.height - pieceSize));
-            }
-          }
-
-          if (x <= lastX) {
-            x = Math.min(maxX, lastX + 1);
-          }
-
-          while (x < maxX && usedX.some((used) => Math.abs(used - x) < 1)) {
-            x = Math.min(maxX, x + 7);
-          }
-
-          lastX = x;
-          usedX.push(x);
-          const rotation = Math.round((random() * 60) - 30);
-          container.appendChild(createPiece(color, x, y, rotation));
-        });
-      };
-
-      window.addEventListener('load', placePieces);
-      window.addEventListener('resize', placePieces);
-    })();
+      window.setTimeout(() => {
+        container.remove();
+      }, 4000);
+    });
   </script>
   <div class="design-credit">Designed by Esteban Alvarado-Jimenez</div>
 </body>
