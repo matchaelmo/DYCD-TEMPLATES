@@ -32,19 +32,19 @@
     .settled-confetti-layer {
       position: absolute;
       top: 0;
-      right: 0;
-      width: 50%;
+      left: 0;
+      width: 100%;
       height: 100%;
       pointer-events: none;
-      overflow: visible;
       z-index: 0;
+      overflow: hidden;
     }
 
     .settled-confetti-piece {
       position: absolute;
       width: 10px;
       height: 16px;
-      opacity: 0.7;
+      opacity: 0.65;
       border-radius: 2px;
     }
 
@@ -177,26 +177,31 @@
     window.addEventListener('load', () => {
       const colors = ['#F15A22', '#1B2A6B', '#6B3FA0', '#2E8B57', '#008080'];
       const settledPieces = [
-        { top: 310, right: 40, rotate: -22, color: '#F15A22' },
-        { top: 330, right: 115, rotate: 18, color: '#1B2A6B' },
-        { top: 350, right: 220, rotate: -35, color: '#6B3FA0' },
-        { top: 375, right: 70, rotate: 28, color: '#2E8B57' },
-        { top: 390, right: 310, rotate: -12, color: '#008080' },
-        { top: 410, right: 155, rotate: 40, color: '#F15A22' },
-        { top: 430, right: 25, rotate: -30, color: '#1B2A6B' },
-        { top: 445, right: 250, rotate: 16, color: '#6B3FA0' },
-        { top: 465, right: 100, rotate: -42, color: '#2E8B57' },
-        { top: 480, right: 345, rotate: 24, color: '#008080' },
-        { top: 500, right: 55, rotate: 10, color: '#F15A22' },
-        { top: 515, right: 185, rotate: -18, color: '#1B2A6B' },
-        { top: 530, right: 285, rotate: 34, color: '#6B3FA0' },
-        { top: 545, right: 135, rotate: -8, color: '#2E8B57' },
-        { top: 318, right: 330, rotate: 42, color: '#008080' },
-        { top: 365, right: 170, rotate: -28, color: '#F15A22' },
-        { top: 405, right: 275, rotate: 14, color: '#1B2A6B' },
-        { top: 452, right: 20, rotate: -38, color: '#6B3FA0' },
-        { top: 492, right: 230, rotate: 30, color: '#2E8B57' },
-        { top: 540, right: 75, rotate: -16, color: '#008080' }
+        { top: 20, left: 30, rotate: 25, color: '#F15A22' },
+        { top: 15, left: 200, rotate: -15, color: '#1B2A6B' },
+        { top: 25, left: 500, rotate: 35, color: '#6B3FA0' },
+        { top: 10, left: 750, rotate: -20, color: '#2E8B57' },
+        { top: 30, left: 950, rotate: 18, color: '#008080' },
+        { top: 20, left: 1150, rotate: -30, color: '#F15A22' },
+        { top: 100, right: 20, rotate: 22, color: '#1B2A6B' },
+        { top: 200, right: 40, rotate: -18, color: '#6B3FA0' },
+        { top: 300, right: 15, rotate: 30, color: '#2E8B57' },
+        { top: 150, right: 120, rotate: -25, color: '#008080' },
+        { top: 120, left: 15, rotate: 20, color: '#F15A22' },
+        { top: 250, left: 20, rotate: -32, color: '#1B2A6B' },
+        { top: 380, left: 10, rotate: 15, color: '#6B3FA0' },
+        { top: 180, left: 400, rotate: -22, color: '#2E8B57' },
+        { top: 220, left: 600, rotate: 28, color: '#008080' },
+        { top: 160, left: 800, rotate: -12, color: '#F15A22' },
+        { top: 280, left: 350, rotate: 35, color: '#1B2A6B' },
+        { top: 320, left: 700, rotate: -18, color: '#6B3FA0' },
+        { top: 480, left: 50, rotate: 20, color: '#2E8B57' },
+        { top: 500, left: 250, rotate: -28, color: '#008080' },
+        { top: 490, left: 500, rotate: 15, color: '#F15A22' },
+        { top: 510, left: 750, rotate: -22, color: '#1B2A6B' },
+        { top: 480, left: 950, rotate: 30, color: '#6B3FA0' },
+        { top: 500, left: 1100, rotate: -15, color: '#2E8B57' },
+        { top: 520, left: 1200, rotate: 25, color: '#008080' }
       ];
       const container = document.createElement('div');
       container.className = 'confetti-container';
@@ -228,11 +233,12 @@
         const settledLayer = document.createElement('div');
         settledLayer.className = 'settled-confetti-layer';
         settledLayer.setAttribute('aria-hidden', 'true');
-        settledPieces.forEach(({ top, right, rotate, color }) => {
+        settledPieces.forEach(({ top, left, right, rotate, color }) => {
           const piece = document.createElement('div');
           piece.className = 'settled-confetti-piece';
           piece.style.top = `${top}px`;
-          piece.style.right = `${right}px`;
+          if (left !== undefined) piece.style.left = `${left}px`;
+          if (right !== undefined) piece.style.right = `${right}px`;
           piece.style.background = color;
           piece.style.transform = `rotate(${rotate}deg)`;
           settledLayer.appendChild(piece);
