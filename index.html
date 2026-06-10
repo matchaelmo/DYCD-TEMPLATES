@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
   <style>
-    #puzzle-deco { position: absolute; top: 0; right: 0; width: 380px; height: 420px; overflow: visible; pointer-events: none; z-index: 1; }
+    #puzzle-confetti { position: absolute; top: 0; right: 0; width: 420px; height: 420px; pointer-events: none; overflow: visible; z-index: 0; }
     .home-page .puzzle-template-grid { display: block; max-width: 1180px; overflow: visible; filter: drop-shadow(0 18px 34px rgba(29,36,51,0.16)); }
     .home-page .template-puzzle-svg { display: block; width: 100%; height: auto; overflow: visible; }
     .home-page .template-puzzle-piece path { transition: filter 180ms ease, transform 180ms ease; transform-origin: center; }
@@ -58,6 +58,120 @@
           <div class="hero-logo-card">
             <img class="dycd-logo" src="assets/images/dycd-logo.png" alt="DYCD logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
             <div class="logo-fallback" style="display:none;">DYCD</div>
+          </div>
+          <div id="puzzle-confetti" aria-hidden="true">
+            <div class="puzzle-confetti-piece" style="position:absolute;top:20px;right:20px;width:100px;height:100px;transform:rotate(12deg);">
+              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
+              Q15,5 25,5 Q35,5 35,15
+              L35,35 Q45,35 45,25 Q45,15 55,15
+              Q65,15 65,25 Q65,35 75,35
+              L85,35 Q95,35 95,45 Q95,55 85,55
+              L65,55 Q65,65 75,65 Q85,65 85,75
+              Q85,85 75,85 Q65,85 65,75
+              L65,85 Q65,95 55,95 Q45,95 45,85
+              L45,65 Q35,65 35,75 Q35,85 25,85
+              Q15,85 15,75 Q15,65 25,65
+              L15,65 Q5,65 5,55 Q5,45 15,45
+              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#F15A22" opacity="0.88" rx="10"/></svg>
+            </div>
+            <div class="puzzle-confetti-piece" style="position:absolute;top:10px;right:140px;width:100px;height:100px;transform:rotate(-28deg);">
+              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
+              Q15,5 25,5 Q35,5 35,15
+              L35,35 Q45,35 45,25 Q45,15 55,15
+              Q65,15 65,25 Q65,35 75,35
+              L85,35 Q95,35 95,45 Q95,55 85,55
+              L65,55 Q65,65 75,65 Q85,65 85,75
+              Q85,85 75,85 Q65,85 65,75
+              L65,85 Q65,95 55,95 Q45,95 45,85
+              L45,65 Q35,65 35,75 Q35,85 25,85
+              Q15,85 15,75 Q15,65 25,65
+              L15,65 Q5,65 5,55 Q5,45 15,45
+              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#1B2A6B" opacity="0.88" rx="10"/></svg>
+            </div>
+            <div class="puzzle-confetti-piece" style="position:absolute;top:110px;right:15px;width:100px;height:100px;transform:rotate(35deg);">
+              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
+              Q15,5 25,5 Q35,5 35,15
+              L35,35 Q45,35 45,25 Q45,15 55,15
+              Q65,15 65,25 Q65,35 75,35
+              L85,35 Q95,35 95,45 Q95,55 85,55
+              L65,55 Q65,65 75,65 Q85,65 85,75
+              Q85,85 75,85 Q65,85 65,75
+              L65,85 Q65,95 55,95 Q45,95 45,85
+              L45,65 Q35,65 35,75 Q35,85 25,85
+              Q15,85 15,75 Q15,65 25,65
+              L15,65 Q5,65 5,55 Q5,45 15,45
+              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#6B3FA0" opacity="0.88" rx="10"/></svg>
+            </div>
+            <div class="puzzle-confetti-piece" style="position:absolute;top:80px;right:150px;width:100px;height:100px;transform:rotate(-15deg);">
+              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
+              Q15,5 25,5 Q35,5 35,15
+              L35,35 Q45,35 45,25 Q45,15 55,15
+              Q65,15 65,25 Q65,35 75,35
+              L85,35 Q95,35 95,45 Q95,55 85,55
+              L65,55 Q65,65 75,65 Q85,65 85,75
+              Q85,85 75,85 Q65,85 65,75
+              L65,85 Q65,95 55,95 Q45,95 45,85
+              L45,65 Q35,65 35,75 Q35,85 25,85
+              Q15,85 15,75 Q15,65 25,65
+              L15,65 Q5,65 5,55 Q5,45 15,45
+              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#2E8B57" opacity="0.88" rx="10"/></svg>
+            </div>
+            <div class="puzzle-confetti-piece" style="position:absolute;top:15px;right:255px;width:100px;height:100px;transform:rotate(22deg);">
+              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
+              Q15,5 25,5 Q35,5 35,15
+              L35,35 Q45,35 45,25 Q45,15 55,15
+              Q65,15 65,25 Q65,35 75,35
+              L85,35 Q95,35 95,45 Q95,55 85,55
+              L65,55 Q65,65 75,65 Q85,65 85,75
+              Q85,85 75,85 Q65,85 65,75
+              L65,85 Q65,95 55,95 Q45,95 45,85
+              L45,65 Q35,65 35,75 Q35,85 25,85
+              Q15,85 15,75 Q15,65 25,65
+              L15,65 Q5,65 5,55 Q5,45 15,45
+              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#008080" opacity="0.88" rx="10"/></svg>
+            </div>
+            <div class="puzzle-confetti-piece" style="position:absolute;top:200px;right:35px;width:100px;height:100px;transform:rotate(-32deg);">
+              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
+              Q15,5 25,5 Q35,5 35,15
+              L35,35 Q45,35 45,25 Q45,15 55,15
+              Q65,15 65,25 Q65,35 75,35
+              L85,35 Q95,35 95,45 Q95,55 85,55
+              L65,55 Q65,65 75,65 Q85,65 85,75
+              Q85,85 75,85 Q65,85 65,75
+              L65,85 Q65,95 55,95 Q45,95 45,85
+              L45,65 Q35,65 35,75 Q35,85 25,85
+              Q15,85 15,75 Q15,65 25,65
+              L15,65 Q5,65 5,55 Q5,45 15,45
+              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#F15A22" opacity="0.88" rx="10"/></svg>
+            </div>
+            <div class="puzzle-confetti-piece" style="position:absolute;top:175px;right:165px;width:100px;height:100px;transform:rotate(18deg);">
+              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
+              Q15,5 25,5 Q35,5 35,15
+              L35,35 Q45,35 45,25 Q45,15 55,15
+              Q65,15 65,25 Q65,35 75,35
+              L85,35 Q95,35 95,45 Q95,55 85,55
+              L65,55 Q65,65 75,65 Q85,65 85,75
+              Q85,85 75,85 Q65,85 65,75
+              L65,85 Q65,95 55,95 Q45,95 45,85
+              L45,65 Q35,65 35,75 Q35,85 25,85
+              Q15,85 15,75 Q15,65 25,65
+              L15,65 Q5,65 5,55 Q5,45 15,45
+              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#1B2A6B" opacity="0.88" rx="10"/></svg>
+            </div>
+            <div class="puzzle-confetti-piece" style="position:absolute;top:100px;right:275px;width:100px;height:100px;transform:rotate(-20deg);">
+              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M15,15
+              Q15,5 25,5 Q35,5 35,15
+              L35,35 Q45,35 45,25 Q45,15 55,15
+              Q65,15 65,25 Q65,35 75,35
+              L85,35 Q95,35 95,45 Q95,55 85,55
+              L65,55 Q65,65 75,65 Q85,65 85,75
+              Q85,85 75,85 Q65,85 65,75
+              L65,85 Q65,95 55,95 Q45,95 45,85
+              L45,65 Q35,65 35,75 Q35,85 25,85
+              Q15,85 15,75 Q15,65 25,65
+              L15,65 Q5,65 5,55 Q5,45 15,45
+              L15,35 Q5,35 5,25 Q5,15 15,15 Z" fill="#2E8B57" opacity="0.88" rx="10"/></svg>
+            </div>
           </div>
         </div>
       </div>

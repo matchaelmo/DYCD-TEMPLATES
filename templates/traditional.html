@@ -24,21 +24,45 @@
     button, input { font: inherit; }
 
     .traditional-wrap { width: min(1040px, calc(100% - 24px)); margin: 0 auto; }
-    .top-strip { background: var(--navy); color: white; font-size: 0.82rem; }
-    .top-strip-inner { min-height: 30px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .top-strip a { text-decoration: underline; text-underline-offset: 2px; }
-
-    .traditional-navbar { background: var(--orange); color: white; border-bottom: 3px solid var(--navy); max-height: 65px; }
-    .navbar-inner { height: 62px; max-height: 65px; display: flex; align-items: center; gap: 12px; }
-    .nav-logo { width: 130px; max-width: 130px; min-width: 130px; background: white; padding: 3px 6px; border-radius: 2px; } .nav-logo img { max-width: 130px; max-height: 50px; height: auto; }
-    .main-nav { display: flex; align-items: center; flex-wrap: nowrap; flex: 1; min-width: 0; }
-    .main-nav a, .name-trigger { color: white; font-size: 14px; font-weight: 700; padding: 0 7px; border: 0; background: transparent; cursor: pointer; line-height: 62px; white-space: nowrap; }
-    .main-nav a:hover, .name-trigger:hover, .name-trigger:focus { background: var(--orange-dark); outline: none; }
-    .name-switcher { position: relative; display: inline-flex; z-index: 20; flex: 0 0 auto; }
-    .name-menu { position: absolute; top: 100%; left: 0; min-width: 150px; background: white; border: 1px solid var(--line); box-shadow: 0 8px 20px rgba(0,0,0,0.18); display: none; padding: 4px; }
-    .name-switcher.is-open .name-menu { display: grid; }
-    .name-option { border: 0; background: white; color: var(--navy); text-align: left; padding: 8px 10px; cursor: pointer; font-weight: 700; }
-    .name-option:hover, .name-option:focus { background: #f2f2f2; outline: none; }
+    .top-bar {
+      background: #1B2A6B;
+      color: white;
+      font-size: 12px;
+      padding: 4px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar a { color: white; text-decoration: underline; text-underline-offset: 2px; }
+    .navbar {
+      background: #F15A22;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      max-height: 65px;
+      overflow: hidden;
+    }
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: nowrap;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-family: Georgia, serif;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+    .intranet-switcher { color: white; font-family: Georgia, serif; font-size: 13px; position: relative; white-space: nowrap; cursor: default; }
+    .dropdown { position: absolute; top: 100%; right: 0; display: none; min-width: 130px; background: white; color: var(--navy); border: 1px solid var(--line); box-shadow: 0 8px 20px rgba(0,0,0,0.18); padding: 6px; z-index: 20; }
+    .intranet-switcher:hover .dropdown, .intranet-switcher:focus-within .dropdown { display: grid; gap: 4px; }
+    .dropdown span { padding: 6px 8px; }
 
     .social-bar { background: #eeeeee; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
     .social-inner { min-height: 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
@@ -131,8 +155,8 @@
     }
 
     @media (max-width: 640px) {
-      .top-strip-inner, .social-inner, .navbar-inner { align-items: flex-start; flex-direction: column; padding: 8px 0; }
-      .main-nav a, .name-trigger { padding: 10px 8px; }
+      .top-bar, .social-inner, .navbar { align-items: flex-start; flex-direction: column; padding: 8px 20px; }
+      .nav-links { flex-wrap: wrap; }
       .left-rail, .right-sidebar, .stats-row { grid-template-columns: 1fr; }
       .stat { border-right: 0; border-bottom: 1px solid var(--line); }
       .stat:last-child { border-bottom: 0; }
@@ -140,39 +164,39 @@
   </style>
 </head>
 <body class="traditional-page">
-  <div class="top-strip">
-    <div class="traditional-wrap top-strip-inner">
-      <a href="../commissioner.html">Sandra Escamilla-Davies, Commissioner</a>
-      <span>Zohran K. Mamdani, Mayor</span>
-    </div>
+  <div class="top-bar">
+    <a href="../commissioner.html">
+      Sandra Escamilla-Davies, Commissioner
+    </a>
+    <span>Zohran K. Mamdani, Mayor</span>
   </div>
 
-  <header class="traditional-navbar">
-    <div class="traditional-wrap navbar-inner">
-      <a class="nav-logo" href="../index.html" aria-label="Back to DYCD templates home"><img src="../assets/images/dycd-logo.png" alt="DYCD logo"></a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="../index.html">Home</a>
-        <a href="#hr">HR</a>
-        <a href="programs-traditional.html">Programs</a>
-        <a href="#admin">Admin</a>
-        <a href="directory-traditional.html">Directory</a>
-        <a href="#resources">Resources</a>
-        <a href="#events">Events</a>
-        <a href="announcements-traditional.html">Announcements</a>
-        <a href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
-        <a href="#cybersec">CyberSec</a>
-        <div class="name-switcher" data-name-switcher>
-          <button class="name-trigger" type="button" data-name-trigger aria-haspopup="true">Intranet ▼</button>
-          <div class="name-menu" role="menu">
-            <button class="name-option" type="button" data-name-option="Juventus">Juventus</button>
-            <button class="name-option" type="button" data-name-option="The Hub">The Hub</button>
-            <button class="name-option" type="button" data-name-option="Juventud">Juventud</button>
-            <button class="name-option" type="button" data-name-option="The Yard">The Yard</button>
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar">
+    <a href="../index.html">
+      <img src="../assets/images/dycd-logo.png" alt="DYCD Logo" style="max-width:130px; height:auto;">
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">← Back</a>
+      <a href="#">🏠</a>
+      <a href="#">HR</a>
+      <a href="programs-traditional.html">Programs</a>
+      <a href="#">Admin</a>
+      <a href="directory-traditional.html">Directory</a>
+      <a href="#">Resources</a>
+      <a href="#">Events</a>
+      <a href="announcements-traditional.html">Announcements</a>
+      <a href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
     </div>
-  </header>
+    <div class="intranet-switcher">
+      Intranet ▼
+      <div class="dropdown">
+        <span>Juventus</span>
+        <span>The Hub</span>
+        <span>Juventud</span>
+        <span>The Yard</span>
+      </div>
+    </div>
+  </nav>
 
   <div class="news-ticker" aria-label="Agency announcements ticker">
     <div class="ticker-label">📢 NEWS:</div>
