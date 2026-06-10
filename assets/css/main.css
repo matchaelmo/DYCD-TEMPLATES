@@ -64,15 +64,6 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
 .visual-side { min-height: 560px; position: relative; display: grid; place-items: start center; }
 .hero-logo-card { width: min(320px, 78vw); min-height: 176px; margin-top: 35px; padding: 28px; border-radius: 30px; background: rgba(255,255,255,0.74); backdrop-filter: blur(8px); box-shadow: var(--shadow); position: relative; z-index: 3; display: grid; place-items: center; }
 .hero-logo-card .logo-fallback { width: 180px; height: 120px; border-radius: 30px; font-size: 2.2rem; }
-.puzzle-field { position: absolute; inset: -20px -8vw -40px -40px; pointer-events: none; z-index: 1; }
-.puzzle-piece { position: absolute; width: clamp(106px, 11vw, 158px); opacity: 0.85; filter: drop-shadow(0 18px 18px rgba(29,36,51,0.13)); transform: rotate(var(--r)); }
-.p1 { right: 0; top: 4px; --r: 18deg; fill: var(--orange); }
-.p2 { right: 116px; top: 96px; --r: -14deg; fill: var(--navy); }
-.p3 { right: 34px; top: 194px; --r: 25deg; fill: var(--green); }
-.p4 { right: 190px; top: 294px; --r: -22deg; fill: var(--purple); }
-.p5 { right: 78px; top: 390px; --r: 12deg; fill: var(--orange); }
-.p6 { right: 258px; top: 486px; --r: -10deg; fill: var(--navy); }
-.p7 { right: 144px; top: 580px; --r: 22deg; fill: var(--green); }
 .template-section { padding: 12px 0 50px; position: relative; z-index: 3; }
 .template-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 .template-card { background: white; border-radius: 22px; overflow: hidden; min-height: 250px; box-shadow: var(--soft-shadow); transition: transform 180ms ease, box-shadow 180ms ease; display: flex; flex-direction: column; }
@@ -241,7 +232,6 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
   .hero-grid { grid-template-columns: 1fr; }
   .visual-side { min-height: 310px; order: -1; }
   .hero-logo-card { margin-top: 0; }
-  .puzzle-field { inset: -45px -30px -40px 20%; opacity: 0.65; }
   .govbar-inner { flex-direction: column; align-items: flex-start; padding: 8px 0; gap: 3px; }
   .brand { min-width: auto; }
   .nav-inner { align-items: flex-start; flex-direction: column; padding: 14px 0; }
@@ -254,7 +244,6 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
   .template-grid, .quick-grid, .kpi-grid, .program-grid, .event-grid, .announcement-grid, .resource-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: clamp(2.8rem, 17vw, 4.4rem); }
   .section { padding: 48px 0; }
-  .puzzle-piece { width: 96px; }
   .editorial .template-hero h1, .contemporary .template-hero h1 { font-size: clamp(3rem, 16vw, 4.5rem); }
 }
 
