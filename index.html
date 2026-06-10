@@ -5,7 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DYCD Intranet | Internal Design Exploration</title>
   <meta name="description" content="Internal DYCD intranet design exploration templates.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .confetti-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: -20px;
+      opacity: 1;
+      animation: confettiFall linear forwards;
+      border-radius: 2px;
+    }
+
+    .settled-confetti-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .settled-confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 16px;
+      opacity: 0.65;
+      border-radius: 2px;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(-100px) rotate(0deg) translateX(0px);
+        opacity: 1;
+      }
+      25% {
+        transform: translateY(25vh) rotate(180deg) translateX(30px);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(50vh) rotate(360deg) translateX(-20px);
+        opacity: 1;
+      }
+      75% {
+        transform: translateY(75vh) rotate(540deg) translateX(25px);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(110vh) rotate(720deg) translateX(0px);
+        opacity: 0;
+      }
+    }
+    .home-page .puzzle-template-grid { display: block; max-width: 1180px; overflow: visible; filter: drop-shadow(0 18px 34px rgba(29,36,51,0.16)); }
+    .home-page .template-puzzle-svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .home-page .template-puzzle-piece path { transition: filter 180ms ease, transform 180ms ease; transform-origin: center; }
+    .home-page .template-puzzle-piece:hover path { filter: brightness(1.12); transform: translateY(-7px); }
+    .home-page .template-puzzle-content { height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 34px 28px; color: white; font-family: 'Poppins', Arial, sans-serif; }
+    .home-page .template-puzzle-content .puzzle-number { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.16em; opacity: 0.78; }
+    .home-page .template-puzzle-content h2 { margin: 10px 0 10px; color: white; font-size: 1.35rem; line-height: 1.05; }
+    .home-page .template-puzzle-content p { margin: 0 0 20px; color: rgba(255,255,255,0.92); font-size: 0.82rem; line-height: 1.38; }
+    .home-page .template-puzzle-content .card-button { align-self: flex-start; background: rgba(255,255,255,0.18); color: white; border: 1px solid rgba(255,255,255,0.56); border-radius: 999px; padding: 9px 14px; font-weight: 800; }
+    .home-page .template-puzzle-mobile { display: none; }
+    @media (max-width: 900px) {
+      .home-page .template-puzzle-svg { display: none; }
+      .home-page .template-puzzle-mobile { display: grid; grid-template-columns: 1fr; gap: 14px; }
+      .home-page .template-puzzle-mobile .template-card { min-height: 230px; border-radius: 24px; margin: 0; background: var(--accent); color: white; }
+      .home-page .template-puzzle-mobile .template-card h2, .home-page .template-puzzle-mobile .template-card p { color: white; }
+    }
+  </style>
 </head>
 <body class="home-page">
   <main>
@@ -37,15 +118,6 @@
             <img class="dycd-logo" src="assets/images/dycd-logo.png" alt="DYCD logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
             <div class="logo-fallback" style="display:none;">DYCD</div>
           </div>
-          <div class="puzzle-field" aria-hidden="true">
-            <svg class="puzzle-piece p1" viewBox="0 0 120 120"><path d="M20 8h33c8 0 11 6 7 13-4 8 0 16 9 16s13-8 9-16c-4-7-1-13 7-13h15c7 0 12 5 12 12v30c0 7-6 11-13 7-8-4-16 0-16 9s8 13 16 9c7-4 13 0 13 7v18c0 7-5 12-12 12H73c-7 0-11-6-7-13 4-8 0-16-9-16s-13 8-9 16c4 7 0 13-7 13H20c-7 0-12-5-12-12V20C8 13 13 8 20 8z"/></svg>
-            <svg class="puzzle-piece p2" viewBox="0 0 120 120"><path d="M20 8h33c8 0 11 6 7 13-4 8 0 16 9 16s13-8 9-16c-4-7-1-13 7-13h15c7 0 12 5 12 12v30c0 7-6 11-13 7-8-4-16 0-16 9s8 13 16 9c7-4 13 0 13 7v18c0 7-5 12-12 12H73c-7 0-11-6-7-13 4-8 0-16-9-16s-13 8-9 16c4 7 0 13-7 13H20c-7 0-12-5-12-12V20C8 13 13 8 20 8z"/></svg>
-            <svg class="puzzle-piece p3" viewBox="0 0 120 120"><path d="M20 8h33c8 0 11 6 7 13-4 8 0 16 9 16s13-8 9-16c-4-7-1-13 7-13h15c7 0 12 5 12 12v30c0 7-6 11-13 7-8-4-16 0-16 9s8 13 16 9c7-4 13 0 13 7v18c0 7-5 12-12 12H73c-7 0-11-6-7-13 4-8 0-16-9-16s-13 8-9 16c4 7 0 13-7 13H20c-7 0-12-5-12-12V20C8 13 13 8 20 8z"/></svg>
-            <svg class="puzzle-piece p4" viewBox="0 0 120 120"><path d="M20 8h33c8 0 11 6 7 13-4 8 0 16 9 16s13-8 9-16c-4-7-1-13 7-13h15c7 0 12 5 12 12v30c0 7-6 11-13 7-8-4-16 0-16 9s8 13 16 9c7-4 13 0 13 7v18c0 7-5 12-12 12H73c-7 0-11-6-7-13 4-8 0-16-9-16s-13 8-9 16c4 7 0 13-7 13H20c-7 0-12-5-12-12V20C8 13 13 8 20 8z"/></svg>
-            <svg class="puzzle-piece p5" viewBox="0 0 120 120"><path d="M20 8h33c8 0 11 6 7 13-4 8 0 16 9 16s13-8 9-16c-4-7-1-13 7-13h15c7 0 12 5 12 12v30c0 7-6 11-13 7-8-4-16 0-16 9s8 13 16 9c7-4 13 0 13 7v18c0 7-5 12-12 12H73c-7 0-11-6-7-13 4-8 0-16-9-16s-13 8-9 16c4 7 0 13-7 13H20c-7 0-12-5-12-12V20C8 13 13 8 20 8z"/></svg>
-            <svg class="puzzle-piece p6" viewBox="0 0 120 120"><path d="M20 8h33c8 0 11 6 7 13-4 8 0 16 9 16s13-8 9-16c-4-7-1-13 7-13h15c7 0 12 5 12 12v30c0 7-6 11-13 7-8-4-16 0-16 9s8 13 16 9c7-4 13 0 13 7v18c0 7-5 12-12 12H73c-7 0-11-6-7-13 4-8 0-16-9-16s-13 8-9 16c4 7 0 13-7 13H20c-7 0-12-5-12-12V20C8 13 13 8 20 8z"/></svg>
-            <svg class="puzzle-piece p7" viewBox="0 0 120 120"><path d="M20 8h33c8 0 11 6 7 13-4 8 0 16 9 16s13-8 9-16c-4-7-1-13 7-13h15c7 0 12 5 12 12v30c0 7-6 11-13 7-8-4-16 0-16 9s8 13 16 9c7-4 13 0 13 7v18c0 7-5 12-12 12H73c-7 0-11-6-7-13 4-8 0-16-9-16s-13 8-9 16c4 7 0 13-7 13H20c-7 0-12-5-12-12V20C8 13 13 8 20 8z"/></svg>
-          </div>
         </div>
       </div>
     </section>
@@ -54,25 +126,121 @@
       <div class="container">
         <p class="section-kicker">Browse directions</p>
         <h2 class="section-title" id="template-heading">Choose a template to review</h2>
-        <svg class="puzzle-clip-defs" width="0" height="0" aria-hidden="true" focusable="false">
-          <defs>
-            <clipPath id="puzzle-strip-1" clipPathUnits="objectBoundingBox"><path d="M0,0 H1 V1 H0 Z"/></clipPath>
-            <clipPath id="puzzle-strip-2" clipPathUnits="objectBoundingBox"><path d="M0,0 H1 V1 H0 V0.64 C0.14,0.62 0.14,0.38 0,0.36 Z"/></clipPath>
-            <clipPath id="puzzle-strip-3" clipPathUnits="objectBoundingBox"><path d="M0,0 H1 V1 H0 V0.64 C0.14,0.62 0.14,0.38 0,0.36 Z"/></clipPath>
-            <clipPath id="puzzle-strip-4" clipPathUnits="objectBoundingBox"><path d="M0,0 H1 V1 H0 V0.64 C0.14,0.62 0.14,0.38 0,0.36 Z"/></clipPath>
-          </defs>
-        </svg>
         <div class="template-grid puzzle-template-grid" aria-label="Interlocking template puzzle cards">
-          <a class="template-card puzzle-piece-card puzzle-card-1" href="templates/modern-classic.html" style="--accent:#F15A22;clip-path:url(#puzzle-strip-1);-webkit-clip-path:url(#puzzle-strip-1)"><div class="template-card-body"><span class="puzzle-number">01</span><h2>Modern Classic</h2><p>Clean structure with sidebar navigation and a warm professional feel.</p><span class="card-button">View →</span></div></a>
-          <a class="template-card puzzle-piece-card puzzle-card-2" href="templates/contemporary.html" style="--accent:#1B2A6B;clip-path:url(#puzzle-strip-2);-webkit-clip-path:url(#puzzle-strip-2)"><div class="template-card-body"><span class="puzzle-number">02</span><h2>Contemporary</h2><p>Bold, full-width sections designed to be energetic and inviting.</p><span class="card-button">View →</span></div></a>
-          <a class="template-card puzzle-piece-card puzzle-card-3" href="templates/editorial.html" style="--accent:#6B3FA0;clip-path:url(#puzzle-strip-3);-webkit-clip-path:url(#puzzle-strip-3)"><div class="template-card-body"><span class="puzzle-number">03</span><h2>Editorial</h2><p>Content-rich layout with magazine-style typography hierarchy.</p><span class="card-button">View →</span></div></a>
-          <a class="template-card puzzle-piece-card puzzle-card-4" href="templates/visual-data.html" style="--accent:#2E8B57;clip-path:url(#puzzle-strip-4);-webkit-clip-path:url(#puzzle-strip-4)"><div class="template-card-body"><span class="puzzle-number">04</span><h2>Visual / Data</h2><p>Dashboard-style design with KPIs and agency numbers front and center.</p><span class="card-button">View →</span></div></a>
+          <svg class="template-puzzle-svg" viewBox="0 0 1000 320" role="img" aria-labelledby="template-puzzle-title">
+            <title id="template-puzzle-title">Five interlocking DYCD intranet template puzzle pieces</title>
+            <a class="template-puzzle-piece" href="templates/modern-classic.html">
+              <path fill="#F15A22" d="M0 0 H200 V121.6 C238.4 121.6 238.4 198.4 200 198.4 V320 H0 Z"/>
+              <foreignObject x="0" y="0" width="200" height="320"><div xmlns="http://www.w3.org/1999/xhtml" class="template-puzzle-content"><span class="puzzle-number">01</span><h2>Modern Classic</h2><p>Clean structure with sidebar navigation and a warm professional feel.</p><span class="card-button">View →</span></div></foreignObject>
+            </a>
+            <a class="template-puzzle-piece" href="templates/contemporary.html">
+              <path fill="#1B2A6B" d="M200 0 H400 V121.6 C438.4 121.6 438.4 198.4 400 198.4 V320 H200 V198.4 C238.4 198.4 238.4 121.6 200 121.6 Z"/>
+              <foreignObject x="200" y="0" width="200" height="320"><div xmlns="http://www.w3.org/1999/xhtml" class="template-puzzle-content"><span class="puzzle-number">02</span><h2>Contemporary</h2><p>Bold, full-width sections designed to be energetic and inviting.</p><span class="card-button">View →</span></div></foreignObject>
+            </a>
+            <a class="template-puzzle-piece" href="templates/editorial.html">
+              <path fill="#6B3FA0" d="M400 0 H600 V121.6 C638.4 121.6 638.4 198.4 600 198.4 V320 H400 V198.4 C438.4 198.4 438.4 121.6 400 121.6 Z"/>
+              <foreignObject x="400" y="0" width="200" height="320"><div xmlns="http://www.w3.org/1999/xhtml" class="template-puzzle-content"><span class="puzzle-number">03</span><h2>Editorial</h2><p>Content-rich layout with magazine-style typography hierarchy.</p><span class="card-button">View →</span></div></foreignObject>
+            </a>
+            <a class="template-puzzle-piece" href="templates/visual-data.html">
+              <path fill="#2E8B57" d="M600 0 H800 V121.6 C838.4 121.6 838.4 198.4 800 198.4 V320 H600 V198.4 C638.4 198.4 638.4 121.6 600 121.6 Z"/>
+              <foreignObject x="600" y="0" width="200" height="320"><div xmlns="http://www.w3.org/1999/xhtml" class="template-puzzle-content"><span class="puzzle-number">04</span><h2>Visual / Data</h2><p>Dashboard-style design with KPIs and agency numbers front and center.</p><span class="card-button">View →</span></div></foreignObject>
+            </a>
+            <a class="template-puzzle-piece" href="templates/traditional.html">
+              <path fill="#F15A22" d="M800 0 H1000 V320 H800 V198.4 C838.4 198.4 838.4 121.6 800 121.6 Z"/>
+              <foreignObject x="800" y="0" width="200" height="320"><div xmlns="http://www.w3.org/1999/xhtml" class="template-puzzle-content"><span class="puzzle-number">05</span><h2>Traditional</h2><p>Classic government intranet style with carousel news and sidebar widgets.</p><span class="card-button">View →</span></div></foreignObject>
+            </a>
+          </svg>
+          <div class="template-puzzle-mobile" aria-label="Template cards stacked for mobile">
+            <a class="template-card" href="templates/modern-classic.html" style="--accent:#F15A22"><div class="template-card-body"><span class="puzzle-number">01</span><h2>Modern Classic</h2><p>Clean structure with sidebar navigation and a warm professional feel.</p><span class="card-button">View →</span></div></a>
+            <a class="template-card" href="templates/contemporary.html" style="--accent:#1B2A6B"><div class="template-card-body"><span class="puzzle-number">02</span><h2>Contemporary</h2><p>Bold, full-width sections designed to be energetic and inviting.</p><span class="card-button">View →</span></div></a>
+            <a class="template-card" href="templates/editorial.html" style="--accent:#6B3FA0"><div class="template-card-body"><span class="puzzle-number">03</span><h2>Editorial</h2><p>Content-rich layout with magazine-style typography hierarchy.</p><span class="card-button">View →</span></div></a>
+            <a class="template-card" href="templates/visual-data.html" style="--accent:#2E8B57"><div class="template-card-body"><span class="puzzle-number">04</span><h2>Visual / Data</h2><p>Dashboard-style design with KPIs and agency numbers front and center.</p><span class="card-button">View →</span></div></a>
+            <a class="template-card" href="templates/traditional.html" style="--accent:#F15A22"><div class="template-card-body"><span class="puzzle-number">05</span><h2>Traditional</h2><p>Classic government intranet style with carousel news and sidebar widgets.</p><span class="card-button">View →</span></div></a>
+          </div>
         </div>
       </div>
     </section>
   </main>
   <footer class="home-footer">DYCD — Department of Youth &amp; Community Development | Internal Use Only | 2026</footer>
   <script src="assets/js/main.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const colors = ['#F15A22', '#1B2A6B', '#6B3FA0', '#2E8B57', '#008080'];
+      const settledPieces = [
+        { top: 20, left: 30, rotate: 25, color: '#F15A22' },
+        { top: 15, left: 200, rotate: -15, color: '#1B2A6B' },
+        { top: 25, left: 500, rotate: 35, color: '#6B3FA0' },
+        { top: 10, left: 750, rotate: -20, color: '#2E8B57' },
+        { top: 30, left: 950, rotate: 18, color: '#008080' },
+        { top: 20, left: 1150, rotate: -30, color: '#F15A22' },
+        { top: 100, right: 20, rotate: 22, color: '#1B2A6B' },
+        { top: 200, right: 40, rotate: -18, color: '#6B3FA0' },
+        { top: 300, right: 15, rotate: 30, color: '#2E8B57' },
+        { top: 150, right: 120, rotate: -25, color: '#008080' },
+        { top: 120, left: 15, rotate: 20, color: '#F15A22' },
+        { top: 250, left: 20, rotate: -32, color: '#1B2A6B' },
+        { top: 380, left: 10, rotate: 15, color: '#6B3FA0' },
+        { top: 180, left: 400, rotate: -22, color: '#2E8B57' },
+        { top: 220, left: 600, rotate: 28, color: '#008080' },
+        { top: 160, left: 800, rotate: -12, color: '#F15A22' },
+        { top: 280, left: 350, rotate: 35, color: '#1B2A6B' },
+        { top: 320, left: 700, rotate: -18, color: '#6B3FA0' },
+        { top: 480, left: 50, rotate: 20, color: '#2E8B57' },
+        { top: 500, left: 250, rotate: -28, color: '#008080' },
+        { top: 490, left: 500, rotate: 15, color: '#F15A22' },
+        { top: 510, left: 750, rotate: -22, color: '#1B2A6B' },
+        { top: 480, left: 950, rotate: 30, color: '#6B3FA0' },
+        { top: 500, left: 1100, rotate: -15, color: '#2E8B57' },
+        { top: 520, left: 1200, rotate: 25, color: '#008080' }
+      ];
+      const container = document.createElement('div');
+      container.className = 'confetti-container';
+      container.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(container);
+
+      for (let i = 0; i < 80; i += 1) {
+        const width = 8 + Math.random() * 6;
+        const height = 14 + Math.random() * 8;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const piece = document.createElement('div');
+        const left = ((i + Math.random()) / 80) * 100;
+        piece.className = 'confetti-piece';
+        piece.style.left = `${left}%`;
+        piece.style.width = `${width}px`;
+        piece.style.height = `${height}px`;
+        piece.style.background = color;
+        piece.style.animationDuration = `${2 + Math.random() * 1.5}s`;
+        piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+        container.appendChild(piece);
+      }
+
+      window.setTimeout(() => {
+        container.replaceChildren();
+
+        const hero = document.querySelector('.hero-gallery');
+        if (!hero || hero.querySelector('.settled-confetti-layer')) return;
+
+        const settledLayer = document.createElement('div');
+        settledLayer.className = 'settled-confetti-layer';
+        settledLayer.setAttribute('aria-hidden', 'true');
+        settledPieces.forEach(({ top, left, right, rotate, color }) => {
+          const piece = document.createElement('div');
+          piece.className = 'settled-confetti-piece';
+          piece.style.top = `${top}px`;
+          if (left !== undefined) piece.style.left = `${left}px`;
+          if (right !== undefined) piece.style.right = `${right}px`;
+          piece.style.background = color;
+          piece.style.transform = `rotate(${rotate}deg)`;
+          settledLayer.appendChild(piece);
+        });
+        hero.appendChild(settledLayer);
+      }, 3500);
+
+      window.setTimeout(() => {
+        container.remove();
+      }, 6000);
+    });
+  </script>
   <div class="design-credit">Designed by Esteban Alvarado-Jimenez</div>
 </body>
 </html>
