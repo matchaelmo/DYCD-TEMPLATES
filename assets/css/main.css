@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
-
 :root {
   --cream: #F5F0E8;
   --beige: #EDE8DC;
@@ -22,6 +20,12 @@ body { margin: 0; font-family: 'Poppins', Arial, sans-serif; color: var(--ink); 
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button, input { font: inherit; }
+
+body.modern, body.modern * { font-family: 'Josefin Sans', sans-serif; }
+body.contemporary, body.contemporary * { font-family: 'Nunito', sans-serif; }
+body.visual, body.visual * { font-family: 'Space Grotesk', sans-serif; }
+body.editorial, body.editorial * { font-family: 'Lato', sans-serif; }
+body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body.editorial h5, body.editorial h6, body.editorial .section-title { font-family: 'Playfair Display', serif; }
 .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 .section { padding: 78px 0; }
 .section-title { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; color: var(--navy); font-weight: 800; }
@@ -32,6 +36,10 @@ button, input { font: inherit; }
 .logo-frame { width: 86px; min-width: 86px; min-height: 56px; display: flex; align-items: center; }
 .logo-frame img { max-height: 58px; object-fit: contain; }
 .dycd-logo { width: 100%; height: auto; object-fit: contain; }
+
+/* Template logo sizing */
+.template-body .topbar .logo-frame, .template-body .topbar .logo-frame img { max-width: 120px; height: auto; }
+.template-body .site-footer .logo-frame, .template-body .site-footer .logo-frame img { max-width: 140px; height: auto; }
 
 /* Shared dropdown name switcher */
 .name-switcher { position: relative; display: inline-flex; z-index: 30; }
@@ -56,15 +64,6 @@ button, input { font: inherit; }
 .visual-side { min-height: 560px; position: relative; display: grid; place-items: start center; }
 .hero-logo-card { width: min(320px, 78vw); min-height: 176px; margin-top: 35px; padding: 28px; border-radius: 30px; background: rgba(255,255,255,0.74); backdrop-filter: blur(8px); box-shadow: var(--shadow); position: relative; z-index: 3; display: grid; place-items: center; }
 .hero-logo-card .logo-fallback { width: 180px; height: 120px; border-radius: 30px; font-size: 2.2rem; }
-.puzzle-field { position: absolute; inset: -20px -8vw -40px -40px; pointer-events: none; z-index: 1; }
-.puzzle-piece { position: absolute; width: clamp(106px, 11vw, 158px); opacity: 0.85; filter: drop-shadow(0 18px 18px rgba(29,36,51,0.13)); transform: rotate(var(--r)); }
-.p1 { right: 0; top: 4px; --r: 18deg; fill: var(--orange); }
-.p2 { right: 116px; top: 96px; --r: -14deg; fill: var(--navy); }
-.p3 { right: 34px; top: 194px; --r: 25deg; fill: var(--green); }
-.p4 { right: 190px; top: 294px; --r: -22deg; fill: var(--purple); }
-.p5 { right: 78px; top: 390px; --r: 12deg; fill: var(--orange); }
-.p6 { right: 258px; top: 486px; --r: -10deg; fill: var(--navy); }
-.p7 { right: 144px; top: 580px; --r: 22deg; fill: var(--green); }
 .template-section { padding: 12px 0 50px; position: relative; z-index: 3; }
 .template-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 .template-card { background: white; border-radius: 22px; overflow: hidden; min-height: 250px; box-shadow: var(--soft-shadow); transition: transform 180ms ease, box-shadow 180ms ease; display: flex; flex-direction: column; }
@@ -233,7 +232,6 @@ button, input { font: inherit; }
   .hero-grid { grid-template-columns: 1fr; }
   .visual-side { min-height: 310px; order: -1; }
   .hero-logo-card { margin-top: 0; }
-  .puzzle-field { inset: -45px -30px -40px 20%; opacity: 0.65; }
   .govbar-inner { flex-direction: column; align-items: flex-start; padding: 8px 0; gap: 3px; }
   .brand { min-width: auto; }
   .nav-inner { align-items: flex-start; flex-direction: column; padding: 14px 0; }
@@ -246,7 +244,6 @@ button, input { font: inherit; }
   .template-grid, .quick-grid, .kpi-grid, .program-grid, .event-grid, .announcement-grid, .resource-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: clamp(2.8rem, 17vw, 4.4rem); }
   .section { padding: 48px 0; }
-  .puzzle-piece { width: 96px; }
   .editorial .template-hero h1, .contemporary .template-hero h1 { font-size: clamp(3rem, 16vw, 4.5rem); }
 }
 
@@ -319,19 +316,7 @@ button, input { font: inherit; }
 /* Final refinements: puzzle cards, ticker variations, city resources, and office map */
 .design-credit { position: fixed; right: 16px; bottom: 10px; z-index: 20; color: #AAAAAA; font-size: 11px; font-weight: 400; pointer-events: none; }
 .puzzle-template-grid { grid-template-columns: repeat(2, minmax(260px, 1fr)); gap: 0; max-width: 900px; margin: 0 auto; filter: drop-shadow(0 18px 32px rgba(29,36,51,0.14)); }
-.puzzle-piece-card { min-height: 290px; border-radius: 0; background: var(--accent); color: white; box-shadow: none; overflow: visible; margin: -1px; position: relative; clip-path: polygon(0 0, 42% 0, 42% 10%, 58% 10%, 58% 0, 100% 0, 100% 42%, 90% 42%, 90% 58%, 100% 58%, 100% 100%, 58% 100%, 58% 90%, 42% 90%, 42% 100%, 0 100%, 0 58%, 10% 58%, 10% 42%, 0 42%); }
-.puzzle-piece-card:hover { transform: translateY(-8px) scale(1.015); box-shadow: 0 24px 46px rgba(29,36,51,0.22); z-index: 4; }
-.puzzle-piece-card .template-card-body { padding: 44px; }
-.puzzle-piece-card h2, .puzzle-piece-card p { color: white; }
 .puzzle-number { font-size: 0.82rem; letter-spacing: 0.12em; font-weight: 800; opacity: 0.82; }
-.puzzle-piece-card .card-button { background: rgba(255,255,255,0.18); color: white; border: 1px solid rgba(255,255,255,0.42); }
-.puzzle-card-1 { border-top-left-radius: 24px; }
-.puzzle-card-2 { border-top-right-radius: 24px; transform: translateX(-10px); }
-.puzzle-card-3 { border-bottom-left-radius: 24px; transform: translateY(-10px); }
-.puzzle-card-4 { border-bottom-right-radius: 24px; transform: translate(-10px, -10px); }
-.puzzle-card-2:hover { transform: translate(-10px, -8px) scale(1.015); }
-.puzzle-card-3:hover { transform: translate(0, -18px) scale(1.015); }
-.puzzle-card-4:hover { transform: translate(-10px, -18px) scale(1.015); }
 .home-icon { font-size: 1.1rem; line-height: 1; }
 .contemporary-bubble-ticker { position: fixed; right: 22px; top: 50%; width: 200px; height: 200px; margin-top: -100px; border-radius: 50%; background: var(--navy); color: white; z-index: 45; display: grid; place-items: center; text-align: center; padding: 28px; box-shadow: 0 18px 38px rgba(27,42,107,0.28); }
 .contemporary-bubble-ticker::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; border: 3px dashed var(--orange); animation: bubble-spin 14s linear infinite; }
@@ -365,27 +350,16 @@ button, input { font: inherit; }
 .map-land { fill: #fbfbfb; stroke: #dedede; stroke-width: 2; }
 .map-pin { cursor: pointer; }
 .map-pin circle { stroke: white; stroke-width: 3; }
-.map-pin text { font-family: Poppins, sans-serif; font-size: 13px; font-weight: 800; fill: #283044; }
+.map-pin text { font-family: inherit; font-size: 13px; font-weight: 800; fill: #283044; }
 .map-tooltip { opacity: 0; transition: opacity 160ms ease; pointer-events: none; }
 .map-pin:hover .map-tooltip { opacity: 1; }
 .map-tooltip rect { fill: rgba(13,27,42,0.92); rx: 8; }
 .map-tooltip text { fill: white; font-size: 12px; }
 .map-note { text-align: center; color: var(--muted); font-size: 0.86rem; margin: 12px 0 0; }
-@media (max-width: 900px) { .puzzle-template-grid { grid-template-columns: 1fr; gap: 14px; filter: none; } .puzzle-piece-card, .puzzle-card-2, .puzzle-card-3, .puzzle-card-4 { transform: none; border-radius: 24px; clip-path: polygon(0 0, 100% 0, 100% 82%, 58% 82%, 58% 100%, 42% 100%, 42% 82%, 0 82%); } .puzzle-card-2:hover, .puzzle-card-3:hover, .puzzle-card-4:hover { transform: translateY(-8px) scale(1.015); } }
 @media (max-width: 768px) { .contemporary-bubble-ticker, .editorial-wire-ticker { display: none; } }
 
 /* Current refinement overrides */
-.puzzle-clip-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 .puzzle-template-grid { grid-template-columns: repeat(4, minmax(210px, 1fr)); gap: 0; max-width: 1180px; filter: drop-shadow(0 18px 34px rgba(29,36,51,0.16)); }
-.puzzle-piece-card { min-height: 310px; margin: 0 -10px 0 0; border-radius: 0; background: var(--accent); color: white; clip-path: none; -webkit-clip-path: none; }
-.puzzle-card-1 { clip-path: url(#puzzle-strip-1); -webkit-clip-path: url(#puzzle-strip-1); border-radius: 28px 0 0 28px; }
-.puzzle-card-2 { clip-path: url(#puzzle-strip-2); -webkit-clip-path: url(#puzzle-strip-2); transform: none; }
-.puzzle-card-3 { clip-path: url(#puzzle-strip-3); -webkit-clip-path: url(#puzzle-strip-3); transform: none; }
-.puzzle-card-4 { clip-path: url(#puzzle-strip-4); -webkit-clip-path: url(#puzzle-strip-4); transform: none; border-radius: 0 28px 28px 0; margin-right: 0; }
-.puzzle-card-2:hover, .puzzle-card-3:hover, .puzzle-card-4:hover, .puzzle-piece-card:hover { transform: translateY(-10px) scale(1.025); box-shadow: 0 26px 48px rgba(29,36,51,0.24); }
-.puzzle-piece-card .template-card-body { padding: 48px 36px; justify-content: center; }
-.puzzle-piece-card h2 { font-size: 1.5rem; font-weight: 800; }
-.puzzle-piece-card p { font-size: 0.92rem; line-height: 1.45; opacity: 0.94; }
 .social-bar { height: 36px; background: #F5F5F5; border-bottom: 1px solid rgba(27,42,107,0.08); }
 .social-inner { height: 36px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .social-left { display: flex; align-items: center; gap: 13px; }
@@ -415,7 +389,6 @@ button, input { font: inherit; }
 .mobile-simple-ticker { display: none; }
 .headshot-placeholder { border-radius: 22px; margin-inline: auto; }
 .site-footer .footer-list a[href*="nyc.gov"]::after, .site-footer .footer-list a[href*="service-now"]::after { content: ''; }
-@media (max-width: 900px) { .puzzle-template-grid { grid-template-columns: 1fr; gap: 14px; filter: none; } .puzzle-piece-card, .puzzle-card-1, .puzzle-card-2, .puzzle-card-3, .puzzle-card-4 { margin: 0; border-radius: 24px; clip-path: polygon(0 0, 100% 0, 100% 82%, 58% 82%, 58% 100%, 42% 100%, 42% 82%, 0 82%); -webkit-clip-path: polygon(0 0, 100% 0, 100% 82%, 58% 82%, 58% 100%, 42% 100%, 42% 82%, 0 82%); } }
 @media (max-width: 768px) { .follow-label { display: none; } .ferris-ticker, .visual-notification-feed, .editorial-wire-ticker { display: none; } .mobile-simple-ticker { display: block; } }
 .modern .social-bar { margin-left: 250px; }
 @media (max-width: 1100px) { .modern .social-bar { margin-left: 0; } }
@@ -424,7 +397,7 @@ button, input { font: inherit; }
 .ferris-ticker { background: var(--navy); border: 0; box-shadow: 0 18px 38px rgba(27,42,107,0.28); }
 .ferris-center { right: 48px; color: var(--orange); }
 .ferris-arc { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.ferris-arc text { fill: white; font-family: 'Poppins', Arial, sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.02em; }
+.ferris-arc text { fill: white; font-family: inherit; font-size: 12px; font-weight: 400; letter-spacing: 0.02em; }
 .editorial-wire-ticker { display: none; }
 .editorial-calm-ticker { height: 38px; display: flex; align-items: center; background: var(--purple); color: white; border-top: 1px solid rgba(255,255,255,0.30); border-bottom: 1px solid rgba(255,255,255,0.30); overflow: hidden; }
 .editorial-latest-label { flex: 0 0 auto; padding: 0 18px; font-weight: 800; font-size: 0.84rem; letter-spacing: 0.04em; }
@@ -437,10 +410,6 @@ button, input { font: inherit; }
 
 /* Gapless puzzle strip + non-obstructing ticker fixes */
 .puzzle-template-grid { display: flex; gap: 0; max-width: 1180px; overflow: visible; }
-.puzzle-piece-card { flex: 1 1 0; min-width: 0; margin-right: -42px; }
-.puzzle-card-4 { margin-right: 0; }
-.puzzle-piece-card .template-card-body { padding-left: 54px; padding-right: 54px; }
-@media (max-width: 900px) { .puzzle-template-grid { display: grid; grid-template-columns: 1fr; } .puzzle-piece-card { margin-right: 0; } }
 .contemporary-news-shell { position: fixed; right: 0; top: 50%; width: 270px; height: 540px; margin-top: -270px; z-index: 60; pointer-events: none; }
 .news-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); border: 0; border-radius: 16px 0 0 16px; background: var(--orange); color: white; padding: 13px 10px; writing-mode: vertical-rl; text-orientation: mixed; font-weight: 800; cursor: pointer; z-index: 62; box-shadow: 0 10px 24px rgba(241,90,34,0.26); pointer-events: auto; }
 .ferris-backdrop { position: fixed; inset: 0; border: 0; background: rgba(13,27,42,0.18); opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
@@ -459,4 +428,3 @@ button, input { font: inherit; }
 .visual-live-shell.is-open .visual-notification-feed { transform: translateX(0); opacity: 1; pointer-events: auto; }
 .visual-live-shell.is-open .live-pill { opacity: 0; pointer-events: none; }
 @media (max-width: 768px) { .contemporary-news-shell, .visual-live-shell { display: none; } }
-@media (max-width: 900px) { .puzzle-piece-card { clip-path: polygon(0 0, 100% 0, 100% 82%, 58% 82%, 58% 100%, 42% 100%, 42% 82%, 0 82%) !important; -webkit-clip-path: polygon(0 0, 100% 0, 100% 82%, 58% 82%, 58% 100%, 42% 100%, 42% 82%, 0 82%) !important; } }
