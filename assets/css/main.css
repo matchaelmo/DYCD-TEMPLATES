@@ -65,17 +65,6 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
 .visual-side { min-height: 560px; position: relative; z-index: 2; display: grid; place-items: start center; }
 .hero-logo-card { width: min(320px, 78vw); min-height: 176px; margin-top: 35px; padding: 28px; border-radius: 30px; background: rgba(255,255,255,0.74); backdrop-filter: blur(8px); box-shadow: var(--shadow); position: relative; z-index: 3; display: grid; place-items: center; }
 .hero-logo-card .logo-fallback { width: 180px; height: 120px; border-radius: 30px; font-size: 2.2rem; }
-.puzzle-field { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.puzzle-piece { position: absolute; z-index: 0; width: clamp(92px, 9vw, 132px); color: var(--orange); opacity: 0.12; transform: rotate(var(--rotation)); transform-origin: 50% 50%; }
-.puzzle-piece svg { display: block; width: 100%; height: auto; }
-.puzzle-piece.p1 { top: 22px; left: 1vw; --rotation: -38deg; }
-.puzzle-piece.p2 { top: 8px; left: 44%; color: var(--navy); --rotation: 24deg; }
-.puzzle-piece.p3 { top: 18px; right: 2vw; color: var(--purple); --rotation: -27deg; }
-.puzzle-piece.p4 { top: 45%; left: 1.5vw; color: var(--navy); --rotation: 13deg; }
-.puzzle-piece.p5 { top: 47%; right: 2vw; color: var(--green); --rotation: -16deg; }
-.puzzle-piece.p6 { top: 32%; left: 52%; color: var(--navy); --rotation: 37deg; }
-.puzzle-piece.p7 { bottom: 11vh; left: 3vw; --rotation: -7deg; }
-.puzzle-piece.p8 { right: 4vw; bottom: 9vh; color: var(--navy); --rotation: 31deg; }
 .template-section { padding: 12px 0 50px; position: relative; z-index: 3; }
 .template-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 .template-card { background: white; border-radius: 22px; overflow: hidden; min-height: 250px; box-shadow: var(--soft-shadow); transition: transform 180ms ease, box-shadow 180ms ease; display: flex; flex-direction: column; }
