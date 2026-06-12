@@ -53,6 +53,7 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
 .home-page { min-height: 100vh; overflow-x: hidden; }
 .hero-gallery { min-height: 100vh; position: relative; isolation: isolate; padding: 58px 0 26px; display: flex; align-items: center; overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(330px, 0.76fr); gap: 46px; align-items: center; position: relative; z-index: 2; }
+.hero-copy { position: relative; z-index: 2; }
 .badge { display: inline-flex; align-items: center; padding: 9px 16px; border-radius: 999px; background: var(--orange); color: white; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.08em; box-shadow: 0 12px 22px rgba(241,90,34,0.18); }
 .hero-name-row { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin: 22px 0 0; }
 .hero-title { margin: 12px 0 18px; font-weight: 800; font-size: clamp(3.2rem, 8vw, 7.4rem); line-height: 0.94; letter-spacing: -0.075em; color: var(--navy); }
@@ -61,20 +62,20 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
 .purpose-box { max-width: 820px; background: var(--beige); border-left: 4px solid var(--purple); border-radius: 18px; padding: 22px 24px; box-shadow: inset 0 0 0 1px rgba(107,63,160,0.08); }
 .purpose-box h2 { margin: 0 0 8px; color: var(--navy); font-size: 1.18rem; }
 .purpose-box p { margin: 0; color: #5f5a53; }
-.visual-side { min-height: 560px; position: relative; display: grid; place-items: start center; }
+.visual-side { min-height: 560px; position: relative; z-index: 2; display: grid; place-items: start center; }
 .hero-logo-card { width: min(320px, 78vw); min-height: 176px; margin-top: 35px; padding: 28px; border-radius: 30px; background: rgba(255,255,255,0.74); backdrop-filter: blur(8px); box-shadow: var(--shadow); position: relative; z-index: 3; display: grid; place-items: center; }
 .hero-logo-card .logo-fallback { width: 180px; height: 120px; border-radius: 30px; font-size: 2.2rem; }
 .puzzle-field { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.puzzle-piece { position: absolute; width: clamp(118px, 12vw, 168px); color: var(--orange); opacity: 0.08; transform: rotate(var(--rotation)); transform-origin: 50% 50%; }
+.puzzle-piece { position: absolute; z-index: 0; width: clamp(92px, 9vw, 132px); color: var(--orange); opacity: 0.12; transform: rotate(var(--rotation)); transform-origin: 50% 50%; }
 .puzzle-piece svg { display: block; width: 100%; height: auto; }
-.puzzle-piece.p1 { top: 18px; left: 2vw; --rotation: -32deg; }
-.puzzle-piece.p2 { top: 18px; right: 3vw; color: var(--navy); --rotation: 27deg; }
-.puzzle-piece.p3 { top: 44%; left: 1vw; color: var(--navy); --rotation: 14deg; }
-.puzzle-piece.p4 { top: 42%; right: 2vw; --rotation: -18deg; }
-.puzzle-piece.p5 { bottom: 9vh; left: 5vw; --rotation: 34deg; }
-.puzzle-piece.p6 { right: 7vw; bottom: 8vh; color: var(--navy); --rotation: -37deg; }
-.puzzle-piece.p7 { top: 18%; left: 43%; --rotation: 8deg; }
-.puzzle-piece.p8 { bottom: 16%; left: 48%; color: var(--navy); --rotation: -6deg; }
+.puzzle-piece.p1 { top: 22px; left: 1vw; --rotation: -38deg; }
+.puzzle-piece.p2 { top: 8px; left: 44%; color: var(--navy); --rotation: 24deg; }
+.puzzle-piece.p3 { top: 18px; right: 2vw; color: var(--purple); --rotation: -27deg; }
+.puzzle-piece.p4 { top: 45%; left: 1.5vw; color: var(--navy); --rotation: 13deg; }
+.puzzle-piece.p5 { top: 47%; right: 2vw; color: var(--green); --rotation: -16deg; }
+.puzzle-piece.p6 { top: 32%; left: 52%; color: var(--navy); --rotation: 37deg; }
+.puzzle-piece.p7 { bottom: 11vh; left: 3vw; --rotation: -7deg; }
+.puzzle-piece.p8 { right: 4vw; bottom: 9vh; color: var(--navy); --rotation: 31deg; }
 .template-section { padding: 12px 0 50px; position: relative; z-index: 3; }
 .template-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 .template-card { background: white; border-radius: 22px; overflow: hidden; min-height: 250px; box-shadow: var(--soft-shadow); transition: transform 180ms ease, box-shadow 180ms ease; display: flex; flex-direction: column; }
