@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contemporary Announcements | DYCD-TEMPLATES</title>
+<meta name="description" content="DYCD announcements prototype for Contemporary.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+.directory-page-main { padding: 54px 0 74px; }
+.directory-title-card { margin-bottom: 30px; }
+.directory-title-card h1 { margin: 0 0 8px; font-size: clamp(2.4rem, 5vw, 4.6rem); line-height: 1; }
+.directory-title-card p { margin: 0 0 18px; color: var(--muted); }
+.directory-help-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.help-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; color: white; font-weight: 800; }
+.help-btn.navy { background: #1B2A6B; }.help-btn.orange { background: #F15A22; }
+.directory-search { background: white; border: 1px solid rgba(27,42,107,0.14); padding: 24px; box-shadow: var(--soft-shadow); margin-bottom: 32px; }
+.directory-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 18px; }
+.directory-form-grid label { display: grid; gap: 6px; font-weight: 800; color: var(--navy); }
+.directory-form-grid input, .directory-form-grid select { width: 100%; padding: 12px 13px; border: 1px solid #cfcfcf; background: white; color: #1d2433; }
+.directory-actions { display: flex; justify-content: center; gap: 12px; margin-top: 22px; }.directory-actions button { border: 0; cursor: pointer; padding: 12px 22px; font-weight: 900; }.reset-btn { background: #d7d7d7; color: #333; }
+.prototype-note { text-align: center; color: #6f6a63; font-size: 0.9rem; margin: 14px 0 0; }
+.directory-empty { color: #777; font-style: italic; text-align: center; padding: 24px; border: 1px dashed #cfcfcf; background: rgba(255,255,255,0.72); }
+.directory-results[hidden] { display: none; }
+.directory-results h2 { margin: 0 0 14px; color: var(--navy); }.table-wrap { overflow-x: auto; border: 1px solid rgba(27,42,107,0.14); background: white; }
+table { width: 100%; border-collapse: collapse; min-width: 1040px; } th, td { padding: 13px 12px; text-align: left; border-bottom: 1px solid #e5e5e5; font-size: 0.92rem; } th { color: white; white-space: nowrap; } td a { font-weight: 800; color: inherit; }
+.nav-links a.is-active, .modern-side-nav a.is-active { color: #F15A22; }
+@media (max-width: 760px) { .directory-form-grid { grid-template-columns: 1fr; } }
+.contemporary .directory-page-main { padding: 82px 0; }.contemporary .directory-title-card h1, .contemporary .directory-results h2 { font-weight: 800; }.contemporary .directory-search { border-radius: 24px; padding: 34px; }.contemporary th { background: #1B2A6B; }.contemporary tbody tr:nth-child(even) { background: #FFF5EE; }.contemporary .search-btn { background: #F15A22; color: white; border-radius: 999px; }.contemporary .reset-btn { border-radius: 999px; }
+.content-page-main { padding: 54px 0 74px; }
+.content-title-card { margin-bottom: 30px; }
+.content-title-card h1 { margin: 0 0 8px; font-size: clamp(2.4rem, 5vw, 4.6rem); line-height: 1; color: var(--navy); }
+.content-title-card p { margin: 0; color: var(--muted); }
+.filter-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 0 0 24px; }
+.filter-label { font-weight: 900; color: var(--navy); }
+.filter-pill { border: 1px solid currentColor; border-radius: 999px; padding: 8px 14px; background: white; color: var(--page-accent); font-weight: 900; }
+.filter-pill.is-active { background: var(--page-accent); color: white; }
+.filter-note { color: #777; font-style: italic; font-size: .9rem; }
+.announcement-list { display: grid; gap: 0; background: white; border: 1px solid rgba(27,42,107,.13); }
+.announcement-item { padding: 22px 24px; border-bottom: 1px solid #dedede; border-left: 6px solid var(--item-color); }
+.announcement-item:last-child { border-bottom: 0; }
+.announcement-item.urgent { --item-color: #C62828; } .announcement-item.info { --item-color: #F15A22; } .announcement-item.general { --item-color: #1B2A6B; }
+.announcement-tag { display: inline-flex; background: var(--item-color); color: white; font-size: .72rem; padding: 4px 9px; border-radius: 999px; font-weight: 900; letter-spacing: .06em; }
+.announcement-date { color: #777; font-size: .88rem; margin: 9px 0 4px; }
+.announcement-item h2 { margin: 0 0 8px; color: var(--navy); }
+.announcement-item p { margin: 0; color: #4b4b4b; }
+.program-grid-page { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; }
+.program-info-card { background: white; border: 1px solid rgba(27,42,107,.13); padding: 24px; box-shadow: var(--soft-shadow); }
+.program-info-card .program-icon { font-size: 2.4rem; display: block; margin-bottom: 10px; }
+.program-info-card h2 { margin: 0 0 10px; color: var(--navy); }
+.program-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.program-stats span { background: rgba(27,42,107,.08); color: var(--navy); padding: 6px 9px; border-radius: 999px; font-size: .82rem; font-weight: 900; }
+.program-contact a { color: var(--page-accent); font-weight: 900; }
+.learn-more { display: inline-flex; margin-top: 14px; background: var(--page-accent); color: white; padding: 10px 14px; border-radius: 999px; font-weight: 900; }
+.content-subsection { margin-top: 46px; }
+.resource-link-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; }
+.resource-link-grid a { background: white; border: 1px solid rgba(27,42,107,.13); padding: 18px; font-weight: 900; color: var(--navy); }
+.content-kpi-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 14px; }
+.content-kpi { background: white; border: 1px solid rgba(27,42,107,.13); padding: 20px; text-align: center; }
+.content-kpi strong { display: block; color: var(--page-accent); font-size: 1.7rem; }
+.visual .content-page-main { background: #0D1B2A; color: white; }
+.visual .content-title-card h1, .visual .filter-label, .visual .announcement-item h2, .visual .program-info-card h2, .visual .content-kpi span, .visual .resource-link-grid a { color: white; }
+.visual .content-title-card p, .visual .announcement-date, .visual .announcement-item p { color: rgba(255,255,255,.72); }
+.visual .announcement-list, .visual .announcement-item, .visual .program-info-card, .visual .resource-link-grid a, .visual .content-kpi { background: #12243a; border-color: rgba(46,139,87,.42); }
+.visual .program-stats span { background: #0D1B2A; color: #2E8B57; }
+.traditional .content-page-main { padding: 0; }
+@media(max-width:900px){.program-grid-page,.resource-link-grid,.content-kpi-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body class="template-body contemporary directory-page">
+<div class="govbar">
+<div class="container govbar-inner">
+<a href="../commissioner.html">Sandra Escamilla-Davies, Commissioner</a>
+<span>Zohran K. Mamdani, Mayor</span>
+</div>
+</div>
+<header class="topbar">
+<div class="container nav-inner">
+<a class="brand" href="contemporary.html" aria-label="Back to parent template">
+<span class="logo-frame">
+<img src="../assets/images/dycd-logo.png" alt="DYCD logo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'DYCD'}));">
+</span>
+<span class="brand-name">DYCD <span data-intranet-name>Intranet</span>
+<span>Department of Youth &amp; Community Development</span>
+</span>
+</a>
+<div class="name-switcher nav-switcher" data-name-switcher>
+<button class="name-trigger" type="button" data-name-trigger aria-haspopup="true">Intranet ▼</button>
+<div class="name-menu" role="menu">
+<button class="name-option" type="button" data-name-option="Juventus">Juventus</button>
+<button class="name-option" type="button" data-name-option="The Hub">The Hub</button>
+<button class="name-option" type="button" data-name-option="Juventud">Juventud</button>
+<button class="name-option" type="button" data-name-option="The Yard">The Yard</button>
+</div>
+</div>
+<nav class="nav-links" aria-label="Main navigation">
+<a class="back-link" href="../index.html">← Back to Templates</a>
+<a class="home-icon" href="contemporary.html" aria-label="Home">🏠</a>
+<a href="contemporary.html#news">News</a>
+<a class="is-active" href="announcements-contemporary.html">Announcements</a>
+<a href="programs-contemporary.html">Programs</a>
+<a href="contemporary.html#hr">HR</a>
+<a href="contemporary.html#admin">Admin</a>
+<a href="directory-contemporary.html">Directory</a>
+<div class="resources-menu" data-resources-menu>
+<button class="resources-trigger" type="button">Resources ▾</button>
+<div class="mega-menu">
+<a href="contemporary.html#policy">📚 Policy Library</a>
+<a href="contemporary.html#resources">👥 Staff Resources</a>
+<a href="contemporary.html#admin">📄 Forms &amp; Templates</a>
+<a href="contemporary.html#hr">🎓 Training Catalog</a>
+<a href="contemporary.html#resources">📣 Communications Toolkit</a>
+<a href="contemporary.html#resources">🛡️ Safety Resources</a>
+</div>
+</div>
+<a href="contemporary.html#events">Events</a>
+<a class="service-now-pill" href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
+<form class="nav-search" data-nav-search data-search-prefix="../" role="search">
+<button class="search-toggle" type="button" data-search-toggle aria-label="Open search">🔍</button>
+<input class="nav-search-input" data-search-input type="search" aria-label="Search intranet" placeholder="Search">
+</form>
+</nav>
+</div>
+</header>
+<div class="social-bar">
+<div class="container social-inner">
+<div class="social-left">
+<span class="follow-label">Follow DYCD:</span>
+<a href="https://www.facebook.com/NYCdycd" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+<a href="https://twitter.com/NYCyouthand" target="_blank" rel="noopener" aria-label="Twitter/X">🐦</a>
+<a href="https://www.instagram.com/nycyouth" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+<a href="https://www.youtube.com/c/NYCYOUTH" target="_blank" rel="noopener" aria-label="YouTube">▶️</a>
+<a href="https://www.linkedin.com/company/nycdycd" target="_blank" rel="noopener" aria-label="LinkedIn">💼</a>
+</div>
+<a class="podcast-pill" href="https://www.nyc.gov/dycd" target="_blank" rel="noopener">🎙️ DYCD Podcast</a>
+</div>
+</div>
+<main class="content-page-main" style="--page-accent:#F15A22"><div class="container"><section class="content-title-card"><p class="section-kicker">Announcements</p><h1>Announcements</h1><p>Agency-wide updates, memos, and important notices for DYCD staff</p></section><div class="filter-bar"><span class="filter-label">Filter by:</span><button class="filter-pill is-active" type="button">All</button><button class="filter-pill" type="button">Urgent</button><button class="filter-pill" type="button">General</button><span class="filter-note">Static prototype — filters not active</span></div><section class="announcement-list"><article class="announcement-item urgent"><span class="announcement-tag">URGENT</span><p class="announcement-date">June 9, 2026</p><h2>Mandatory Cybersecurity Training Due June 30</h2><p>All DYCD staff must complete the annual cybersecurity awareness training in LMS by June 30, 2026. Staff who have not completed the training will be contacted by their supervisor.</p></article>
+<article class="announcement-item info"><span class="announcement-tag">INFO</span><p class="announcement-date">June 8, 2026</p><h2>Summer Hours Begin July 7</h2><p>Agency offices will operate on summer hours (8AM-4PM) from July 7 through August 29, 2026. Please plan meetings and deadlines accordingly.</p></article>
+<article class="announcement-item general"><span class="announcement-tag">GENERAL</span><p class="announcement-date">June 7, 2026</p><h2>Community Partner Town Hall — June 24</h2><p>Join agency leadership and community partners at the Manhattan Municipal Building Auditorium on June 24 at 10AM. RSVP to your division coordinator by June 17.</p></article>
+<article class="announcement-item info"><span class="announcement-tag">INFO</span><p class="announcement-date">June 6, 2026</p><h2>Staff Appreciation Week: June 16-20</h2><p>DYCD will celebrate Staff Appreciation Week with daily activities, recognition spotlights, and a Friday afternoon reception. More details coming from Agency Operations.</p></article>
+<article class="announcement-item urgent"><span class="announcement-tag">URGENT</span><p class="announcement-date">June 5, 2026</p><h2>Updated Records Retention Policy</h2><p>The agency records retention policy has been updated effective July 1, 2026. All staff must review the new guidelines available in the Policy Library.</p></article>
+<article class="announcement-item general"><span class="announcement-tag">GENERAL</span><p class="announcement-date">June 4, 2026</p><h2>New Employee Onboarding — June 16</h2><p>We welcome 12 new staff members joining DYCD on June 16. Please extend a warm welcome to our newest colleagues across programs and operations.</p></article>
+<article class="announcement-item info"><span class="announcement-tag">INFO</span><p class="announcement-date">June 3, 2026</p><h2>FY26 Budget Submission Deadline</h2><p>All division budget submissions for FY26 are due to the Fiscal team by June 20, 2026. Contact the Budget office with any questions.</p></article>
+<article class="announcement-item general"><span class="announcement-tag">GENERAL</span><p class="announcement-date">June 2, 2026</p><h2>Facilities Update: 2 Lafayette Lobby</h2><p>The main lobby at 2 Lafayette St will undergo renovation June 10-14. Please use the William St entrance during this period.</p></article></section></div></main><footer class="site-footer" id="contact">
+<div class="container site-footer-main">
+<div>
+<div class="brand">
+<span class="logo-frame">
+<img src="../assets/images/dycd-logo.png" alt="DYCD logo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'DYCD'}));">
+</span>
+<span class="brand-name">Department of Youth &amp; Community Development<span>Internal Use Only 2026</span>
+</span>
+</div>
+</div>
+<div>
+<h3>Locations</h3>
+<ul class="footer-list">
+<li>📍 2 Lafayette St, New York, NY 10007</li>
+<li>📍 123 William St, New York, NY 10038</li>
+<li>📍 59 Maiden Lane, New York, NY 10038</li>
+</ul>
+</div>
+<div>
+<h3>Contact</h3>
+<ul class="footer-list">
+<li>✉️ <a href="mailto:ealvarado@dycd.nyc.gov">ealvarado@dycd.nyc.gov</a>
+</li>
+<li>🌐 <a href="https://www.nyc.gov" target="_blank" rel="noopener">NYC.gov</a>
+</li>
+<li>💻 <a href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
+</li>
+<li>🎙️ <a href="https://www.nyc.gov/dycd" target="_blank" rel="noopener">DYCD Podcast</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">© 2026 NYC Department of Youth &amp; Community Development | Internal Use Only | Not for public distribution</div>
+</footer>
+<script src="../assets/js/main.js">
+</script>
+</body>
+</html>

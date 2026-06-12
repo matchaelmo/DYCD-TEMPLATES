@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Visual Data | DYCD-TEMPLATES</title><meta name="description" content="DYCD intranet prototype: Visual Data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body class="template-body visual">
@@ -24,7 +27,7 @@
         </div>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="back-link" href="../index.html">← Back to Templates</a>
-        <a class="home-icon" href="../index.html" aria-label="Home">🏠</a><a href="#news">News</a><a href="#announcements">Announcements</a><a href="#programs">Programs</a><a href="#hr">HR</a><a href="#admin">Admin</a><a href="#directory">Directory</a><div class="resources-menu" data-resources-menu>
+        <a class="home-icon" href="../index.html" aria-label="Home">🏠</a><a href="#news">News</a><a href="announcements-visual-data.html">Announcements</a><a href="programs-visual-data.html">Programs</a><a href="#hr">HR</a><a href="#admin">Admin</a><a href="directory-visual-data.html">Directory</a><div class="resources-menu" data-resources-menu>
           <button class="resources-trigger" type="button">Resources ▾</button>
           <div class="mega-menu">
             <a href="#policy">📚 Policy Library</a><a href="#resources">👥 Staff Resources</a><a href="#admin">📄 Forms &amp; Templates</a><a href="#hr">🎓 Training Catalog</a><a href="#resources">📣 Communications Toolkit</a><a href="#resources">🛡️ Safety Resources</a>
@@ -37,8 +40,13 @@
   <main class="template-main">
     <section class="template-hero" id="home"><div class="container"><div class="template-hero-card"><div><p class="section-kicker">Visual / Data</p><h1>DYCD command center</h1><p>A data-forward homepage concept where staff can quickly understand agency scale, priorities, and operational resources.</p></div><div class="hero-data-grid" aria-label="Featured data"><div class="mini-data"><strong>97K+</strong>Youth served</div><div class="mini-data"><strong>300+</strong>Programs</div><div class="mini-data"><strong>250+</strong>Partners</div><div class="mini-data"><strong>5</strong>Borough reach</div></div></div></div></section>
     <div class="visual-live-shell" id="news" data-live-feed>
-      <button class="live-pill" type="button" data-live-toggle>● LIVE</button>
-      <aside class="visual-notification-feed" aria-label="Live notification feed"><div class="feed-label">● LIVE FEED</div><div class="feed-stack"><article class="feed-note note-1"><strong>SYEP now open</strong><span>Just now</span></article><article class="feed-note note-2"><strong>HR policy July 1</strong><span>4 min ago</span></article><article class="feed-note note-3"><strong>Staff Week Jun 16–20</strong><span>8 min ago</span></article></div></aside>
+      <button class="live-pill" type="button" data-live-toggle aria-controls="visual-live-modal" aria-expanded="false">● Live Feed</button>
+      <div class="live-feed-modal" id="visual-live-modal" data-live-modal hidden>
+        <div class="live-feed-card" role="dialog" aria-modal="true" aria-labelledby="visual-live-title">
+          <button class="live-feed-close" type="button" data-live-close aria-label="Close live feed">×</button>
+          <aside class="visual-notification-feed" aria-label="Live notification feed"><div class="feed-label" id="visual-live-title">● LIVE FEED</div><div class="feed-stack"><article class="feed-note note-1"><strong>SYEP now open</strong><span>Just now</span></article><article class="feed-note note-2"><strong>HR policy July 1</strong><span>4 min ago</span></article><article class="feed-note note-3"><strong>Staff Week Jun 16–20</strong><span>8 min ago</span></article></div></aside>
+        </div>
+      </div>
     </div>
     <section class="news-ticker mobile-simple-ticker"><div class="ticker-track"><span>Staff Appreciation Week: June 16–20</span><span>New HR Policy effective July 1</span><span>SYEP now open</span><span>Cyber training due Friday</span><span>Staff Appreciation Week: June 16–20</span><span>New HR Policy effective July 1</span></div></section>
     <section class="section" id="announcements"><div class="container"><p class="section-kicker">Announcements</p><h2 class="section-title">Announcements</h2><div class="grid announcement-grid"><article class="card announcement-card urgent"><div class="announcement-meta">📢 Urgent · June 30</div><h3>Mandatory Cybersecurity Training Due June 30</h3><p>All staff must complete training in LMS by end of month.</p></article><article class="card announcement-card info"><div class="announcement-meta">📢 Info · July 7</div><h3>Summer Hours Begin July 7</h3><p>Agency offices will operate 8AM–4PM through August.</p></article><article class="card announcement-card general"><div class="announcement-meta">📢 General · June 24</div><h3>Community Partner Town Hall — June 24</h3><p>Join us at the Manhattan Municipal Building Auditorium.</p></article></div></div></section>
