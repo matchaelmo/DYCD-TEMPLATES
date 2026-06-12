@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visual Data Programs | DYCD-TEMPLATES</title>
+<meta name="description" content="DYCD programs prototype for Visual Data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+.directory-page-main { padding: 54px 0 74px; }
+.directory-title-card { margin-bottom: 30px; }
+.directory-title-card h1 { margin: 0 0 8px; font-size: clamp(2.4rem, 5vw, 4.6rem); line-height: 1; }
+.directory-title-card p { margin: 0 0 18px; color: var(--muted); }
+.directory-help-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.help-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; color: white; font-weight: 800; }
+.help-btn.navy { background: #1B2A6B; }.help-btn.orange { background: #F15A22; }
+.directory-search { background: white; border: 1px solid rgba(27,42,107,0.14); padding: 24px; box-shadow: var(--soft-shadow); margin-bottom: 32px; }
+.directory-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 18px; }
+.directory-form-grid label { display: grid; gap: 6px; font-weight: 800; color: var(--navy); }
+.directory-form-grid input, .directory-form-grid select { width: 100%; padding: 12px 13px; border: 1px solid #cfcfcf; background: white; color: #1d2433; }
+.directory-actions { display: flex; justify-content: center; gap: 12px; margin-top: 22px; }.directory-actions button { border: 0; cursor: pointer; padding: 12px 22px; font-weight: 900; }.reset-btn { background: #d7d7d7; color: #333; }
+.prototype-note { text-align: center; color: #6f6a63; font-size: 0.9rem; margin: 14px 0 0; }
+.directory-empty { color: #777; font-style: italic; text-align: center; padding: 24px; border: 1px dashed #cfcfcf; background: rgba(255,255,255,0.72); }
+.directory-results[hidden] { display: none; }
+.directory-results h2 { margin: 0 0 14px; color: var(--navy); }.table-wrap { overflow-x: auto; border: 1px solid rgba(27,42,107,0.14); background: white; }
+table { width: 100%; border-collapse: collapse; min-width: 1040px; } th, td { padding: 13px 12px; text-align: left; border-bottom: 1px solid #e5e5e5; font-size: 0.92rem; } th { color: white; white-space: nowrap; } td a { font-weight: 800; color: inherit; }
+.nav-links a.is-active, .modern-side-nav a.is-active { color: #F15A22; }
+@media (max-width: 760px) { .directory-form-grid { grid-template-columns: 1fr; } }
+.visual .directory-page-main { background: #0D1B2A; color: white; }.visual .directory-title-card h1, .visual .directory-results h2, .visual .directory-form-grid label { color: white; }.visual .directory-title-card p, .visual .prototype-note { color: rgba(255,255,255,.72); }.visual .directory-search { background: #12243a; border-color: rgba(46,139,87,.45); box-shadow: none; }.visual input, .visual select { background: #0D1B2A; color: white; border-color: rgba(46,139,87,.55); }.visual th { background: #2E8B57; color: #0D1B2A; }.visual tbody tr:nth-child(odd) { background: #1B2A6B; color: white; }.visual tbody tr:nth-child(even) { background: #0D1B2A; color: white; }.visual td { border-bottom-color: rgba(46,139,87,.35); }.visual .table-wrap { border-color: rgba(46,139,87,.45); background: #0D1B2A; }.visual .search-btn { background: #2E8B57; color: white; }
+.content-page-main { padding: 54px 0 74px; }
+.content-title-card { margin-bottom: 30px; }
+.content-title-card h1 { margin: 0 0 8px; font-size: clamp(2.4rem, 5vw, 4.6rem); line-height: 1; color: var(--navy); }
+.content-title-card p { margin: 0; color: var(--muted); }
+.filter-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 0 0 24px; }
+.filter-label { font-weight: 900; color: var(--navy); }
+.filter-pill { border: 1px solid currentColor; border-radius: 999px; padding: 8px 14px; background: white; color: var(--page-accent); font-weight: 900; }
+.filter-pill.is-active { background: var(--page-accent); color: white; }
+.filter-note { color: #777; font-style: italic; font-size: .9rem; }
+.announcement-list { display: grid; gap: 0; background: white; border: 1px solid rgba(27,42,107,.13); }
+.announcement-item { padding: 22px 24px; border-bottom: 1px solid #dedede; border-left: 6px solid var(--item-color); }
+.announcement-item:last-child { border-bottom: 0; }
+.announcement-item.urgent { --item-color: #C62828; } .announcement-item.info { --item-color: #F15A22; } .announcement-item.general { --item-color: #1B2A6B; }
+.announcement-tag { display: inline-flex; background: var(--item-color); color: white; font-size: .72rem; padding: 4px 9px; border-radius: 999px; font-weight: 900; letter-spacing: .06em; }
+.announcement-date { color: #777; font-size: .88rem; margin: 9px 0 4px; }
+.announcement-item h2 { margin: 0 0 8px; color: var(--navy); }
+.announcement-item p { margin: 0; color: #4b4b4b; }
+.program-grid-page { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; }
+.program-info-card { background: white; border: 1px solid rgba(27,42,107,.13); padding: 24px; box-shadow: var(--soft-shadow); }
+.program-info-card .program-icon { font-size: 2.4rem; display: block; margin-bottom: 10px; }
+.program-info-card h2 { margin: 0 0 10px; color: var(--navy); }
+.program-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.program-stats span { background: rgba(27,42,107,.08); color: var(--navy); padding: 6px 9px; border-radius: 999px; font-size: .82rem; font-weight: 900; }
+.program-contact a { color: var(--page-accent); font-weight: 900; }
+.learn-more { display: inline-flex; margin-top: 14px; background: var(--page-accent); color: white; padding: 10px 14px; border-radius: 999px; font-weight: 900; }
+.content-subsection { margin-top: 46px; }
+.resource-link-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; }
+.resource-link-grid a { background: white; border: 1px solid rgba(27,42,107,.13); padding: 18px; font-weight: 900; color: var(--navy); }
+.content-kpi-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 14px; }
+.content-kpi { background: white; border: 1px solid rgba(27,42,107,.13); padding: 20px; text-align: center; }
+.content-kpi strong { display: block; color: var(--page-accent); font-size: 1.7rem; }
+.visual .content-page-main { background: #0D1B2A; color: white; }
+.visual .content-title-card h1, .visual .filter-label, .visual .announcement-item h2, .visual .program-info-card h2, .visual .content-kpi span, .visual .resource-link-grid a { color: white; }
+.visual .content-title-card p, .visual .announcement-date, .visual .announcement-item p { color: rgba(255,255,255,.72); }
+.visual .announcement-list, .visual .announcement-item, .visual .program-info-card, .visual .resource-link-grid a, .visual .content-kpi { background: #12243a; border-color: rgba(46,139,87,.42); }
+.visual .program-stats span { background: #0D1B2A; color: #2E8B57; }
+.traditional .content-page-main { padding: 0; }
+@media(max-width:900px){.program-grid-page,.resource-link-grid,.content-kpi-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body class="template-body visual directory-page">
+<div class="govbar">
+<div class="container govbar-inner">
+<a href="../commissioner.html">Sandra Escamilla-Davies, Commissioner</a>
+<span>Zohran K. Mamdani, Mayor</span>
+</div>
+</div>
+<header class="topbar">
+<div class="container nav-inner">
+<a class="brand" href="visual-data.html" aria-label="Back to parent template">
+<span class="logo-frame">
+<img src="../assets/images/dycd-logo-white.png" alt="DYCD logo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'DYCD'}));">
+</span>
+<span class="brand-name">DYCD <span data-intranet-name>Intranet</span>
+<span>Department of Youth &amp; Community Development</span>
+</span>
+</a>
+<div class="name-switcher nav-switcher" data-name-switcher>
+<button class="name-trigger" type="button" data-name-trigger aria-haspopup="true">Intranet ▼</button>
+<div class="name-menu" role="menu">
+<button class="name-option" type="button" data-name-option="Juventus">Juventus</button>
+<button class="name-option" type="button" data-name-option="The Hub">The Hub</button>
+<button class="name-option" type="button" data-name-option="Juventud">Juventud</button>
+<button class="name-option" type="button" data-name-option="The Yard">The Yard</button>
+</div>
+</div>
+<nav class="nav-links" aria-label="Main navigation">
+<a class="back-link" href="../index.html">← Back to Templates</a>
+<a class="home-icon" href="visual-data.html" aria-label="Home">🏠</a>
+<a href="visual-data.html#news">News</a>
+<a href="announcements-visual-data.html">Announcements</a>
+<a class="is-active" href="programs-visual-data.html">Programs</a>
+<a href="visual-data.html#hr">HR</a>
+<a href="visual-data.html#admin">Admin</a>
+<a href="directory-visual-data.html">Directory</a>
+<div class="resources-menu" data-resources-menu>
+<button class="resources-trigger" type="button">Resources ▾</button>
+<div class="mega-menu">
+<a href="visual-data.html#policy">📚 Policy Library</a>
+<a href="visual-data.html#resources">👥 Staff Resources</a>
+<a href="visual-data.html#admin">📄 Forms &amp; Templates</a>
+<a href="visual-data.html#hr">🎓 Training Catalog</a>
+<a href="visual-data.html#resources">📣 Communications Toolkit</a>
+<a href="visual-data.html#resources">🛡️ Safety Resources</a>
+</div>
+</div>
+<a href="visual-data.html#events">Events</a>
+<a class="service-now-pill" href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
+<form class="nav-search" data-nav-search data-search-prefix="../" role="search">
+<button class="search-toggle" type="button" data-search-toggle aria-label="Open search">🔍</button>
+<input class="nav-search-input" data-search-input type="search" aria-label="Search intranet" placeholder="Search">
+</form>
+</nav>
+</div>
+</header>
+<div class="social-bar">
+<div class="container social-inner">
+<div class="social-left">
+<span class="follow-label">Follow DYCD:</span>
+<a href="https://www.facebook.com/NYCdycd" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+<a href="https://twitter.com/NYCyouthand" target="_blank" rel="noopener" aria-label="Twitter/X">🐦</a>
+<a href="https://www.instagram.com/nycyouth" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+<a href="https://www.youtube.com/c/NYCYOUTH" target="_blank" rel="noopener" aria-label="YouTube">▶️</a>
+<a href="https://www.linkedin.com/company/nycdycd" target="_blank" rel="noopener" aria-label="LinkedIn">💼</a>
+</div>
+<a class="podcast-pill" href="https://www.nyc.gov/dycd" target="_blank" rel="noopener">🎙️ DYCD Podcast</a>
+</div>
+</div>
+<main class="content-page-main" style="--page-accent:#2E8B57"><div class="container"><section class="content-title-card"><p class="section-kicker">Programs</p><h1>DYCD Programs</h1><p>Connecting New York City youth, families, and communities to opportunity</p></section><section class="program-grid-page"><article class="program-info-card"><span class="program-icon">🏫</span><h2>After School Programs</h2><p>Safe, enriching after-school programs that help students learn, grow, and thrive. Programs operate at schools and community sites across all five boroughs.</p><div class="program-stats"><span>600+ Sites</span><span>100,000+ Youth</span><span>All 5 Boroughs</span></div><p class="program-contact">Contact: <a href="mailto:afterschool@dycd.nyc.gov">afterschool@dycd.nyc.gov</a></p><a class="learn-more" href="#">Learn More →</a></article>
+<article class="program-info-card"><span class="program-icon">☀️</span><h2>Summer Youth Employment Program (SYEP)</h2><p>New York City's largest youth employment program, connecting young people ages 14-24 to paid work experiences and career exploration.</p><div class="program-stats"><span>70,000+ Youth</span><span>10,000+ Worksites</span><span>Ages 14-24</span></div><p class="program-contact">Contact: <a href="mailto:syep@dycd.nyc.gov">syep@dycd.nyc.gov</a></p><a class="learn-more" href="#">Learn More →</a></article>
+<article class="program-info-card"><span class="program-icon">🏠</span><h2>Runaway & Homeless Youth (RHY)</h2><p>Trauma-informed shelter, crisis services, and transitional support for young people experiencing homelessness across New York City.</p><div class="program-stats"><span>40+ Programs</span><span>24/7 Crisis Line</span><span>Ages 16-24</span></div><p class="program-contact">Contact: <a href="mailto:rhy@dycd.nyc.gov">rhy@dycd.nyc.gov</a></p><a class="learn-more" href="#">Learn More →</a></article>
+<article class="program-info-card"><span class="program-icon">📖</span><h2>Adult Literacy</h2><p>Community-based programs that strengthen reading, language, workforce, and digital skills for adult New Yorkers seeking to advance.</p><div class="program-stats"><span>50+ Sites</span><span>10,000+ Adults</span><span>Free Programs</span></div><p class="program-contact">Contact: <a href="mailto:literacy@dycd.nyc.gov">literacy@dycd.nyc.gov</a></p><a class="learn-more" href="#">Learn More →</a></article>
+<article class="program-info-card"><span class="program-icon">👨‍👩‍👧</span><h2>Family Support Programs</h2><p>Comprehensive services that strengthen families, prevent crises, and connect parents and caregivers to community resources.</p><div class="program-stats"><span>30+ Programs</span><span>All Boroughs</span><span>Multilingual Services</span></div><p class="program-contact">Contact: <a href="mailto:family@dycd.nyc.gov">family@dycd.nyc.gov</a></p><a class="learn-more" href="#">Learn More →</a></article>
+<article class="program-info-card"><span class="program-icon">🌱</span><h2>Neighborhood Development</h2><p>Community development initiatives that build capacity, strengthen local organizations, and create pathways to opportunity in underserved neighborhoods.</p><div class="program-stats"><span>20+ Neighborhoods</span><span>250+ Partners</span><span>Citywide</span></div><p class="program-contact">Contact: <a href="mailto:neighborhood@dycd.nyc.gov">neighborhood@dycd.nyc.gov</a></p><a class="learn-more" href="#">Learn More →</a></article></section><section class="content-subsection"><h2 class="section-title">Program Resources</h2><div class="resource-link-grid"><a href="#">Program Forms &amp; Templates</a><a href="#">Reporting Guidelines</a><a href="#">Provider Directory</a><a href="#">Training &amp; Compliance</a></div></section><section class="content-subsection"><h2 class="section-title">DYCD by the Numbers</h2><div class="content-kpi-grid"><div class="content-kpi"><strong>97,000+</strong><span>Youth Served</span></div><div class="content-kpi"><strong>300+</strong><span>Programs</span></div><div class="content-kpi"><strong>250+</strong><span>Partners</span></div><div class="content-kpi"><strong>50+</strong><span>Locations</span></div><div class="content-kpi"><strong>400+</strong><span>Staff</span></div></div></section></div></main><footer class="site-footer" id="contact">
+<div class="container site-footer-main">
+<div>
+<div class="brand">
+<span class="logo-frame">
+<img src="../assets/images/dycd-logo.png" alt="DYCD logo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'DYCD'}));">
+</span>
+<span class="brand-name">Department of Youth &amp; Community Development<span>Internal Use Only 2026</span>
+</span>
+</div>
+</div>
+<div>
+<h3>Locations</h3>
+<ul class="footer-list">
+<li>📍 2 Lafayette St, New York, NY 10007</li>
+<li>📍 123 William St, New York, NY 10038</li>
+<li>📍 59 Maiden Lane, New York, NY 10038</li>
+</ul>
+</div>
+<div>
+<h3>Contact</h3>
+<ul class="footer-list">
+<li>✉️ <a href="mailto:ealvarado@dycd.nyc.gov">ealvarado@dycd.nyc.gov</a>
+</li>
+<li>🌐 <a href="https://www.nyc.gov" target="_blank" rel="noopener">NYC.gov</a>
+</li>
+<li>💻 <a href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
+</li>
+<li>🎙️ <a href="https://www.nyc.gov/dycd" target="_blank" rel="noopener">DYCD Podcast</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">© 2026 NYC Department of Youth &amp; Community Development | Internal Use Only | Not for public distribution</div>
+</footer>
+<script src="../assets/js/main.js">
+</script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traditional | DYCD-TEMPLATES</title>
+  <meta name="description" content="DYCD intranet prototype: Traditional government intranet style.">
+  <style>
+    :root {
+      --orange: #F15A22;
+      --orange-dark: #d84712;
+      --navy: #1B2A6B;
+      --light-gray: #F5F5F5;
+      --line: #d9d9d9;
+      --text: #222;
+      --muted: #666;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--text); background: white; line-height: 1.45; }
+    h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input { font: inherit; }
+
+    .traditional-wrap { width: min(1040px, calc(100% - 24px)); margin: 0 auto; }
+    .top-bar {
+      background: #1B2A6B;
+      color: white;
+      font-size: 12px;
+      padding: 4px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar a { color: white; text-decoration: underline; text-underline-offset: 2px; }
+    .navbar {
+      background: #F15A22;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      max-height: 65px;
+      overflow: hidden;
+    }
+    .navbar > a:first-child { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+    .navbar img { max-width: 130px; max-height: 48px; width: auto; height: auto; object-fit: contain; }
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: nowrap;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-family: Georgia, serif;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+    .intranet-switcher { color: white; font-family: Georgia, serif; font-size: 13px; position: relative; white-space: nowrap; cursor: default; }
+    .dropdown { position: absolute; top: 100%; right: 0; display: none; min-width: 130px; background: white; color: var(--navy); border: 1px solid var(--line); box-shadow: 0 8px 20px rgba(0,0,0,0.18); padding: 6px; z-index: 20; }
+    .intranet-switcher:hover .dropdown, .intranet-switcher:focus-within .dropdown { display: grid; gap: 4px; }
+    .dropdown span { padding: 6px 8px; }
+
+    .social-bar { background: #eeeeee; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+    .social-inner { min-height: 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .social-left { display: flex; align-items: center; gap: 10px; }
+    .follow-label { color: #444; font-weight: 700; }
+    .podcast-pill { background: var(--orange); color: white; font-weight: 700; border-radius: 999px; padding: 6px 14px; }
+
+    .news-ticker { background: var(--orange); color: white; display: flex; align-items: center; overflow: hidden; border-bottom: 2px solid var(--navy); }
+    .ticker-label { flex: 0 0 auto; padding: 8px 14px; background: var(--navy); font-weight: 700; }
+    .ticker-window { overflow: hidden; flex: 1; }
+    .ticker-track { display: flex; gap: 34px; width: max-content; padding: 8px 0; animation: ticker 32s linear infinite; white-space: nowrap; }
+    .ticker-track span { font-weight: 700; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .three-column { display: grid; grid-template-columns: 160px minmax(0, 1fr) 220px; gap: 18px; align-items: start; padding: 20px 0 30px; }
+    .left-rail { background: var(--light-gray); border: 1px solid var(--line); padding: 12px; }
+    .rail-title, .widget-kicker { color: var(--orange); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px; }
+    .rail-link { display: block; border-bottom: 1px solid var(--orange); padding: 8px 0; color: var(--navy); font-size: 0.88rem; font-weight: 700; }
+    .rail-link::before { content: '›'; color: var(--orange); font-weight: 700; margin-right: 5px; }
+    .rail-link:hover { color: var(--orange); }
+
+    .main-content { min-width: 0; }
+    .carousel { width: min(600px, 100%); border: 1px solid var(--line); background: white; position: relative; margin-bottom: 26px; }
+    .slides { position: relative; height: 300px; overflow: hidden; background: #d8d8d8; }
+    .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 250ms ease; display: grid; grid-template-rows: 1fr auto; }
+    .slide.is-active { opacity: 1; z-index: 1; }
+    .placeholder-image { display: grid; place-items: center; background: linear-gradient(135deg, #d0d0d0, #eeeeee); color: #757575; font-weight: 700; font-size: 1.15rem; }
+    .caption { background: white; border-top: 4px solid var(--orange); padding: 12px 14px; }
+    .caption strong { display: block; color: var(--navy); font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; }
+    .caption .date { color: var(--orange); font-weight: 700; margin-right: 4px; }
+    .caption p { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
+    .carousel-arrow { position: absolute; top: 116px; z-index: 3; border: 0; background: rgba(27,42,107,0.86); color: white; width: 32px; height: 46px; cursor: pointer; font-size: 1rem; }
+    .carousel-arrow:hover, .carousel-arrow:focus { background: var(--orange); outline: none; }
+    .carousel-arrow.prev { left: 0; }
+    .carousel-arrow.next { right: 0; }
+    .carousel-dots { position: absolute; left: 0; right: 0; bottom: 104px; z-index: 4; display: flex; justify-content: center; gap: 6px; }
+    .carousel-dot { border: 1px solid var(--navy); background: white; color: var(--navy); width: 24px; height: 24px; cursor: pointer; font-weight: 700; font-size: 0.8rem; }
+    .carousel-dot.is-active { background: var(--orange); border-color: var(--orange); color: white; }
+
+    .content-title { margin: 0 0 14px; color: var(--navy); border-bottom: 3px solid var(--orange); padding-bottom: 6px; font-size: 1.55rem; }
+    .news-entry { border-bottom: 1px solid var(--line); padding: 0 0 14px; margin: 0 0 14px; }
+    .published { color: #777; font-size: 0.78rem; margin: 0 0 4px; }
+    .news-entry h3 { margin: 0 0 6px; font-size: 1.12rem; color: var(--navy); }
+    .news-entry h3 a:hover { color: var(--orange); }
+    .news-entry p { margin: 0 0 6px; color: #4b4b4b; font-size: 0.93rem; }
+    .read-more, .orange-link { color: var(--orange); font-weight: 700; }
+
+    .numbers { margin-top: 26px; }
+    .stats-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border: 1px solid var(--line); background: #fafafa; }
+    .stat { padding: 14px 8px; text-align: center; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; color: var(--orange); font-family: Georgia, 'Times New Roman', serif; font-size: 1.28rem; }
+    .stat span { color: var(--navy); font-weight: 700; font-size: 0.82rem; }
+    .report-link { display: inline-block; margin-top: 10px; }
+
+    .right-sidebar { display: grid; gap: 16px; }
+    .widget { border: 1px solid var(--line); background: white; padding: 12px; }
+    .widget h2, .widget h3 { color: var(--navy); border-bottom: 2px solid var(--orange); padding-bottom: 5px; margin: 0 0 10px; font-size: 1.05rem; }
+    .quick-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .quick-box { border: 1px solid var(--orange); background: white; color: var(--navy); min-height: 72px; display: grid; place-items: center; text-align: center; padding: 8px; font-weight: 700; font-size: 0.82rem; }
+    .quick-box span { display: block; font-size: 1.35rem; }
+    .quick-box:hover { background: var(--orange); color: white; }
+    .search-form { display: grid; grid-template-columns: 1fr auto; gap: 6px; margin-bottom: 12px; }
+    .search-form input { min-width: 0; border: 1px solid var(--line); padding: 7px; }
+    .search-form button { border: 0; background: var(--orange); color: white; font-weight: 700; padding: 7px 10px; cursor: pointer; }
+    .event-list, .announcement-list, .footer-list { list-style: none; padding: 0; margin: 0; }
+    .event-list li { border-bottom: 1px solid #eeeeee; padding: 6px 0; font-size: 0.88rem; }
+    .event-list strong { color: var(--orange); }
+    .announcement-list li { margin: 0 0 8px; font-size: 0.89rem; }
+    .announcement-list li::before { content: '•'; color: var(--orange); font-weight: 700; margin-right: 6px; }
+    .servicenow-widget { border: 2px solid var(--orange); }
+    .servicenow-icon { font-size: 1.7rem; }
+
+    .site-footer { background: #f2f2f2; border-top: 4px solid var(--orange); margin-top: 18px; }
+    .footer-main { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 24px; padding: 26px 0; }
+    .footer-brand { display: flex; align-items: center; gap: 12px; color: var(--navy); font-weight: 700; }
+    .footer-logo { max-width: 140px; height: auto; background: white; padding: 5px; border: 1px solid var(--line); }
+    .footer-brand span span { display: block; color: #666; font-size: 0.84rem; font-weight: 400; }
+    .site-footer h3 { margin: 0 0 10px; color: var(--navy); font-size: 1rem; }
+    .footer-list li { margin: 0 0 7px; font-size: 0.9rem; }
+    .footer-list a { color: var(--navy); text-decoration: underline; }
+    .footer-bottom { background: var(--navy); color: white; text-align: center; padding: 10px 12px; font-size: 0.86rem; }
+
+    @media (max-width: 980px) {
+      .three-column { grid-template-columns: 1fr; }
+      .left-rail { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; }
+      .rail-title { grid-column: 1 / -1; }
+      .right-sidebar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-main { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .top-bar, .social-inner, .navbar { align-items: flex-start; flex-direction: column; padding: 8px 20px; }
+      .nav-links { flex-wrap: wrap; }
+      .left-rail, .right-sidebar, .stats-row { grid-template-columns: 1fr; }
+      .stat { border-right: 0; border-bottom: 1px solid var(--line); }
+      .stat:last-child { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body class="traditional-page">
+  <div class="top-bar">
+    <a href="../commissioner.html">
+      Sandra Escamilla-Davies, Commissioner
+    </a>
+    <span>Zohran K. Mamdani, Mayor</span>
+  </div>
+
+  <nav class="navbar">
+    <a href="../index.html">
+      <img src="../assets/images/dycd-logo.png" alt="DYCD Logo" style="max-width:130px; max-height:48px; width:auto; height:auto; object-fit:contain;">
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">← Back</a>
+      <a href="#">🏠</a>
+      <a href="#">HR</a>
+      <a href="programs-traditional.html">Programs</a>
+      <a href="#">Admin</a>
+      <a href="directory-traditional.html">Directory</a>
+      <a href="#">Resources</a>
+      <a href="#">Events</a>
+      <a href="announcements-traditional.html">Announcements</a>
+      <a href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
+    </div>
+    <div class="intranet-switcher">
+      Intranet ▼
+      <div class="dropdown">
+        <span>Juventus</span>
+        <span>The Hub</span>
+        <span>Juventud</span>
+        <span>The Yard</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="news-ticker" aria-label="Agency announcements ticker">
+    <div class="ticker-label">📢 NEWS:</div>
+    <div class="ticker-window"><div class="ticker-track"><span>Staff Appreciation Week: June 16–20</span><span>New HR Policy effective July 1</span><span>Summer Youth Employment Program now open</span><span>Policy Library refresh published this month</span><span>Mandatory cybersecurity reminder due Friday</span><span>Community Partner Town Hall: June 24</span><span>Staff Appreciation Week: June 16–20</span><span>New HR Policy effective July 1</span><span>Summer Youth Employment Program now open</span><span>Policy Library refresh published this month</span><span>Mandatory cybersecurity reminder due Friday</span><span>Community Partner Town Hall: June 24</span></div></div>
+  </div>
+
+  <div class="social-bar">
+    <div class="traditional-wrap social-inner">
+      <div class="social-left"><span class="follow-label">Follow DYCD:</span><a href="https://www.facebook.com/NYCdycd" target="_blank" rel="noopener" aria-label="Facebook">📘</a><a href="https://twitter.com/NYCyouthand" target="_blank" rel="noopener" aria-label="Twitter/X">🐦</a><a href="https://www.instagram.com/nycyouth" target="_blank" rel="noopener" aria-label="Instagram">📸</a><a href="https://www.youtube.com/c/NYCYOUTH" target="_blank" rel="noopener" aria-label="YouTube">▶️</a><a href="https://www.linkedin.com/company/nycdycd" target="_blank" rel="noopener" aria-label="LinkedIn">💼</a></div>
+      <a class="podcast-pill" href="https://www.nyc.gov/dycd" target="_blank" rel="noopener">🎙️ DYCD Podcast</a>
+    </div>
+  </div>
+
+  <main class="traditional-wrap three-column">
+    <aside class="left-rail" aria-label="Secondary navigation">
+      <p class="rail-title">Navigate</p>
+      <a class="rail-link" href="../index.html">Home</a>
+      <a class="rail-link" href="#about">About DYCD</a>
+      <a class="rail-link" href="../commissioner.html">Commissioner's Office</a>
+      <a class="rail-link" href="directory-traditional.html">Staff Directory</a>
+      <a class="rail-link" href="#hr">HR Resources</a>
+      <a class="rail-link" href="#benefits">Benefits &amp; Leave</a>
+      <a class="rail-link" href="#training">Training &amp; LMS</a>
+      <a class="rail-link" href="#it">IT &amp; Tech Support</a>
+      <a class="rail-link" href="#policies">Policies</a>
+      <a class="rail-link" href="#forms">Forms</a>
+      <a class="rail-link" href="#contact">Contact Us</a>
+    </aside>
+
+    <section class="main-content" aria-label="Traditional template main content">
+      <div class="carousel" data-traditional-carousel>
+        <div class="slides">
+          <article class="slide is-active"><div class="placeholder-image">Image Placeholder</div><div class="caption"><strong><span class="date">06/16 —</span> Staff Appreciation Week 2026</strong><p>Celebrating DYCD staff and the daily work supporting youth, families, providers, and communities.</p></div></article>
+          <article class="slide"><div class="placeholder-image">Image Placeholder</div><div class="caption"><strong><span class="date">06/24 —</span> Community Partner Town Hall</strong><p>Join agency leadership and community partners for updates, Q&amp;A, and shared planning.</p></div></article>
+          <article class="slide"><div class="placeholder-image">Image Placeholder</div><div class="caption"><strong><span class="date">07/01 —</span> New HR Policy Takes Effect</strong><p>Review the updated guidance, important deadlines, and support materials for supervisors and staff.</p></div></article>
+          <article class="slide"><div class="placeholder-image">Image Placeholder</div><div class="caption"><strong><span class="date">07/07 —</span> Summer Hours Begin</strong><p>Agency offices will shift to the summer schedule with additional reminders posted for staff.</p></div></article>
+          <article class="slide"><div class="placeholder-image">Image Placeholder</div><div class="caption"><strong><span class="date">06/30 —</span> Cybersecurity Training Due</strong><p>All staff must complete required cybersecurity training in LMS before the end of the month.</p></div></article>
+        </div>
+        <button class="carousel-arrow prev" type="button" data-carousel-prev aria-label="Previous slide">◀</button>
+        <button class="carousel-arrow next" type="button" data-carousel-next aria-label="Next slide">▶</button>
+        <div class="carousel-dots" aria-label="Carousel slide navigation">
+          <button class="carousel-dot is-active" type="button" data-carousel-dot="0">1</button>
+          <button class="carousel-dot" type="button" data-carousel-dot="1">2</button>
+          <button class="carousel-dot" type="button" data-carousel-dot="2">3</button>
+          <button class="carousel-dot" type="button" data-carousel-dot="3">4</button>
+          <button class="carousel-dot" type="button" data-carousel-dot="4">5</button>
+        </div>
+      </div>
+
+      <section class="news-feed" id="announcements">
+        <h1 class="content-title">Agency News &amp; Updates</h1>
+        <article class="news-entry"><p class="published">Published June 10, 2026</p><h3><a href="#">DYCD Launches Summer Youth Employment 2026</a></h3><p>Program teams are preparing worksites, partner communications, and support materials for the upcoming summer cycle. Staff can find schedules, forms, and contact lists in the program resource library.</p><a class="read-more" href="#">Read more</a></article>
+        <article class="news-entry"><p class="published">Published June 12, 2026</p><h3><a href="#">Commissioner Escamilla-Davies Visits Bronx Programs</a></h3><p>The Commissioner met with providers, young people, and staff to highlight neighborhood partnerships and program impact. Photos and visit notes will be shared with staff this week.</p><a class="read-more" href="#">Read more</a></article>
+        <article class="news-entry"><p class="published">Published June 18, 2026</p><h3><a href="#">New Records Retention Policy Now in Effect</a></h3><p>Updated guidance clarifies retention schedules, records disposal steps, and staff responsibilities. Please review the policy summary and attend the upcoming training session.</p><a class="read-more" href="#">Read more</a></article>
+        <article class="news-entry"><p class="published">Published June 20, 2026</p><h3><a href="#">Staff Spotlight: Agency Operations Team</a></h3><p>This month, DYCD recognizes the operations colleagues who keep facilities, supplies, logistics, and daily agency services moving across all sites.</p><a class="read-more" href="#">Read more</a></article>
+      </section>
+
+      <section class="numbers" id="numbers">
+        <h2 class="content-title">DYCD by the Numbers</h2>
+        <div class="stats-row" aria-label="DYCD by the Numbers"><div class="stat"><strong>97,000+</strong><span>Youth Served</span></div><div class="stat"><strong>300+</strong><span>Programs</span></div><div class="stat"><strong>250+</strong><span>Partners</span></div><div class="stat"><strong>50+</strong><span>Locations</span></div><div class="stat"><strong>400+</strong><span>Staff</span></div></div>
+        <a class="orange-link report-link" href="../assets/docs/dycd-numbers.pdf">📊 View Full Agency Report →</a>
+      </section>
+    </section>
+
+    <aside class="right-sidebar" aria-label="Widgets and quick links">
+      <section class="widget"><h2>Quick Links</h2><div class="quick-grid"><a class="quick-box" href="#"><span>🕐</span>CityTime</a><a class="quick-box" href="https://nyc.service-now.com" target="_blank" rel="noopener"><span>🛠️</span>ServiceNow</a><a class="quick-box" href="#"><span>👤</span>Employee Self Service</a><a class="quick-box" href="#"><span>🏛️</span>NYCERS</a></div></section>
+      <section class="widget" aria-label="Search forms"><p class="widget-kicker">Search Intranet</p><form class="search-form" action="../search.html"><input name="q" type="search" aria-label="Search intranet"><button type="submit">Search</button></form><p class="widget-kicker">Search Policies</p><form class="search-form" action="../search.html"><input name="q" type="search" aria-label="Search policies"><button type="submit">Search</button></form></section>
+      <section class="widget" id="events"><h2>Upcoming Events</h2><ul class="event-list"><li><strong>6/16</strong> — Staff Appreciation Week</li><li><strong>6/18</strong> — Benefits Info Session</li><li><strong>6/24</strong> — Community Partner Town Hall</li><li><strong>7/1</strong> — New HR Policy Effective</li><li><strong>7/7</strong> — Summer Hours Begin</li></ul><a class="orange-link" href="#">View More Events →</a></section>
+      <section class="widget"><h2>Announcements</h2><ul class="announcement-list"><li>Complete mandatory cybersecurity training by June 30.</li><li>Policy Library updates are now available for staff review.</li><li>Submit summer schedule questions to Human Resources.</li></ul></section>
+      <section class="widget servicenow-widget"><div class="servicenow-icon">🛠️</div><h3>IT Help &amp; Support</h3><a class="orange-link" href="https://nyc.service-now.com" target="_blank" rel="noopener">Submit a ticket via ServiceNow →</a></section>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="traditional-wrap footer-main">
+      <div><div class="footer-brand"><img class="footer-logo" src="../assets/images/dycd-logo.png" alt="DYCD logo"><span>Department of Youth &amp; Community Development<span>Internal Use Only 2026</span></span></div></div>
+      <div><h3>Locations</h3><ul class="footer-list"><li>📍 2 Lafayette St, New York, NY 10007</li><li>📍 123 William St, New York, NY 10038</li><li>📍 59 Maiden Lane, New York, NY 10038</li></ul></div>
+      <div><h3>Contact</h3><ul class="footer-list"><li>✉️ <a href="mailto:ealvarado@dycd.nyc.gov">ealvarado@dycd.nyc.gov</a></li><li>🌐 <a href="https://www.nyc.gov" target="_blank" rel="noopener">NYC.gov</a></li><li>💻 <a href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a></li><li>🎙️ <a href="https://www.nyc.gov/dycd" target="_blank" rel="noopener">DYCD Podcast</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">© 2026 NYC Department of Youth &amp; Community Development | Internal Use Only | Not for public distribution</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    (() => {
+      document.querySelectorAll('[data-traditional-carousel]').forEach((carousel) => {
+        const slides = Array.from(carousel.querySelectorAll('.slide'));
+        const dots = Array.from(carousel.querySelectorAll('[data-carousel-dot]'));
+        let current = 0;
+        const show = (index) => {
+          current = (index + slides.length) % slides.length;
+          slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === current));
+          dots.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === current));
+        };
+        carousel.querySelector('[data-carousel-prev]')?.addEventListener('click', () => show(current - 1));
+        carousel.querySelector('[data-carousel-next]')?.addEventListener('click', () => show(current + 1));
+        dots.forEach((dot) => dot.addEventListener('click', () => show(Number(dot.dataset.carouselDot))));
+        setInterval(() => show(current + 1), 5000);
+      });
+    })();
+  </script>
+</body>
+</html>
