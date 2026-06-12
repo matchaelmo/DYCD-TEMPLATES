@@ -81,18 +81,33 @@
 
   document.querySelectorAll('[data-live-feed]').forEach((shell) => {
     const toggle = shell.querySelector('[data-live-toggle]');
-    let hideTimer;
+    const modal = shell.querySelector('[data-live-modal]');
+    const close = shell.querySelector('[data-live-close]');
     const openFeed = () => {
+      if (!modal) return;
+      modal.hidden = false;
       shell.classList.add('is-open');
-      clearTimeout(hideTimer);
-      hideTimer = setTimeout(() => shell.classList.remove('is-open'), 5000);
+      toggle?.setAttribute('aria-expanded', 'true');
+      close?.focus();
+    };
+    const closeFeed = () => {
+      if (!modal) return;
+      modal.hidden = true;
+      shell.classList.remove('is-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      toggle?.focus();
     };
     toggle?.addEventListener('click', (event) => {
       event.stopPropagation();
       openFeed();
     });
-    setTimeout(openFeed, 1200);
-    setInterval(openFeed, 14000);
+    close?.addEventListener('click', closeFeed);
+    modal?.addEventListener('click', (event) => {
+      if (event.target === modal) closeFeed();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !modal?.hidden) closeFeed();
+    });
   });
 
   const counters = document.querySelectorAll('.kpi-number[data-count]');
