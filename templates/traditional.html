@@ -43,6 +43,8 @@
       max-height: 65px;
       overflow: hidden;
     }
+    .navbar > a:first-child { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+    .navbar img { max-width: 130px; max-height: 48px; width: auto; height: auto; object-fit: contain; }
     .nav-links {
       display: flex;
       gap: 14px;
@@ -173,7 +175,7 @@
 
   <nav class="navbar">
     <a href="../index.html">
-      <img src="../assets/images/dycd-logo.png" alt="DYCD Logo" style="max-width:130px; height:auto;">
+      <img src="../assets/images/dycd-logo.png" alt="DYCD Logo" style="max-width:130px; max-height:48px; width:auto; height:auto; object-fit:contain;">
     </a>
     <div class="nav-links">
       <a href="../index.html">← Back</a>
