@@ -473,3 +473,36 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
 .lightbox-panel h2 { margin: 16px 4px 4px; color: var(--navy); }
 @media (max-width: 900px) { .glossary-grid, .media-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px) { .glossary-grid, .media-grid { grid-template-columns: 1fr; } .card-heading { align-items: flex-start; flex-direction: column; } }
+
+/* Visual Data full-width hero image placeholder */
+.visual-full-hero {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  margin: 0;
+  padding: 0;
+  background-color: #1B2A6B;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.visual-full-hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 45%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));
+  pointer-events: none;
+}
+.visual-full-hero-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  color: white;
+  text-align: center;
+}
+.visual-full-hero-content span { font-size: 2.5rem; line-height: 1; }
+.visual-full-hero-content p { margin: 0; font-size: 1.1rem; font-weight: 700; opacity: 0.6; }
+@media (max-width: 620px) { .visual-full-hero { height: 220px; } }
