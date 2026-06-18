@@ -506,3 +506,20 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
 .visual-full-hero-content span { font-size: 2.5rem; line-height: 1; }
 .visual-full-hero-content p { margin: 0; font-size: 1.1rem; font-weight: 700; opacity: 0.6; }
 @media (max-width: 620px) { .visual-full-hero { height: 220px; } }
+
+/* Template-specific glossary refinements */
+.glossary-template-main .glossary-shell { padding-top: 44px; }
+.glossary-template-hero .template-hero-card { box-shadow: var(--soft-shadow); }
+.editorial .glossary-card .card-heading h2 { color: var(--purple); }
+.editorial .glossary-card .category-pill { background: var(--purple); }
+.visual .glossary-template-main { background: var(--dark); }
+.visual .glossary-card { background: var(--navy); border-color: rgba(241,90,34,0.35); box-shadow: 0 10px 26px rgba(0,0,0,0.22); }
+.visual .glossary-card:hover { box-shadow: 0 0 0 1px rgba(241,90,34,0.48), 0 18px 36px rgba(241,90,34,0.14); }
+.visual .glossary-card .card-heading h2 { color: white; }
+.visual .glossary-card p { color: rgba(255,255,255,0.74); }
+.visual .utility-panel { background: #12243a; border-color: rgba(241,90,34,0.28); }
+.visual .search-label { color: white; }
+.visual .standalone-search { background: var(--dark); color: white; border-color: rgba(241,90,34,0.35); }
+.visual .az-letter { background: #12243a; color: white; border-color: rgba(241,90,34,0.28); }
+.visual .az-letter.is-disabled, .visual .az-letter:disabled { background: #172338; color: rgba(255,255,255,0.32); }
+.visual .empty-message { color: rgba(255,255,255,0.72); }
