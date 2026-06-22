@@ -139,3 +139,69 @@
     counters.forEach((counter) => observer.observe(counter));
   }
 })();
+
+(() => {
+  const glossarySearch = document.querySelector('[data-glossary-search]');
+  const glossaryCards = Array.from(document.querySelectorAll('.glossary-card'));
+  const glossaryEmpty = document.querySelector('[data-glossary-empty]');
+  let activeLetter = 'all';
+
+  const filterGlossary = () => {
+    const query = (glossarySearch?.value || '').trim().toLowerCase();
+    let visible = 0;
+    glossaryCards.forEach((card) => {
+      const matchesQuery = !query || card.textContent.toLowerCase().includes(query);
+      const matchesLetter = activeLetter === 'all' || card.dataset.letter === activeLetter;
+      const show = matchesQuery && matchesLetter;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    if (glossaryEmpty) glossaryEmpty.hidden = visible !== 0;
+  };
+
+  document.querySelectorAll('[data-letter]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (button.disabled) return;
+      activeLetter = button.dataset.letter || 'all';
+      document.querySelectorAll('[data-letter]').forEach((item) => item.classList.remove('is-active'));
+      button.classList.add('is-active');
+      filterGlossary();
+      if (activeLetter !== 'all') document.querySelector('.glossary-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  glossarySearch?.addEventListener('input', filterGlossary);
+
+  const filterButtons = document.querySelectorAll('[data-media-filter]');
+  const mediaCards = document.querySelectorAll('.media-card');
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.mediaFilter || 'All';
+      filterButtons.forEach((item) => item.classList.remove('is-active'));
+      button.classList.add('is-active');
+      mediaCards.forEach((card) => { card.hidden = category !== 'All' && card.dataset.category !== category; });
+    });
+  });
+
+  const lightbox = document.querySelector('[data-lightbox]');
+  const lightboxTitle = document.querySelector('[data-lightbox-title]');
+  const lightboxKind = document.querySelector('[data-lightbox-kind]');
+  const closeLightbox = () => { if (lightbox) lightbox.hidden = true; };
+  const openLightbox = (card) => {
+    if (!lightbox) return;
+    if (lightboxTitle) lightboxTitle.textContent = card.dataset.title || '';
+    if (lightboxKind) lightboxKind.textContent = card.dataset.kind === 'video' ? '▶ Video Coming Soon' : 'Photo Coming Soon';
+    lightbox.hidden = false;
+  };
+  mediaCards.forEach((card) => {
+    card.addEventListener('click', () => openLightbox(card));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox(card);
+      }
+    });
+  });
+  document.querySelector('[data-lightbox-close]')?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (event) => { if (event.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeLightbox(); });
+})();
