@@ -673,3 +673,19 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
 .visual-lightbox-panel h2 { color: white; }
 @media (max-width: 980px) { .visual-staff-grid, .visual-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px) { .visual-staff-grid, .visual-gallery-grid, .visual-stats-grid { grid-template-columns: 1fr; } .visual-directory-search { flex-direction: column; } }
+
+/* Visual Data card light theme refinements */
+.visual-subpage-main .visual-filter-btn { background: white; border-color: #1B2A6B; color: #1B2A6B; }
+.visual-subpage-main .visual-filter-btn.is-active, .visual-subpage-main .visual-filter-btn:hover { background: #F15A22; border-color: #F15A22; color: white; }
+.visual-staff-card { background: white; border: 1px solid #e0e0e0; border-radius: 12px; box-shadow: none; }
+.visual-staff-card:hover { filter: none; border-color: #F15A22; box-shadow: 0 4px 16px rgba(241,90,34,0.15); transform: translateY(-3px); }
+.visual-staff-card h2 { color: #1B2A6B; font-weight: 700; }
+.visual-staff-title { color: #F15A22; font-weight: 700; }
+.visual-staff-dept { color: #666; }
+.visual-staff-card a { color: #F15A22; }
+.visual-gallery-card { background: white; border: 1px solid #e0e0e0; border-radius: 12px; box-shadow: none; }
+.visual-gallery-card:hover, .visual-gallery-card:focus { border-color: #F15A22; box-shadow: 0 4px 16px rgba(241,90,34,0.15); transform: translateY(-3px); }
+.visual-gallery-card h2 { color: #1B2A6B; font-family: 'Poppins', sans-serif; font-weight: 700; }
+.visual-gallery-body time { color: #888; }
+.visual-gallery-card .visual-news-tag { background: #F15A22; color: white; }
+.visual-lightbox-panel h2 { color: white; }
