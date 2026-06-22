@@ -689,3 +689,42 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
 .visual-gallery-body time { color: #888; }
 .visual-gallery-card .visual-news-tag { background: #F15A22; color: white; }
 .visual-lightbox-panel h2 { color: white; }
+
+/* Visual Data light content pages */
+.visual-light-page .template-main,
+.visual-light-page .glossary-template-main,
+.visual-light-page .visual-subpage-main { background: #f4f6f9; color: #1B2A6B; }
+.visual-light-page .template-hero,
+.visual-light-page .visual-subpage-hero { background: #f4f6f9; color: #1B2A6B; }
+.visual-light-page .template-hero h1,
+.visual-light-page .template-hero p,
+.visual-light-page .visual-subpage-hero h1,
+.visual-light-page .visual-section-heading { color: #1B2A6B; }
+.visual-light-page .visual-subpage-hero p { color: #F15A22; }
+.visual-light-page .glossary-card { background: white; border: 1px solid #e0e0e0; border-radius: 12px; box-shadow: none; }
+.visual-light-page .glossary-card:hover { box-shadow: 0 4px 16px rgba(27,42,107,0.12); transform: translateY(-3px); }
+.visual-light-page .glossary-card .card-heading h2 { color: #1B2A6B; }
+.visual-light-page .glossary-card p { color: #444; }
+.visual-light-page .glossary-card .category-pill { background: #F15A22; color: white; }
+.visual-light-page .utility-panel { background: white; border-color: #e0e0e0; }
+.visual-light-page .search-label { color: #1B2A6B; }
+.visual-light-page .standalone-search { background: white; color: #1B2A6B; border-color: #d8dde8; }
+.visual-light-page .az-letter { background: white; color: #1B2A6B; border-color: #d8dde8; }
+.visual-light-page .az-letter.is-active, .visual-light-page .az-letter:hover:not(:disabled) { background: #F15A22; border-color: #F15A22; color: white; }
+.visual-light-page .az-letter.is-disabled, .visual-light-page .az-letter:disabled { background: #edf0f5; color: #9aa4b2; }
+.visual-light-page .empty-message { color: #666; }
+.visual-light-page .visual-staff-card,
+.visual-light-page .visual-gallery-card { background: white; }
+.visual-light-page .visual-staff-card h2,
+.visual-light-page .visual-gallery-card h2 { color: #1B2A6B; }
+.visual-light-page .visual-staff-dept { color: #666; }
+.visual-light-page .visual-gallery-body time { color: #888; }
+.visual-light-page .visual-filter-btn { background: white; border-color: #1B2A6B; color: #1B2A6B; }
+.visual-light-page .visual-filter-btn.is-active, .visual-light-page .visual-filter-btn:hover { background: #F15A22; border-color: #F15A22; color: white; }
+.visual-light-page .visual-news-tag.is-secondary,
+.visual-light-page .category-pill.is-secondary { background: #2E8B57; }
+.visual-light-page .glossary-card[data-term="beacon"] .category-pill,
+.visual-light-page .glossary-card[data-term="cbo"] .category-pill,
+.visual-light-page .glossary-card[data-term="rfp"] .category-pill,
+.visual-light-page .glossary-card[data-term="syep"] .category-pill,
+.visual-light-page .glossary-card[data-term="wia"] .category-pill { background: #2E8B57; }
