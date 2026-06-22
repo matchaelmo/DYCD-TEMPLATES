@@ -67,7 +67,7 @@
         <span class="visual-tile-image"><span class="visual-camera" aria-hidden="true">📷</span><span class="visual-photo-text">Photo Coming Soon</span></span>
         <span class="visual-tile-label"><span>Finance</span><span class="visual-arrow" aria-hidden="true">→</span></span>
       </a>
-      <a class="visual-nav-tile" href="directory-traditional.html" style="--tile-bg: #7B5EA7;">
+      <a class="visual-nav-tile" href="directory-visual-data.html" style="--tile-bg: #7B5EA7;">
         <span class="visual-tile-image"><span class="visual-camera" aria-hidden="true">📷</span><span class="visual-photo-text">Photo Coming Soon</span></span>
         <span class="visual-tile-label"><span>Staff Directory</span><span class="visual-arrow" aria-hidden="true">→</span></span>
       </a>
@@ -75,7 +75,7 @@
         <span class="visual-tile-image"><span class="visual-camera" aria-hidden="true">📷</span><span class="visual-photo-text">Photo Coming Soon</span></span>
         <span class="visual-tile-label"><span>Forms &amp; Documents</span><span class="visual-arrow" aria-hidden="true">→</span></span>
       </a>
-      <a class="visual-nav-tile" href="../photos-videos.html" style="--tile-bg: #D95F8A;">
+      <a class="visual-nav-tile" href="gallery-visual-data.html" style="--tile-bg: #D95F8A;">
         <span class="visual-tile-image"><span class="visual-camera" aria-hidden="true">📷</span><span class="visual-photo-text">Photo Coming Soon</span></span>
         <span class="visual-tile-label"><span>Gallery</span><span class="visual-arrow" aria-hidden="true">→</span></span>
       </a>
@@ -89,10 +89,38 @@
       <div class="visual-stat"><strong>50+</strong><span>Locations</span></div>
       <div class="visual-stat"><strong>400+</strong><span>Staff</span></div>
       </div>
+      <div class="visual-report-action"><a class="visual-report-button" href="../assets/docs/dycd-numbers.pdf" target="_blank" rel="noopener">View Full Report →</a></div>
     </section>
     <section class="news-ticker" id="news"><div class="ticker-track"><span>Staff Appreciation Week: June 16–20</span><span>New HR Policy effective July 1</span><span>SYEP now open</span><span>Cyber training due Friday</span><span>Staff Appreciation Week: June 16–20</span><span>New HR Policy effective July 1</span></div></section>
   </main>
+  <div class="visual-news-drawer" data-visual-news-drawer>
+    <button class="visual-news-tab" type="button" data-visual-news-toggle aria-expanded="false"><span data-visual-news-tab-text>Latest News</span></button>
+    <aside class="visual-news-panel" aria-label="Latest News">
+      <div class="visual-news-panel-header"><h2>Latest News</h2><button type="button" data-visual-news-close aria-label="Close latest news">×</button></div>
+      <div class="visual-news-list">
+        <article class="visual-news-card"><span class="visual-news-tag">Programs</span><h3>DYCD Launches Summer Youth Employment 2026</h3><time datetime="2026-06-10">June 10, 2026</time><p>Program teams are preparing worksites and partner communications for the upcoming summer cycle.</p></article>
+        <article class="visual-news-card"><span class="visual-news-tag">Leadership</span><h3>Commissioner Escamilla-Davies Visits Bronx Programs</h3><time datetime="2026-06-12">June 12, 2026</time><p>The Commissioner met with providers and young people to highlight neighborhood partnerships.</p></article>
+        <article class="visual-news-card"><span class="visual-news-tag">Policy</span><h3>New Records Retention Policy Now in Effect</h3><time datetime="2026-06-18">June 18, 2026</time><p>Updated guidance clarifies retention schedules and staff responsibilities.</p></article>
+        <article class="visual-news-card"><span class="visual-news-tag">Events</span><h3>Staff Appreciation Week 2026</h3><time datetime="2026-06-16">June 16, 2026</time><p>Celebrating DYCD staff and the daily work supporting youth, families, and communities.</p></article>
+        <article class="visual-news-card"><span class="visual-news-tag">IT</span><h3>Mandatory Cybersecurity Training Due June 30</h3><time datetime="2026-06-20">June 20, 2026</time><p>All staff must complete required cybersecurity training in LMS before end of month.</p></article>
+      </div>
+    </aside>
+  </div>
   <footer class="site-footer"><div class="container site-footer-main"><div><div class="brand"><span class="logo-frame"><img src="../assets/images/dycd-logo-white.png" alt="DYCD Logo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'DYCD'}));"></span><span class="brand-name">Department of Youth &amp; Community Development<span>Internal Use Only 2026</span></span></div></div><div><h3>Locations</h3><ul class="footer-list"><li>📍 2 Lafayette St, New York, NY 10007</li><li>📍 123 William St, New York, NY 10038</li><li>📍 59 Maiden Lane, New York, NY 10038</li></ul></div><div><h3>Contact</h3><ul class="footer-list"><li>✉️ <a href="mailto:ealvarado@dycd.nyc.gov">ealvarado@dycd.nyc.gov</a></li><li>🌐 <a href="https://www.nyc.gov" target="_blank" rel="noopener">NYC.gov</a></li><li>💻 <a href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a></li><li>🎙️ <a href="https://www.nyc.gov/dycd" target="_blank" rel="noopener">DYCD Podcast</a></li></ul></div></div><div class="footer-bottom">© 2026 NYC Department of Youth &amp; Community Development | Internal Use Only | Not for public distribution</div></footer>
+  <script>
+    (() => {
+      const drawer = document.querySelector('[data-visual-news-drawer]');
+      if (!drawer) return;
+      const toggle = drawer.querySelector('[data-visual-news-toggle]');
+      const close = drawer.querySelector('[data-visual-news-close]');
+      const tabText = drawer.querySelector('[data-visual-news-tab-text]');
+      const setOpen = (open) => { drawer.classList.toggle('is-open', open); toggle?.setAttribute('aria-expanded', String(open)); if (tabText) tabText.textContent = open ? '✕' : 'Latest News'; };
+      toggle?.addEventListener('click', (event) => { event.stopPropagation(); setOpen(!drawer.classList.contains('is-open')); });
+      close?.addEventListener('click', () => setOpen(false));
+      document.addEventListener('click', (event) => { if (drawer.classList.contains('is-open') && !drawer.contains(event.target)) setOpen(false); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setOpen(false); });
+    })();
+  </script>
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
