@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Traditional | DYCD-TEMPLATES</title>
+  <title>Traditional Commissioner | DYCD-TEMPLATES</title>
   <meta name="description" content="DYCD intranet prototype: Traditional government intranet style.">
   <style>
     :root {
@@ -163,7 +163,18 @@
       .stat { border-right: 0; border-bottom: 1px solid var(--line); }
       .stat:last-child { border-bottom: 0; }
     }
-  </style>
+  
+    .commissioner-title { color: var(--navy); border-bottom: 3px solid var(--orange); padding-bottom: 8px; font-family: Georgia, 'Times New Roman', serif; }
+    .commissioner-card { display: grid; grid-template-columns: 280px 1fr; gap: 22px; background: white; border: 1px solid var(--line); padding: 18px; }
+    .commissioner-photo-box { min-height: 260px; background: #d9d9d9; color: #777; display: grid; place-items: center; font-weight: 700; text-align: center; }
+    .commissioner-card h2 { color: var(--navy); margin: 0 0 8px; font-family: Georgia, 'Times New Roman', serif; }
+    .commissioner-role { color: var(--orange); font-weight: 700; margin: 0 0 8px; }
+    .commissioner-appointed { color: #333; font-weight: 700; }
+    .commissioner-message { border-left: 4px solid var(--orange); background: #fff7f2; margin: 18px 0; padding: 14px; color: #333; font-style: italic; }
+    .commissioner-contact-box { display: grid; gap: 8px; color: var(--navy); font-weight: 700; }
+    .commissioner-contact-box a { color: var(--orange); }
+    @media(max-width:760px){ .commissioner-card { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body class="traditional-page">
   <div class="top-bar">
@@ -215,64 +226,35 @@
   </div>
 
   <main class="traditional-wrap three-column">
-    <aside class="left-rail" aria-label="Secondary navigation">
-      <p class="rail-title">Navigate</p>
-      <a class="rail-link" href="traditional.html">Home</a>
-      <a class="rail-link" href="#about">About DYCD</a>
-      <a class="rail-link" href="commissioner-traditional.html">Commissioner's Office</a>
-      <a class="rail-link" href="directory-traditional.html">Staff Directory</a>
-      <a class="rail-link" href="#hr">HR Resources</a>
-      <a class="rail-link" href="#benefits">Benefits &amp; Leave</a>
-      <a class="rail-link" href="#training">Training &amp; LMS</a>
-      <a class="rail-link" href="#it">IT &amp; Tech Support</a>
-      <a class="rail-link" href="#policies">Policies</a>
-      <a class="rail-link" href="#forms">Forms</a>
-      <a class="rail-link" href="#contact">Contact Us</a>
-    </aside>
-
-    <section class="main-content" aria-label="Traditional template main content">
-      <div class="carousel" data-traditional-carousel>
-        <div class="slides">
-          <article class="slide is-active"><div class="placeholder-image">Image Placeholder</div><div class="caption"><strong><span class="date">06/16 —</span> Staff Appreciation Week 2026</strong><p>Celebrating DYCD staff and the daily work supporting youth, families, providers, and communities.</p></div></article>
-          <article class="slide"><div class="placeholder-image">Image Placeholder</div><div class="caption"><strong><span class="date">06/24 —</span> Community Partner Town Hall</strong><p>Join agency leadership and community partners for updates, Q&amp;A, and shared planning.</p></div></article>
-          <article class="slide"><div class="placeholder-image">Image Placeholder</div><div class="caption"><strong><span class="date">07/01 —</span> New HR Policy Takes Effect</strong><p>Review the updated guidance, important deadlines, and support materials for supervisors and staff.</p></div></article>
-          <article class="slide"><div class="placeholder-image">Image Placeholder</div><div class="caption"><strong><span class="date">07/07 —</span> Summer Hours Begin</strong><p>Agency offices will shift to the summer schedule with additional reminders posted for staff.</p></div></article>
-          <article class="slide"><div class="placeholder-image">Image Placeholder</div><div class="caption"><strong><span class="date">06/30 —</span> Cybersecurity Training Due</strong><p>All staff must complete required cybersecurity training in LMS before the end of the month.</p></div></article>
-        </div>
-        <button class="carousel-arrow prev" type="button" data-carousel-prev aria-label="Previous slide">◀</button>
-        <button class="carousel-arrow next" type="button" data-carousel-next aria-label="Next slide">▶</button>
-        <div class="carousel-dots" aria-label="Carousel slide navigation">
-          <button class="carousel-dot is-active" type="button" data-carousel-dot="0">1</button>
-          <button class="carousel-dot" type="button" data-carousel-dot="1">2</button>
-          <button class="carousel-dot" type="button" data-carousel-dot="2">3</button>
-          <button class="carousel-dot" type="button" data-carousel-dot="3">4</button>
-          <button class="carousel-dot" type="button" data-carousel-dot="4">5</button>
+  <aside class="left-rail">
+    <p class="rail-title">Navigate</p>
+    <a class="rail-link" href="traditional.html">Home</a>
+    <a class="rail-link" href="commissioner-traditional.html">Commissioner's Office</a>
+    <a class="rail-link" href="announcements-traditional.html">Announcements</a>
+    <a class="rail-link" href="programs-traditional.html">Programs</a>
+    <a class="rail-link" href="directory-traditional.html">Staff Directory</a>
+    <a class="rail-link" href="gallery-traditional.html">Gallery</a>
+  </aside>
+  <section class="main-content">
+    <h1 class="commissioner-title">Commissioner's Office</h1>
+    <article class="commissioner-card">
+      <div class="commissioner-photo-box" role="img" aria-label="Commissioner photo placeholder">Photo Coming Soon</div>
+      <div>
+        <h2>Sandra Escamilla-Davies</h2>
+        <p class="commissioner-role">Commissioner, NYC Department of Youth &amp; Community Development</p>
+        <p class="commissioner-appointed">Appointed by: Mayor Zohran K. Mamdani</p>
+        <p class="commissioner-message">A welcome message from Commissioner Escamilla-Davies will appear here.</p>
+        <div class="commissioner-contact-box">
+          <span>📍 2 Lafayette St, New York, NY 10007</span>
+          <a href="mailto:commissioner@dycd.nyc.gov">✉️ commissioner@dycd.nyc.gov</a>
         </div>
       </div>
-
-      <section class="news-feed" id="announcements">
-        <h1 class="content-title">Agency News &amp; Updates</h1>
-        <article class="news-entry"><p class="published">Published June 10, 2026</p><h3><a href="#">DYCD Launches Summer Youth Employment 2026</a></h3><p>Program teams are preparing worksites, partner communications, and support materials for the upcoming summer cycle. Staff can find schedules, forms, and contact lists in the program resource library.</p><a class="read-more" href="#">Read more</a></article>
-        <article class="news-entry"><p class="published">Published June 12, 2026</p><h3><a href="#">Commissioner Escamilla-Davies Visits Bronx Programs</a></h3><p>The Commissioner met with providers, young people, and staff to highlight neighborhood partnerships and program impact. Photos and visit notes will be shared with staff this week.</p><a class="read-more" href="#">Read more</a></article>
-        <article class="news-entry"><p class="published">Published June 18, 2026</p><h3><a href="#">New Records Retention Policy Now in Effect</a></h3><p>Updated guidance clarifies retention schedules, records disposal steps, and staff responsibilities. Please review the policy summary and attend the upcoming training session.</p><a class="read-more" href="#">Read more</a></article>
-        <article class="news-entry"><p class="published">Published June 20, 2026</p><h3><a href="#">Staff Spotlight: Agency Operations Team</a></h3><p>This month, DYCD recognizes the operations colleagues who keep facilities, supplies, logistics, and daily agency services moving across all sites.</p><a class="read-more" href="#">Read more</a></article>
-      </section>
-
-      <section class="numbers" id="numbers">
-        <h2 class="content-title">DYCD by the Numbers</h2>
-        <div class="stats-row" aria-label="DYCD by the Numbers"><div class="stat"><strong>97,000+</strong><span>Youth Served</span></div><div class="stat"><strong>300+</strong><span>Programs</span></div><div class="stat"><strong>250+</strong><span>Partners</span></div><div class="stat"><strong>50+</strong><span>Locations</span></div><div class="stat"><strong>400+</strong><span>Staff</span></div></div>
-        <a class="orange-link report-link" href="../assets/docs/dycd-numbers.pdf">📊 View Full Agency Report →</a>
-      </section>
-    </section>
-
-    <aside class="right-sidebar" aria-label="Widgets and quick links">
-      <section class="widget"><h2>Quick Links</h2><div class="quick-grid"><a class="quick-box" href="#"><span>🕐</span>CityTime</a><a class="quick-box" href="https://nyc.service-now.com" target="_blank" rel="noopener"><span>🛠️</span>ServiceNow</a><a class="quick-box" href="#"><span>👤</span>Employee Self Service</a><a class="quick-box" href="#"><span>🏛️</span>NYCERS</a></div></section>
-      <section class="widget" aria-label="Search forms"><p class="widget-kicker">Search Intranet</p><form class="search-form" action="../search.html"><input name="q" type="search" aria-label="Search intranet"><button type="submit">Search</button></form><p class="widget-kicker">Search Policies</p><form class="search-form" action="../search.html"><input name="q" type="search" aria-label="Search policies"><button type="submit">Search</button></form></section>
-      <section class="widget" id="events"><h2>Upcoming Events</h2><ul class="event-list"><li><strong>6/16</strong> — Staff Appreciation Week</li><li><strong>6/18</strong> — Benefits Info Session</li><li><strong>6/24</strong> — Community Partner Town Hall</li><li><strong>7/1</strong> — New HR Policy Effective</li><li><strong>7/7</strong> — Summer Hours Begin</li></ul><a class="orange-link" href="#">View More Events →</a></section>
-      <section class="widget"><h2>Announcements</h2><ul class="announcement-list"><li>Complete mandatory cybersecurity training by June 30.</li><li>Policy Library updates are now available for staff review.</li><li>Submit summer schedule questions to Human Resources.</li></ul></section>
-      <section class="widget servicenow-widget"><div class="servicenow-icon">🛠️</div><h3>IT Help &amp; Support</h3><a class="orange-link" href="https://nyc.service-now.com" target="_blank" rel="noopener">Submit a ticket via ServiceNow →</a></section>
-    </aside>
-  </main>
+    </article>
+  </section>
+  <aside class="right-rail">
+    <section class="widget"><h2>Quick Links</h2><a class="rail-link" href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a><a class="rail-link" href="#">CityTime</a></section>
+  </aside>
+</main>
 
   <footer class="site-footer">
     <div class="traditional-wrap footer-main">
