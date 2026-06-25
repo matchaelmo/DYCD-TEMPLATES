@@ -1110,3 +1110,24 @@ body.editorial h1, body.editorial h2, body.editorial h3, body.editorial h4, body
   .commissioner-profile-card { grid-template-columns: 1fr; }
   .commissioner-photo-placeholder { min-height: 240px; }
 }
+
+/* Staff directory modal interactions */
+.directory-staff-card { cursor: pointer; }
+.directory-card-phone { margin: 8px 0 0; color: #1B2A6B; font-weight: 700; }
+.staff-modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 18px; background: rgba(0,0,0,0.5); }
+.staff-modal[hidden] { display: none; }
+.staff-modal-card { position: relative; width: min(100%, 460px); border-radius: 12px; background: white; padding: 32px; text-align: center; box-shadow: 0 24px 70px rgba(0,0,0,0.25); }
+.staff-modal-close { position: absolute; top: 10px; right: 12px; border: 0; background: transparent; color: #F15A22; font-size: 1.8rem; line-height: 1; cursor: pointer; }
+.staff-modal-avatar { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 14px; background: #1B2A6B; color: white; display: grid; place-items: center; font-weight: 800; font-size: 1.35rem; }
+.staff-modal-card h2 { margin: 0 0 8px; color: #1B2A6B; font-size: clamp(1.7rem, 4vw, 2.25rem); }
+.staff-modal-title { margin: 0 0 6px; color: #F15A22; font-weight: 800; }
+.staff-modal-dept { margin: 0 0 16px; color: #666; font-weight: 700; }
+.staff-modal-card hr { border: 0; border-top: 1px solid #e0e0e0; margin: 18px 0; }
+.staff-modal-email { color: #F15A22; font-weight: 800; overflow-wrap: anywhere; }
+.staff-modal-phone { color: #1B2A6B; font-weight: 800; }
+.editorial-directory .staff-modal-card { font-family: 'Playfair Display', serif; }
+.editorial-directory .staff-modal-title,
+.editorial-directory .staff-modal-email,
+.editorial-directory .staff-modal-close { color: #6B3FA0; }
+.modern-directory .staff-modal-card { font-family: 'Josefin Sans', sans-serif; }
+.visual-subpage-main .staff-modal-card { font-family: 'Poppins', sans-serif; }

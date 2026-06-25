@@ -24,6 +24,8 @@
 table { width: 100%; border-collapse: collapse; min-width: 1040px; } th, td { padding: 13px 12px; text-align: left; border-bottom: 1px solid #e5e5e5; font-size: 0.92rem; } th { color: white; white-space: nowrap; } td a { font-weight: 800; color: inherit; }
 .navbar .nav-links a.is-active { color: white; text-decoration: underline; }.modern-side-nav a.is-active { color: #F15A22; }
 @media (max-width: 760px) { .directory-form-grid { grid-template-columns: 1fr; } }
+
+.directory-filter-row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}.directory-filter-btn{border:1px solid #1B2A6B;background:white;color:#1B2A6B;padding:8px 11px;font-weight:700;cursor:pointer}.directory-filter-btn.is-active,.directory-filter-btn:hover{background:#F15A22;border-color:#F15A22;color:white}.traditional-staff-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.traditional-staff-card{background:white;border:1px solid #d9d9d9;border-radius:12px;padding:16px;text-align:center;cursor:pointer;transition:border-color .18s ease,box-shadow .18s ease}.traditional-staff-card:hover{border-color:#F15A22;box-shadow:0 4px 16px rgba(241,90,34,.15)}.traditional-avatar{width:74px;height:74px;border-radius:50%;background:#1B2A6B;color:white;display:grid;place-items:center;margin:0 auto 12px;font-weight:700;font-size:1.2rem}.traditional-staff-card h2{margin:0;color:#1B2A6B;font-size:1.15rem}.traditional-staff-title{color:#F15A22;font-weight:700;margin:8px 0 4px}.traditional-staff-dept{color:#666;margin:0 0 8px}.traditional-staff-card a{color:#F15A22;font-weight:700;overflow-wrap:anywhere}.directory-card-phone{color:#1B2A6B;font-weight:700;margin:8px 0 0}.staff-modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:grid;place-items:center;z-index:1000;padding:18px}.staff-modal[hidden]{display:none}.staff-modal-card{position:relative;background:white;border-radius:12px;padding:32px;max-width:460px;width:min(100%,460px);text-align:center;font-family:Arial,Helvetica,sans-serif}.staff-modal-close{position:absolute;right:12px;top:10px;border:0;background:transparent;color:#F15A22;font-size:1.8rem;cursor:pointer}.staff-modal-avatar{width:80px;height:80px;border-radius:50%;background:#1B2A6B;color:white;display:grid;place-items:center;margin:0 auto 14px;font-weight:700;font-size:1.35rem}.staff-modal-card h2{color:#1B2A6B;margin:0 0 8px}.staff-modal-title{color:#F15A22;font-weight:700;margin:0 0 6px}.staff-modal-dept{color:#666;margin:0 0 16px}.staff-modal-card hr{border:0;border-top:1px solid #e0e0e0;margin:18px 0}.staff-modal-email{color:#F15A22;font-weight:700}.staff-modal-phone{color:#1B2A6B;font-weight:700}@media(max-width:760px){.traditional-staff-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="traditional directory-page">
@@ -76,209 +78,31 @@ Intranet ▼
 <aside class="left-rail">
 <p class="rail-title">Navigate</p>
 <a class="rail-link" href="traditional.html">Home</a>
-<a class="rail-link" href="traditional.html">About DYCD</a>
 <a class="rail-link" href="commissioner-traditional.html">Commissioner's Office</a>
+<a class="rail-link" href="announcements-traditional.html">Announcements</a>
+<a class="rail-link" href="programs-traditional.html">Programs</a>
 <a class="rail-link" href="directory-traditional.html">Staff Directory</a>
-<a class="rail-link" href="traditional.html">HR Resources</a>
-<a class="rail-link" href="traditional.html">Benefits &amp; Leave</a>
-<a class="rail-link" href="traditional.html">Training &amp; LMS</a>
-<a class="rail-link" href="traditional.html">IT &amp; Tech Support</a>
-<a class="rail-link" href="traditional.html">Policies</a>
-<a class="rail-link" href="traditional.html">Forms</a>
-<a class="rail-link" href="traditional.html">Contact Us</a>
+<a class="rail-link" href="gallery-traditional.html">Gallery</a>
 </aside>
 <section class="directory-page-main">
-<section class="directory-title-card">
-<p class="rail-title">Staff Directory</p>
-<h1>Staff Directory</h1>
-<p>Search for DYCD staff by name, division, location or title</p>
-<div class="directory-help-actions">
-<a class="help-btn navy" href="https://nyc.service-now.com" target="_blank" rel="noopener">🖥️ IT Help Desk</a>
-<a class="help-btn orange" href="https://nyc.service-now.com" target="_blank" rel="noopener">🛠️ ServiceNow</a>
+<section class="directory-title-card"><p class="rail-title">Staff Directory</p><h1>Staff Directory</h1><p>Search for DYCD staff by name, department, title, email, or phone.</p></section>
+<form class="directory-search" role="search" onsubmit="return false;"><div class="directory-form-grid"><label>Search Staff<input type="search" placeholder="Search by name, title, department, email, or phone..." data-directory-search></label></div></form>
+<div class="directory-filter-row"><button class="directory-filter-btn is-active" type="button" data-directory-filter="All">All</button><button class="directory-filter-btn" type="button" data-directory-filter="Commissioner&#x27;s Office">Commissioner&#x27;s Office</button><button class="directory-filter-btn" type="button" data-directory-filter="Chief of Staff&#x27;s Office">Chief of Staff&#x27;s Office</button><button class="directory-filter-btn" type="button" data-directory-filter="Information Technology">Information Technology</button><button class="directory-filter-btn" type="button" data-directory-filter="Administration">Administration</button><button class="directory-filter-btn" type="button" data-directory-filter="Communications">Communications</button><button class="directory-filter-btn" type="button" data-directory-filter="Human Resources">Human Resources</button></div>
+<div class="traditional-staff-grid"><div class="traditional-staff-card directory-staff-card" role="button" tabindex="0" data-department="Commissioner&#x27;s Office" data-search="sandra escamilla-davies commissioner commissioner&#x27;s office commissioner@dycd.nyc.gov (212) 345-6789" data-name="Sandra Escamilla-Davies" data-title="Commissioner" data-email="commissioner@dycd.nyc.gov" data-phone="(212) 345-6789" data-initials="SE"><div class="traditional-avatar">SE</div><h2>Sandra Escamilla-Davies</h2><p class="traditional-staff-title">Commissioner</p><p class="traditional-staff-dept">Commissioner&#x27;s Office</p><a href="mailto:commissioner@dycd.nyc.gov">commissioner@dycd.nyc.gov</a><p class="directory-card-phone">(212) 345-6789</p></div><div class="traditional-staff-card directory-staff-card" role="button" tabindex="0" data-department="Chief of Staff&#x27;s Office" data-search="esteban alvarado-jimenez college aide chief of staff&#x27;s office ealvarado@dycd.nyc.gov (212) 345-6780" data-name="Esteban Alvarado-Jimenez" data-title="College Aide" data-email="ealvarado@dycd.nyc.gov" data-phone="(212) 345-6780" data-initials="EA"><div class="traditional-avatar">EA</div><h2>Esteban Alvarado-Jimenez</h2><p class="traditional-staff-title">College Aide</p><p class="traditional-staff-dept">Chief of Staff&#x27;s Office</p><a href="mailto:ealvarado@dycd.nyc.gov">ealvarado@dycd.nyc.gov</a><p class="directory-card-phone">(212) 345-6780</p></div><div class="traditional-staff-card directory-staff-card" role="button" tabindex="0" data-department="Information Technology" data-search="chuck chan chief information officer / associate commissioner information technology cchan@dycd.nyc.gov (212) 345-6781" data-name="Chuck Chan" data-title="Chief Information Officer / Associate Commissioner" data-email="cchan@dycd.nyc.gov" data-phone="(212) 345-6781" data-initials="CC"><div class="traditional-avatar">CC</div><h2>Chuck Chan</h2><p class="traditional-staff-title">Chief Information Officer / Associate Commissioner</p><p class="traditional-staff-dept">Information Technology</p><a href="mailto:cchan@dycd.nyc.gov">cchan@dycd.nyc.gov</a><p class="directory-card-phone">(212) 345-6781</p></div><div class="traditional-staff-card directory-staff-card" role="button" tabindex="0" data-department="Administration" data-search="nichelle desouza director of ic and rmo administration ndesouza@dycd.nyc.gov (212) 345-6782" data-name="Nichelle DeSouza" data-title="Director of IC and RMO" data-email="ndesouza@dycd.nyc.gov" data-phone="(212) 345-6782" data-initials="ND"><div class="traditional-avatar">ND</div><h2>Nichelle DeSouza</h2><p class="traditional-staff-title">Director of IC and RMO</p><p class="traditional-staff-dept">Administration</p><a href="mailto:ndesouza@dycd.nyc.gov">ndesouza@dycd.nyc.gov</a><p class="directory-card-phone">(212) 345-6782</p></div><div class="traditional-staff-card directory-staff-card" role="button" tabindex="0" data-department="Administration" data-search="sade bridgemahon deputy director of agency operations administration sbridgemahon@dycd.nyc.gov (212) 345-6783" data-name="Sade Bridgemahon" data-title="Deputy Director of Agency Operations" data-email="sbridgemahon@dycd.nyc.gov" data-phone="(212) 345-6783" data-initials="SB"><div class="traditional-avatar">SB</div><h2>Sade Bridgemahon</h2><p class="traditional-staff-title">Deputy Director of Agency Operations</p><p class="traditional-staff-dept">Administration</p><a href="mailto:sbridgemahon@dycd.nyc.gov">sbridgemahon@dycd.nyc.gov</a><p class="directory-card-phone">(212) 345-6783</p></div><div class="traditional-staff-card directory-staff-card" role="button" tabindex="0" data-department="Commissioner&#x27;s Office" data-search="michael ognibene chief of staff &amp; executive deputy commissioner commissioner&#x27;s office mognibene@dycd.nyc.gov (212) 345-6784" data-name="Michael Ognibene" data-title="Chief of Staff &amp; Executive Deputy Commissioner" data-email="mognibene@dycd.nyc.gov" data-phone="(212) 345-6784" data-initials="MO"><div class="traditional-avatar">MO</div><h2>Michael Ognibene</h2><p class="traditional-staff-title">Chief of Staff &amp; Executive Deputy Commissioner</p><p class="traditional-staff-dept">Commissioner&#x27;s Office</p><a href="mailto:mognibene@dycd.nyc.gov">mognibene@dycd.nyc.gov</a><p class="directory-card-phone">(212) 345-6784</p></div><div class="traditional-staff-card directory-staff-card" role="button" tabindex="0" data-department="Communications" data-search="mark benavides director, digital communications strategy communications mbenavides@dycd.nyc.gov (212) 345-6785" data-name="Mark Benavides" data-title="Director, Digital Communications Strategy" data-email="mbenavides@dycd.nyc.gov" data-phone="(212) 345-6785" data-initials="MB"><div class="traditional-avatar">MB</div><h2>Mark Benavides</h2><p class="traditional-staff-title">Director, Digital Communications Strategy</p><p class="traditional-staff-dept">Communications</p><a href="mailto:mbenavides@dycd.nyc.gov">mbenavides@dycd.nyc.gov</a><p class="directory-card-phone">(212) 345-6785</p></div><div class="traditional-staff-card directory-staff-card" role="button" tabindex="0" data-department="Administration" data-search="danielle ortega senior advisor, deputy commissioner of admin administration dortega@dycd.nyc.gov (212) 345-6786" data-name="Danielle Ortega" data-title="Senior Advisor, Deputy Commissioner of Admin" data-email="dortega@dycd.nyc.gov" data-phone="(212) 345-6786" data-initials="DO"><div class="traditional-avatar">DO</div><h2>Danielle Ortega</h2><p class="traditional-staff-title">Senior Advisor, Deputy Commissioner of Admin</p><p class="traditional-staff-dept">Administration</p><a href="mailto:dortega@dycd.nyc.gov">dortega@dycd.nyc.gov</a><p class="directory-card-phone">(212) 345-6786</p></div><div class="traditional-staff-card directory-staff-card" role="button" tabindex="0" data-department="Human Resources" data-search="derek martinez senior director of training &amp; professional development human resources dmartinez@dycd.nyc.gov (212) 345-6787" data-name="Derek Martinez" data-title="Senior Director of Training &amp; Professional Development" data-email="dmartinez@dycd.nyc.gov" data-phone="(212) 345-6787" data-initials="DM"><div class="traditional-avatar">DM</div><h2>Derek Martinez</h2><p class="traditional-staff-title">Senior Director of Training &amp; Professional Development</p><p class="traditional-staff-dept">Human Resources</p><a href="mailto:dmartinez@dycd.nyc.gov">dmartinez@dycd.nyc.gov</a><p class="directory-card-phone">(212) 345-6787</p></div></div>
+<div class="staff-modal" data-staff-modal hidden>
+  <div class="staff-modal-card" role="dialog" aria-modal="true" aria-labelledby="staff-modal-name">
+    <button class="staff-modal-close" type="button" data-staff-modal-close aria-label="Close staff details">×</button>
+    <div class="staff-modal-avatar" data-staff-modal-initials></div>
+    <h2 id="staff-modal-name" data-staff-modal-name></h2>
+    <p class="staff-modal-title" data-staff-modal-title></p>
+    <p class="staff-modal-dept" data-staff-modal-dept></p>
+    <hr>
+    <p><a class="staff-modal-email" data-staff-modal-email href="#"></a></p>
+    <p class="staff-modal-phone" data-staff-modal-phone></p>
+  </div>
 </div>
 </section>
-<form class="directory-search" onsubmit="return false;">
-<div class="directory-form-grid">
-<label>First Name<input type="text">
-</label>
-<label>Last Name<input type="text">
-</label>
-<label>Division / Bureau / Office<input type="text">
-</label>
-<label>Work Unit<input type="text">
-</label>
-<label>Phone<input type="text">
-</label>
-<label>Floor<input type="text">
-</label>
-<label>Building<select>
-<option>All Buildings</option>
-<option>2 Lafayette St</option>
-<option>123 William St</option>
-<option>59 Maiden Lane</option>
-</select>
-</label>
-<label>Functional Title<input type="text">
-</label>
-</div>
-<div class="directory-actions">
-<button class="search-btn" type="button" data-directory-search>🔍 Search</button>
-<button class="reset-btn" type="reset" data-directory-reset>↺ Reset</button>
-</div>
-<p class="prototype-note">
-<em>This is a static prototype. Search does not filter results in this demo version.</em>
-</p>
-</form>
-<p class="directory-empty" data-directory-empty>Enter search criteria above and click Search to find staff members.</p>
-<section class="directory-results" data-directory-results hidden>
-<h2>Showing 10 staff members</h2>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Functional Title</th>
-<th>Division</th>
-<th>Work Unit</th>
-<th>Phone</th>
-<th>Floor</th>
-<th>Building</th>
-<th>Email</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Maria Rodriguez</td>
-<td>Program Coordinator</td>
-<td>Youth Development</td>
-<td>After School Programs</td>
-<td>(212) 555-0101</td>
-<td>14</td>
-<td>2 Lafayette St</td>
-<td>
-<a href="mailto:mrodriguez@dycd.nyc.gov">mrodriguez@dycd.nyc.gov</a>
-</td>
-</tr>
-<tr>
-<td>James Chen</td>
-<td>Budget Analyst</td>
-<td>Agency Operations</td>
-<td>Fiscal Management</td>
-<td>(212) 555-0102</td>
-<td>8</td>
-<td>2 Lafayette St</td>
-<td>
-<a href="mailto:jchen@dycd.nyc.gov">jchen@dycd.nyc.gov</a>
-</td>
-</tr>
-<tr>
-<td>Aisha Williams</td>
-<td>HR Specialist</td>
-<td>Human Resources</td>
-<td>Benefits & Leave</td>
-<td>(212) 555-0103</td>
-<td>21</td>
-<td>2 Lafayette St</td>
-<td>
-<a href="mailto:awilliams@dycd.nyc.gov">awilliams@dycd.nyc.gov</a>
-</td>
-</tr>
-<tr>
-<td>Carlos Mendez</td>
-<td>IT Support Specialist</td>
-<td>Information Technology</td>
-<td>Help Desk</td>
-<td>(212) 555-0104</td>
-<td>3</td>
-<td>123 William St</td>
-<td>
-<a href="mailto:cmendez@dycd.nyc.gov">cmendez@dycd.nyc.gov</a>
-</td>
-</tr>
-<tr>
-<td>Fatima Hassan</td>
-<td>Policy Analyst</td>
-<td>Agency Operations</td>
-<td>Policy & Planning</td>
-<td>(212) 555-0105</td>
-<td>10</td>
-<td>2 Lafayette St</td>
-<td>
-<a href="mailto:fhassan@dycd.nyc.gov">fhassan@dycd.nyc.gov</a>
-</td>
-</tr>
-<tr>
-<td>David Kim</td>
-<td>Communications Specialist</td>
-<td>Strategic Communications</td>
-<td>Media Relations</td>
-<td>(212) 555-0106</td>
-<td>15</td>
-<td>2 Lafayette St</td>
-<td>
-<a href="mailto:dkim@dycd.nyc.gov">dkim@dycd.nyc.gov</a>
-</td>
-</tr>
-<tr>
-<td>Sandra Torres</td>
-<td>Program Director</td>
-<td>Community Development</td>
-<td>Adult Literacy</td>
-<td>(212) 555-0107</td>
-<td>5</td>
-<td>59 Maiden Lane</td>
-<td>
-<a href="mailto:storres@dycd.nyc.gov">storres@dycd.nyc.gov</a>
-</td>
-</tr>
-<tr>
-<td>Michael Johnson</td>
-<td>Procurement Specialist</td>
-<td>Agency Operations</td>
-<td>Procurement</td>
-<td>(212) 555-0108</td>
-<td>7</td>
-<td>123 William St</td>
-<td>
-<a href="mailto:mjohnson@dycd.nyc.gov">mjohnson@dycd.nyc.gov</a>
-</td>
-</tr>
-<tr>
-<td>Priya Patel</td>
-<td>Data Analyst</td>
-<td>Programs & Evaluation</td>
-<td>Data & Research</td>
-<td>(212) 555-0109</td>
-<td>12</td>
-<td>2 Lafayette St</td>
-<td>
-<a href="mailto:ppatel@dycd.nyc.gov">ppatel@dycd.nyc.gov</a>
-</td>
-</tr>
-<tr>
-<td>Robert Washington</td>
-<td>Facilities Manager</td>
-<td>Agency Operations</td>
-<td>Facilities</td>
-<td>(212) 555-0110</td>
-<td>2</td>
-<td>59 Maiden Lane</td>
-<td>
-<a href="mailto:rwashington@dycd.nyc.gov">rwashington@dycd.nyc.gov</a>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</section>
-<aside class="right-rail">
-<p class="rail-title">Quick Links</p>
-<a class="rail-link" href="#">CityTime</a>
-<a class="rail-link" href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a>
-<a class="rail-link" href="#">Employee Self Service</a>
-<a class="rail-link" href="#">NYCERS</a>
-</aside>
+<aside class="right-rail"><p class="rail-title">Quick Links</p><a class="rail-link" href="#">CityTime</a><a class="rail-link" href="https://nyc.service-now.com" target="_blank" rel="noopener">ServiceNow</a><a class="rail-link" href="#">Employee Self Service</a><a class="rail-link" href="#">NYCERS</a></aside>
 </main>
 <footer class="site-footer" id="contact">
 <div class="traditional-wrap site-footer-main">
@@ -319,20 +143,46 @@ Intranet ▼
 </script>
 <script>
 (() => {
-  const showButton = document.querySelector('[data-directory-search]');
-  const resetButton = document.querySelector('[data-directory-reset]');
-  const results = document.querySelector('[data-directory-results]');
-  const empty = document.querySelector('[data-directory-empty]');
-  showButton?.addEventListener('click', () => {
-    if (results) results.hidden = false;
-    if (empty) empty.hidden = true;
+  const search = document.querySelector('[data-directory-search]');
+  const cards = Array.from(document.querySelectorAll('.directory-staff-card'));
+  const modal = document.querySelector('[data-staff-modal]');
+  let active = 'All';
+  const apply = () => {
+    const q = (search?.value || '').toLowerCase().trim();
+    cards.forEach((card) => {
+      const okDept = active === 'All' || card.dataset.department === active;
+      const okSearch = !q || card.dataset.search.includes(q);
+      card.hidden = !(okDept && okSearch);
+    });
+  };
+  const closeModal = () => { if (modal) modal.hidden = true; };
+  const openModal = (card) => {
+    if (!modal) return;
+    modal.querySelector('[data-staff-modal-initials]').textContent = card.dataset.initials;
+    modal.querySelector('[data-staff-modal-name]').textContent = card.dataset.name;
+    modal.querySelector('[data-staff-modal-title]').textContent = card.dataset.title;
+    modal.querySelector('[data-staff-modal-dept]').textContent = card.dataset.department;
+    const email = modal.querySelector('[data-staff-modal-email]');
+    email.textContent = `📧 ${card.dataset.email}`;
+    email.href = `mailto:${card.dataset.email}`;
+    modal.querySelector('[data-staff-modal-phone]').textContent = `📞 ${card.dataset.phone}`;
+    modal.hidden = false;
+  };
+  document.querySelector('.theme-directory-search, .visual-directory-search')?.addEventListener('submit', (event) => event.preventDefault());
+  search?.addEventListener('input', apply);
+  document.querySelectorAll('[data-directory-filter]').forEach((btn) => btn.addEventListener('click', () => {
+    active = btn.dataset.directoryFilter;
+    document.querySelectorAll('[data-directory-filter]').forEach((button) => button.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    apply();
+  }));
+  cards.forEach((card) => {
+    card.addEventListener('click', (event) => { if (!event.target.closest('a')) openModal(card); });
+    card.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openModal(card); } });
   });
-  resetButton?.addEventListener('click', () => {
-    setTimeout(() => {
-      if (results) results.hidden = true;
-      if (empty) empty.hidden = false;
-    }, 0);
-  });
+  modal?.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
+  modal?.querySelector('[data-staff-modal-close]')?.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
 })();
 </script>
 </body>
